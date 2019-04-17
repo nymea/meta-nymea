@@ -1,0 +1,49 @@
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides:             nymead
+# Required-Start:       $remote_fs $syslog $networking
+# Required-Stop:        $remote_fs $syslog
+# Default-Start:        2 3 4 5
+# Default-Stop:         1
+# Short-Description:    nymea:core server
+### END INIT INFO
+#
+# Do not configure this file.
+#
+
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+DAEMON=/usr/bin/nymead
+NAME=nymead
+DESC="nymea:core server"
+PIDFILE=/var/run/nymead.pid
+
+NO_START=0
+
+set -e
+
+case "$1" in
+  start)
+        echo -n "Starting $DESC: "
+        KEY_ARGS=""
+        start-stop-daemon -S -b -x "$DAEMON" -- -l /var/log/nymead.log -n
+        echo "$NAME."
+        ;;
+  stop)
+        echo -n "Stopping $DESC: "
+        start-stop-daemon -K -x "$DAEMON"
+        echo "$NAME."
+        ;;
+  restart|force-reload)
+        echo -n "Restarting $DESC: "
+        start-stop-daemon -K -x "$DAEMON" -p $PIDFILE
+        start-stop-daemon -S -b -x "$DAEMON" -- -l /var/log/nymead.log -n
+        echo "$NAME."
+        ;;
+  *)
+        N=/etc/init.d/$NAME
+        echo "Usage: $N {start|stop|restart|force-reload}" >&2
+        exit 1
+        ;;
+esac
+
+exit 0
