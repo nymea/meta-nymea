@@ -1,0 +1,1 @@
+PACKAGECONFIG += "sql-sqlite"
