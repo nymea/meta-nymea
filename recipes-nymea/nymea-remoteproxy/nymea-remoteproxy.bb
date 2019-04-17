@@ -14,6 +14,9 @@ S = "${WORKDIR}/git"
 
 inherit qmake5
 
-FILES_${PN} = "${libdir}/*so.* ${bindir}/*"
-
-FILES_${PN}-dev = "${libdir}/*.so ${includedir}"
+do_install_append() {
+        # FIXME: Is there a better way to install to /usr/lib64?
+        if [ "${libdir}" != "/usr/lib" ]; then
+                mv ${D}/usr/lib/ ${D}/${libdir}
+        fi
+}

@@ -18,4 +18,9 @@ do_install_append() {
 	# Remove mock plugin and tests, for now
 	rm -rf ${D}/usr/lib/nymea/
 	rm -rf ${D}/usr/tests/
+
+        # FIXME: Is there a better way to install to /usr/lib64?
+        if [ "${libdir}" != "/usr/lib" ]; then
+                mv ${D}/usr/lib/ ${D}/${libdir}
+        fi
 }

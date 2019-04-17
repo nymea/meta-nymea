@@ -16,7 +16,8 @@ inherit qmake5
 
 do_install_append() {
 	rm -rf ${D}/usr/share/
+	# FIXME: Is there a better way to install to /usr/lib64?
+	if [ "${libdir}" != "/usr/lib" ]; then
+		mv ${D}/usr/lib/ ${D}/${libdir}
+	fi
 }
-
-#FILES_${PN}-tests += "/usr/share/qt5/tests/operation/operation"
-#FILES_${PN}-tests += "${datadir}/qt5/tests/operation/*"
