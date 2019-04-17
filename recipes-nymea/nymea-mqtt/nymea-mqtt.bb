@@ -1,10 +1,10 @@
 DESCRIPTION = "nymea-mqtt package"
 
-#LICENSE = "GPLv2"
-LICENSE = "CLOSED"
+LICENSE = "GPLv2"
+LIC_FILES_CHKSUM="file://LICENSE;md5=75c6d0a8c08698a4cd93d203ae92362e"
 
 SRC_URI="git://github.com/guh/nymea-mqtt.git;protocol=http;branch=master"
-SRCREV="8e649b6cd7668466c31e5e21fe5c659f9e6d7cfd"
+SRCREV="master"
 
 DEPENDS += "qtbase"
 
@@ -15,9 +15,6 @@ S = "${WORKDIR}/git"
 inherit qmake5
 
 do_install_append() {
+	# FIXME: upstream installs tests to /usr/share/qt5 which seems wrong. Let's delete it for now
 	rm -rf ${D}/usr/share/
-	# FIXME: Is there a better way to install to /usr/lib64?
-	if [ "${libdir}" != "/usr/lib" ]; then
-		mv ${D}/usr/lib/ ${D}/${libdir}
-	fi
 }
