@@ -24,7 +24,6 @@ set -e
 case "$1" in
   start)
         echo -n "Starting $DESC: "
-        KEY_ARGS=""
         start-stop-daemon -S -b -x "$DAEMON" -- -l /var/log/nymead.log -n
         echo "$NAME."
         ;;
@@ -35,7 +34,7 @@ case "$1" in
         ;;
   restart|force-reload)
         echo -n "Restarting $DESC: "
-        start-stop-daemon -K -x "$DAEMON" -p $PIDFILE
+        start-stop-daemon -K -x "$DAEMON"
         start-stop-daemon -S -b -x "$DAEMON" -- -l /var/log/nymead.log -n
         echo "$NAME."
         ;;
