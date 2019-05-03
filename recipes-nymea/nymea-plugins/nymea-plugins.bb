@@ -9,10 +9,9 @@ SRCREV="more-generic-pro"
 DEPENDS += "nymead"
 
 require recipes-qt/qt5/qt5.inc
+inherit qmake5
 
 S = "${WORKDIR}/git"
-
-inherit qmake5
 
 PACKAGECONFIG ?= "anel \
 	avahimonitor \
