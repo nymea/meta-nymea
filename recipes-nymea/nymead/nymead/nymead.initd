@@ -21,6 +21,13 @@ NO_START=0
 
 set -e
 
+if [ ! -e /data/etc/nymea ]; then
+    mkdir -p /data/etc/nymea
+fi
+if [ ! -e /data/var/lib/nymea ]; then
+    mkdir -p /data/var/lib/nymea
+fi
+
 case "$1" in
   start)
         echo -n "Starting $DESC: "

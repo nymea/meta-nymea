@@ -1,0 +1,16 @@
+[Unit]
+Description=nymead - IoT server
+Documentation=https://github.com/guh/nymea/wiki
+After=network.target
+Wants=network-online.target
+
+[Service]
+ExecStartPre=/bin/mkdir -p /data/etc/nymea
+ExecStartPre=/bin/mkdir -p /data/var/lib/nymea
+ExecStart=/usr/bin/nymead -n --print-all
+StandardOutput=journal
+StandardError=journal
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
