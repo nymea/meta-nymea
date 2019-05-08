@@ -27,15 +27,19 @@ This layer mainly builds "nymead" and "nymea-plugins".
 
 To include nymea:core in your image, use
 
-	DEPENDS += "nymead"
+	IMAGE_INSTALL += "nymead"
+
+It is recommended to include "avahi-daemon" in the image too to allow nymea:app to automatically find nymea:core.
+
+	IMAGE_INSTALL += "avahi-daemon"
 
 nymea-plugins can be configured to include/exclude inndividual plugins using PACKAGECONFIG. By default all plugins are built. 
 
-In order to exclude a plugin (and its dependencies) from being built, create a nymea-plugins.bbappend recipe and add
+In order to exclude a plugin (and its dependencies) from being built at all, create a nymea-plugins.bbappend recipe and add
 
 	PACKAGECONFIG_remove += "plugin1 plugin2 ..."
 
 
-Each built plugin produces a package named "nymea-plugin-name". Depend on the plugin packages you want in your image recipe. For instance:
+Each built plugin produces a package named "nymea-plugin-name". Currently, each wanted plugin must be explicitly included in the image.
 
-	DEPENDS += "nymea-plugin-philipshue nymea-plugin-netatmo ..."
+	IMAGE_INSTALL += "nymea-plugin-philipshue nymea-plugin-netatmo ..."
