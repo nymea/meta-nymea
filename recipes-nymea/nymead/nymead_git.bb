@@ -6,7 +6,9 @@ LIC_FILES_CHKSUM="file://LICENSE;md5=75c6d0a8c08698a4cd93d203ae92362e"
 SRC_URI="git://github.com/guh/nymea.git;protocol=https;branch=fix-include-installs \
 	file://init \
 	"
-SRCREV="fix-include-installs"
+SRCREV="${AUTOREV}"
+PV = "git${SRCPV}"
+
 S = "${WORKDIR}/git"
 
 require recipes-qt/qt5/qt5.inc
