@@ -14,13 +14,27 @@ S = "${WORKDIR}/git"
 require recipes-qt/qt5/qt5.inc
 inherit update-rc.d qmake5
 
-DEPENDS += "qtbase qtwebsockets qtconnectivity nymea-mqtt nymea-remoteproxy avahi"
+BBCLASSEXTEND += "native"
+
+DEPENDS_class-target += "qtbase qtwebsockets qtconnectivity nymea-mqtt nymea-remoteproxy avahi"
+DEPENDS_class-native += "python"
 
 INITSCRIPT_PACKAGES = "${PN}"
 INITSCRIPT_NAME = "nymead"
 #INISCRIPTS_PARAMS = "defaults 10"
 
-do_install_append() {
+do_configure_class-native() {
+}
+
+do_compile_class-native() {
+}
+
+do_install_class-native() {
+	install -d ${D}${bindir}
+	install -m 0755 ${S}/libnymea/plugin/nymea-generateplugininfo ${D}${bindir}
+}
+
+do_install_append_class-target() {
 	install -d ${D}${INIT_D_DIR}
 	install -m 0755 ${WORKDIR}/init ${D}${INIT_D_DIR}/nymead
 }

@@ -7,7 +7,7 @@ SRC_URI="git://github.com/guh/nymea-plugins.git;protocol=https;branch=master"
 SRCREV="${AUTOREV}"
 PV = "git${SRCPV}"
 
-DEPENDS += "nymead"
+DEPENDS += "nymead nymead-native"
 
 require recipes-qt/qt5/qt5.inc
 inherit qmake5
