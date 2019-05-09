@@ -11,4 +11,4 @@ S = "${WORKDIR}/git"
 
 inherit autotools
 
-EXTRA_OECONF += "--without-portaudio"
+EXTRA_OECONF += "--without-portaudio --without-x11"
