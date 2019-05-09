@@ -12,9 +12,8 @@ DEPENDS = " \
     qtwebsockets \
 "
 
-SRCREV="cd76c8b4bf4f53d5ea9faf66d721107bdcebf439"
 SRC_URI = " \
-    git://github.com/guh/nymea.git;protocol=https;branch=fix-include-installs \
+    git://github.com/guh/nymea.git;protocol=https;nobranch=1 \
     file://${PN}.initd \
     file://${PN}.service \
 "

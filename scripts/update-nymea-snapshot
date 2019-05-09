@@ -1,0 +1,61 @@
+#!/bin/bash
+
+echoerr() { cat <<< "$@" 1>&2; }
+
+
+if (( $# != 1 )); then
+    echoerr "
+Usage:
+
+  update-nymea-snapshot BASEDIR
+
+try './scripts/update-nymea-snapshot .'
+"
+    exit -1
+fi
+
+get_srcrev() {
+    repo=$1
+    branch=$2
+
+    srcuri=https://github.com/guh/$repo
+
+    git ls-remote $srcuri | egrep "\s*refs/heads/$branch$" | awk '{ print $1 }'
+}
+
+record_srcrev() {
+    recipe=$1
+    repo=$2
+    branch=$3
+    output=$base/conf/nymea-srcrev.conf
+    srcrev=`get_srcrev $repo $branch`
+
+    echoerr "updating recipe $recipe to use srcrev $srcrev"
+    echo "$recipe 1 $srcrev" >> $output
+}
+
+commit_srcrev() {
+    output=$base/conf/nymea-srcrev.conf
+
+    stanza=""
+    while read -r line; do
+        stanza="$stanza\n`echo "$line" | sed "s, 1 ,\t,g"`"
+    done < <(git diff $output | grep -E '^[-+][a-z0-9]')
+
+    git commit $output -s -m "$(echo -e "`basename $output`: Update revisions\n\nThe updates made are:\n\n$stanza")"
+}
+
+base=$1
+
+echo "" > $base/conf/nymea-srcrev.conf
+
+#    cmd          recipe                  repository        branch
+record_srcrev     nymead                  nymea             fix-include-installs
+record_srcrev     nymea-mqtt              nymea-mqtt        master
+record_srcrev     nymea-plugins           nymea-plugins     master
+record_srcrev     nymea-remoteproxy       nymea-remoteproxy master
+
+
+sed -i '1{/^$/d}' $base/conf/nymea-srcrev.conf
+
+commit_srcrev
