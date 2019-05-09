@@ -7,7 +7,7 @@ SRC_URI="git://github.com/guh/nymea-remoteproxy.git;protocol=https;branch=master
 SRCREV="${AUTOREV}"
 PV = "git${SRCPV}"
 
-DEPENDS += "qtbase qtwebsockets"
+DEPENDS += "qtbase qtwebsockets ncurses"
 
 require recipes-qt/qt5/qt5.inc
 
