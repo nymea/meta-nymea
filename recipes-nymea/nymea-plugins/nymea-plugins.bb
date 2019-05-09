@@ -4,8 +4,7 @@ LICENSE = "GPLv2"
 LIC_FILES_CHKSUM="file://LICENSE;md5=4fbd65380cdd255951079008b364516c"
 
 SRC_URI="git://github.com/guh/nymea-plugins.git;protocol=https;branch=master"
-SRCREV="${AUTOREV}"
-PV = "git${SRCPV}"
+SRCREV="master"
 
 DEPENDS += "nymead"
 
