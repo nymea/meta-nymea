@@ -3,7 +3,7 @@ DESCRIPTION = "nymea-plugins"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM="file://LICENSE;md5=4fbd65380cdd255951079008b364516c"
 
-SRC_URI="git://github.com/guh/nymea-plugins.git;protocol=https;branch=master"
+SRC_URI="git://github.com/guh/nymea-plugins.git;protocol=https;branch=landing-silo"
 SRCREV="${AUTOREV}"
 PV = "git${SRCPV}"
 
@@ -41,10 +41,8 @@ PACKAGECONFIG ?= "anel \
 	netatmo \
 	networkdetector \
 	openweathermap \
-	orderbutton \
 	osdomotics \
 	philipshue \
-	plantcare \
 	pushbullet \
 	remotessh \
 	senic \
@@ -58,7 +56,6 @@ PACKAGECONFIG ?= "anel \
 	unitec \
 	wakeonlan \
 	wemo \
-	ws2812 \
 	"
 
 
@@ -90,10 +87,8 @@ PACKAGECONFIG[mqttclient] = "PLUGINS+=mqttclient, PLUGINS-=mqttclient"
 PACKAGECONFIG[netatmo] = "PLUGINS+=netatmo, PLUGINS-=netatmo"
 PACKAGECONFIG[networkdetector] = "PLUGINS+=networkdetector, PLUGINS-=networkdetector"
 PACKAGECONFIG[openweathermap] = "PLUGINS+=openweathermap, PLUGINS-=openweathermap"
-PACKAGECONFIG[orderbutton] = "PLUGINS+=orderbutton, PLUGINS-=orderbutton"
 PACKAGECONFIG[osdomotics] = "PLUGINS+=osdomotics, PLUGINS-=osdomotics"
 PACKAGECONFIG[philipshue] = "PLUGINS+=philipshue, PLUGINS-=philipshue"
-PACKAGECONFIG[plantcare] = "PLUGINS+=plantcare, PLUGINS-=plantcare"
 PACKAGECONFIG[pushbullet] = "PLUGINS+=pushbullet, PLUGINS-=pushbullet"
 PACKAGECONFIG[remotessh] = "PLUGINS+=remotessh, PLUGINS-=remotessh"
 PACKAGECONFIG[senic] = "PLUGINS+=senic, PLUGINS-=senic"
@@ -108,7 +103,6 @@ PACKAGECONFIG[unipi] = "PLUGINS+=unipi, PLUGINS-=unipi"
 PACKAGECONFIG[unitec] = "PLUGINS+=unitec, PLUGINS-=unitec"
 PACKAGECONFIG[wakeonlan] = "PLUGINS+=wakeonlan, PLUGINS-=wakeonlan"
 PACKAGECONFIG[wemo] = "PLUGINS+=wemo, PLUGINS-=wemo"
-PACKAGECONFIG[ws2812] = "PLUGINS+=ws2812, PLUGINS-=ws2812"
 
 
 EXTRA_QMAKEVARS_PRE += "CONFIG+=selection ${PACKAGECONFIG_CONFARGS}"
@@ -141,10 +135,8 @@ FILES_nymea-plugin-mqttclient = "${libdir}/nymea/plugins/libnymea_devicepluginmq
 FILES_nymea-plugin-netatmo = "${libdir}/nymea/plugins/libnymea_devicepluginnetatmo.so"
 FILES_nymea-plugin-networkdetector = "${libdir}/nymea/plugins/libnymea_devicepluginnetworkdetector.so"
 FILES_nymea-plugin-openweathermap = "${libdir}/nymea/plugins/libnymea_devicepluginopenweathermap.so"
-FILES_nymea-plugin-orderbutton = "${libdir}/nymea/plugins/libnymea_devicepluginorderbutton.so"
 FILES_nymea-plugin-osdomotics = "${libdir}/nymea/plugins/libnymea_devicepluginosdomotics.so"
 FILES_nymea-plugin-philipshue = "${libdir}/nymea/plugins/libnymea_devicepluginphilipshue.so"
-FILES_nymea-plugin-plantcare = "${libdir}/nymea/plugins/libnymea_devicepluginplantcare.so"
 FILES_nymea-plugin-pushbullet = "${libdir}/nymea/plugins/libnymea_devicepluginpushbullet.so"
 FILES_nymea-plugin-remotessh = "${libdir}/nymea/plugins/libnymea_devicepluginremotessh.so"
 FILES_nymea-plugin-senic = "${libdir}/nymea/plugins/libnymea_devicepluginsenic.so"
@@ -159,7 +151,6 @@ FILES_nymea-plugin-unipi = "${libdir}/nymea/plugins/libnymea_devicepluginunipi.s
 FILES_nymea-plugin-unitec = "${libdir}/nymea/plugins/libnymea_devicepluginunitec.so"
 FILES_nymea-plugin-wakeonlan = "${libdir}/nymea/plugins/libnymea_devicepluginwakeonlan.so"
 FILES_nymea-plugin-wemo = "${libdir}/nymea/plugins/libnymea_devicepluginwemo.so"
-FILES_nymea-plugin-ws2812 = "${libdir}/nymea/plugins/libnymea_devicepluginws2812.so"
 
 
 PACKAGES += "nymea-plugin-anel \
@@ -189,10 +180,8 @@ PACKAGES += "nymea-plugin-anel \
         nymea-plugin-netatmo \
         nymea-plugin-networkdetector \
         nymea-plugin-openweathermap \
-        nymea-plugin-orderbutton \
         nymea-plugin-osdomotics \
         nymea-plugin-philipshue \
-        nymea-plugin-plantcare \
         nymea-plugin-pushbullet \
         nymea-plugin-remotessh \
         nymea-plugin-senic \
@@ -206,5 +195,4 @@ PACKAGES += "nymea-plugin-anel \
         nymea-plugin-unitec \
         nymea-plugin-wakeonlan \
         nymea-plugin-wemo \
-        nymea-plugin-ws2812 \
 "
