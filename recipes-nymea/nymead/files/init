@@ -19,6 +19,8 @@ PIDFILE=/var/run/nymead.pid
 
 NO_START=0
 
+export QT_LOGGING_CONF=/etc/nymea/logging.conf
+
 set -e
 
 case "$1" in
