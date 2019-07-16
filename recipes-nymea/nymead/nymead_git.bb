@@ -16,9 +16,8 @@ inherit update-rc.d qmake5
 
 BBCLASSEXTEND += "native"
 
-DEPENDS += "qtbase qtwebsockets qtconnectivity nymea-mqtt"
-DEPENDS_class-target += "nymea-remoteproxy"
-#DEPENDS_class-native += ""
+DEPENDS = "qtbase qtwebsockets qtconnectivity nymea-mqtt"
+DEPENDS_append_class-target = " nymea-remoteproxy"
 
 INITSCRIPT_PACKAGES = "${PN}"
 INITSCRIPT_NAME = "nymead"
