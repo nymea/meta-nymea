@@ -1,3 +1,3 @@
 BBCLASSEXTEND += "native"
 
-PACKAGECONFIG_remove = "bluez"
+PACKAGECONFIG_remove_class-native = "bluez"
