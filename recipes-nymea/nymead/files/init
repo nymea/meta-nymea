@@ -26,6 +26,7 @@ set -e
 case "$1" in
   start)
         echo -n "Starting $DESC: "
+        sleep 5
         start-stop-daemon -S -b -x "$DAEMON" -- -l /var/log/nymead.log -n
         echo "$NAME."
         ;;
