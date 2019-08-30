@@ -7,7 +7,7 @@ SRC_URI="gitsm://github.com/guh/nymea-app.git;protocol=https;branch=pluginlib"
 SRCREV="${AUTOREV}"
 PV = "git${SRCPV}"
 
-DEPENDS += "qtbase nymead nymea-remoteproxy"
+DEPENDS += "qtbase nymead nymea-remoteproxy qtcharts"
 BBCLASSEXTEND += "native"
 
 require recipes-qt/qt5/qt5.inc
