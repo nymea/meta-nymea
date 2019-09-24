@@ -9,6 +9,8 @@ PV="git${SRCPV}"
 
 S = "${WORKDIR}/git"
 
+DEPENDS += "libusb"
+
 inherit autotools
 
 EXTRA_OECONF += "--without-portaudio --without-x11"
