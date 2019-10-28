@@ -14,3 +14,6 @@ require recipes-qt/qt5/qt5.inc
 S = "${WORKDIR}/git"
 
 inherit qmake5
+
+EXTRA_QMAKEVARS_PRE += "CONFIG+=disabletests"
+
