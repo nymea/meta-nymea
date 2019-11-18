@@ -3,10 +3,10 @@ DESCRIPTION = "nymea"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM="file://LICENSE;md5=75c6d0a8c08698a4cd93d203ae92362e"
 
-SRC_URI="git://github.com/guh/nymea.git;protocol=https;branch=experimental-silo \
+SRC_URI="git://github.com/guh/nymea.git;protocol=https;branch=master \
 	file://init \
 	"
-SRCREV="${AUTOREV}"
+SRCREV="0.16.0"
 PV = "git${SRCPV}"
 
 S = "${WORKDIR}/git"

@@ -3,8 +3,8 @@ DESCRIPTION = "nymea-plugins"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM="file://LICENSE;md5=4fbd65380cdd255951079008b364516c"
 
-SRC_URI="git://github.com/guh/nymea-plugins.git;protocol=https;branch=experimental-silo"
-SRCREV="${AUTOREV}"
+SRC_URI="git://github.com/guh/nymea-plugins.git;protocol=https;branch=master"
+SRCREV="0.16.0"
 PV = "git${SRCPV}"
 
 DEPENDS += "nymead nymead-native"
@@ -47,12 +47,12 @@ PACKAGECONFIG ?= "anel \
 	remotessh \
 	senic \
 	serialportcommander \
+        shelly \
 	simulation \
 	tasmota \
 	tcpcommander \
 	texasinstruments \
 	udpcommander \
-	unipi \
 	unitec \
 	wakeonlan \
 	wemo \
@@ -93,13 +93,13 @@ PACKAGECONFIG[pushbullet] = "PLUGINS+=pushbullet, PLUGINS-=pushbullet"
 PACKAGECONFIG[remotessh] = "PLUGINS+=remotessh, PLUGINS-=remotessh"
 PACKAGECONFIG[senic] = "PLUGINS+=senic, PLUGINS-=senic"
 PACKAGECONFIG[serialportcommander] = "PLUGINS+=serialportcommander, PLUGINS-=serialportcommander, qtserialport"
+PACKAGECONFIG[shelly] = "PLUGINS+=shelly, PLUGINS-=shelly"
 PACKAGECONFIG[simulation] = "PLUGINS+=simulation, PLUGINS-=simulation"
 PACKAGECONFIG[tasmota] = "PLUGINS+=tasmota, PLUGINS-=tasmota"
 PACKAGECONFIG[tcpcommander] = "PLUGINS+=tcpcommander, PLUGINS-=tcpcommander"
 PACKAGECONFIG[texasinstruments] = "PLUGINS+=texasinstruments, PLUGINS-=texasinstruments"
 PACKAGECONFIG[translations] = "PLUGINS+=translations, PLUGINS-=translations"
 PACKAGECONFIG[udpcommander] = "PLUGINS+=udpcommander, PLUGINS-=udpcommander"
-PACKAGECONFIG[unipi] = "PLUGINS+=unipi, PLUGINS-=unipi"
 PACKAGECONFIG[unitec] = "PLUGINS+=unitec, PLUGINS-=unitec"
 PACKAGECONFIG[wakeonlan] = "PLUGINS+=wakeonlan, PLUGINS-=wakeonlan"
 PACKAGECONFIG[wemo] = "PLUGINS+=wemo, PLUGINS-=wemo"
@@ -141,13 +141,13 @@ FILES_nymea-plugin-pushbullet = "${libdir}/nymea/plugins/libnymea_devicepluginpu
 FILES_nymea-plugin-remotessh = "${libdir}/nymea/plugins/libnymea_devicepluginremotessh.so"
 FILES_nymea-plugin-senic = "${libdir}/nymea/plugins/libnymea_devicepluginsenic.so"
 FILES_nymea-plugin-serialportcommander = "${libdir}/nymea/plugins/libnymea_devicepluginserialportcommander.so"
+FILES_nymea-plugin-shelly = "${libdir}/nymea/plugins/libnymea_devicepluginshelly.so"
 FILES_nymea-plugin-simulation = "${libdir}/nymea/plugins/libnymea_devicepluginsimulation.so"
 FILES_nymea-plugin-tasmota = "${libdir}/nymea/plugins/libnymea_deviceplugintasmota.so"
 FILES_nymea-plugin-tcpcommander = "${libdir}/nymea/plugins/libnymea_deviceplugintcpcommander.so"
 FILES_nymea-plugin-texasinstruments = "${libdir}/nymea/plugins/libnymea_deviceplugintexasinstruments.so"
 FILES_nymea-plugin-translations = "${libdir}/nymea/plugins/libnymea_deviceplugintranslations.so"
 FILES_nymea-plugin-udpcommander = "${libdir}/nymea/plugins/libnymea_devicepluginudpcommander.so"
-FILES_nymea-plugin-unipi = "${libdir}/nymea/plugins/libnymea_devicepluginunipi.so"
 FILES_nymea-plugin-unitec = "${libdir}/nymea/plugins/libnymea_devicepluginunitec.so"
 FILES_nymea-plugin-wakeonlan = "${libdir}/nymea/plugins/libnymea_devicepluginwakeonlan.so"
 FILES_nymea-plugin-wemo = "${libdir}/nymea/plugins/libnymea_devicepluginwemo.so"
@@ -186,12 +186,12 @@ PACKAGES += "nymea-plugin-anel \
         nymea-plugin-remotessh \
         nymea-plugin-senic \
         nymea-plugin-serialportcommander \
+        nymea-plugin-shelly \
         nymea-plugin-simulation \
         nymea-plugin-tasmota \
         nymea-plugin-tcpcommander \
         nymea-plugin-texasinstruments \
         nymea-plugin-udpcommander \
-        nymea-plugin-unipi \
         nymea-plugin-unitec \
         nymea-plugin-wakeonlan \
         nymea-plugin-wemo \
