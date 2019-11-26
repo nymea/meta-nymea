@@ -9,7 +9,6 @@ PV = "git${SRCPV}"
 
 DEPENDS += "nymead nymead-native"
 
-require recipes-qt/qt5/qt5.inc
 inherit qmake5
 
 S = "${WORKDIR}/git"

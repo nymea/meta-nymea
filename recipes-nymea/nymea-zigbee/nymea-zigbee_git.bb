@@ -10,8 +10,6 @@ PV = "git${SRCPV}"
 DEPENDS += "qtbase qtserialport"
 BBCLASSEXTEND += "native"
 
-require recipes-qt/qt5/qt5.inc
-
 S = "${WORKDIR}/git"
 
 inherit qmake5

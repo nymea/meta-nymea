@@ -11,7 +11,6 @@ PV = "git${SRCPV}"
 
 S = "${WORKDIR}/git"
 
-require recipes-qt/qt5/qt5.inc
 inherit update-rc.d qmake5
 
 BBCLASSEXTEND += "native"
@@ -28,6 +27,8 @@ EXTRA_QMAKEVARS_PRE_class-native += "CONFIG+=minimal"
 do_install_append_class-target() {
        install -d ${D}${INIT_D_DIR}
        install -m 0755 ${WORKDIR}/init ${D}${INIT_D_DIR}/nymead
+       echo  "******************* Installing **************"
+       find ${WORKDIR} -name nymead
 }
 
 FILES_${PN}-test = "${libdir}/nymea/plugins/libnymea_devicepluginmock.so \

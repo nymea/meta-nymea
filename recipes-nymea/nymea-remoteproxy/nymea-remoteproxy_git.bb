@@ -9,8 +9,6 @@ PV = "git${SRCPV}"
 
 DEPENDS += "qtbase qtwebsockets ncurses"
 
-require recipes-qt/qt5/qt5.inc
-
 S = "${WORKDIR}/git"
 
 inherit qmake5
