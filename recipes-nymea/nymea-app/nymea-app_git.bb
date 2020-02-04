@@ -1,9 +1,9 @@
 DESCRIPTION = "nymea-app package"
 
-LICENSE = "GPLv2"
+LICENSE = "LGPLv3"
 LIC_FILES_CHKSUM="file://LICENSE;md5=3f048af7c55c4182902e50cee0b78044"
 
-SRC_URI="gitsm://github.com/guh/nymea-app.git;protocol=https;branch=pluginlib"
+SRC_URI="gitsm://github.com/guh/nymea-app.git;protocol=https;branch=master"
 SRCREV="${AUTOREV}"
 PV = "git${SRCPV}"
 

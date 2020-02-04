@@ -1,10 +1,10 @@
 DESCRIPTION = "nymea-mqtt package"
 
-LICENSE = "GPLv2"
-LIC_FILES_CHKSUM="file://LICENSE;md5=75c6d0a8c08698a4cd93d203ae92362e"
+LICENSE = "LGPLv3"
+LIC_FILES_CHKSUM="file://LICENSE.LGPL3;md5=3000208d539ec061b899bce1d9ce9404"
 
 SRC_URI="git://github.com/guh/nymea-mqtt.git;protocol=https;branch=master"
-SRCREV="0.1.2"
+SRCREV="0.1.4"
 PV = "git${SRCPV}"
 
 DEPENDS += "qtbase"

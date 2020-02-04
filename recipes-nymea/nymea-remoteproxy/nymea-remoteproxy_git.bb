@@ -1,10 +1,10 @@
-DESCRIPTION = "nymea-mqtt package"
+DESCRIPTION = "nymea-remoteproxy package"
 
-LICENSE = "GPLv2"
-LIC_FILES_CHKSUM="file://LICENSE;md5=500948a8f0c6fefa21e8694792e6b728"
+LICENSE = "LGPLv3"
+LIC_FILES_CHKSUM="file://LICENSE.LGPL3;md5=3000208d539ec061b899bce1d9ce9404"
 
 SRC_URI="git://github.com/guh/nymea-remoteproxy.git;protocol=https;branch=master"
-SRCREV="0.1.7"
+SRCREV="0.1.9"
 PV = "git${SRCPV}"
 
 DEPENDS += "qtbase qtwebsockets ncurses"

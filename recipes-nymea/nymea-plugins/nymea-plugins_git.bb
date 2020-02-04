@@ -1,10 +1,10 @@
 DESCRIPTION = "nymea-plugins"
 
-LICENSE = "GPLv2"
-LIC_FILES_CHKSUM="file://LICENSE;md5=4fbd65380cdd255951079008b364516c"
+LICENSE = "LGPLv3"
+LIC_FILES_CHKSUM="file://LICENSE.LGPL3;md5=3000208d539ec061b899bce1d9ce9404"
 
 SRC_URI="git://github.com/guh/nymea-plugins.git;protocol=https;branch=master"
-SRCREV="0.16.0"
+SRCREV="0.18.1"
 PV = "git${SRCPV}"
 
 DEPENDS += "nymead nymead-native"
