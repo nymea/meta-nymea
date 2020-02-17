@@ -1,1 +1,1 @@
-PACKAGECONFIG += "sql-sqlite"
+PACKAGECONFIG += "sql-sqlite gles2"
