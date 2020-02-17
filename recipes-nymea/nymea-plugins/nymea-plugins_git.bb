@@ -17,6 +17,8 @@ PACKAGECONFIG ?= "anel \
 	avahimonitor \
 	awattar \
 	boblight \
+        bose \
+        coinmarketcap \
 	commandlauncher \
 	conrad \
 	datetime \
@@ -28,6 +30,7 @@ PACKAGECONFIG ?= "anel \
 	eq-3 \
 	flowercare \
 	genericelements \
+        genericinterfaces \
 	gpio \
 	httpcommander \
 	intertechno \
@@ -37,8 +40,12 @@ PACKAGECONFIG ?= "anel \
 	lgsmarttv \
 	mailnotification \
 	mqttclient \
+        nanoleaf \
 	netatmo \
 	networkdetector \
+        nuki \
+        onewire \
+        openuv \
 	openweathermap \
 	osdomotics \
 	philipshue \
@@ -48,13 +55,21 @@ PACKAGECONFIG ?= "anel \
 	serialportcommander \
         shelly \
 	simulation \
+        sonos \
+        systemmonitor \
+        tado \
 	tasmota \
 	tcpcommander \
 	texasinstruments \
+        tplink \
+        tuya \
 	udpcommander \
+        unifi \
 	unitec \
+        usbrelay \
 	wakeonlan \
 	wemo \
+        ws2812fx \
 	"
 
 
@@ -62,6 +77,8 @@ PACKAGECONFIG[anel] = "PLUGINS+=anel, PLUGINS-=anel"
 PACKAGECONFIG[avahimonitor] = "PLUGINS+=avahimonitor, PLUGINS-=avahimonitor"
 PACKAGECONFIG[awattar] = "PLUGINS+=awattar, PLUGINS-=awattar"
 PACKAGECONFIG[boblight] = "PLUGINS+=boblight, PLUGINS-=boblight, boblight"
+PACKAGECONFIG[bose] = "PLUGINS+=bose, PLUGINS-=bose"
+PACKAGECONFIG[coinmarketcap] = "PLUGINS+=coinmarketcap, PLUGINS-=coinmarketcap"
 PACKAGECONFIG[commandlauncher] = "PLUGINS+=commandlauncher, PLUGINS-=commandlauncher"
 PACKAGECONFIG[conrad] = "PLUGINS+=conrad, PLUGINS-=conrad"
 PACKAGECONFIG[datetime] = "PLUGINS+=datetime, PLUGINS-=datetime"
@@ -74,6 +91,7 @@ PACKAGECONFIG[elro] = "PLUGINS+=elro, PLUGINS-=elro"
 PACKAGECONFIG[eq-3] = "PLUGINS+=eq-3, PLUGINS-=eq-3"
 PACKAGECONFIG[flowercare] = "PLUGINS+=flowercare, PLUGINS-=flowercare"
 PACKAGECONFIG[genericelements] = "PLUGINS+=genericelements, PLUGINS-=genericelements"
+PACKAGECONFIG[genericinterfaces] = "PLUGINS+=genericinterfaces, PLUGINS-=genericinterfaces"
 PACKAGECONFIG[gpio] = "PLUGINS+=gpio, PLUGINS-=gpio"
 PACKAGECONFIG[httpcommander] = "PLUGINS+=httpcommander, PLUGINS-=httpcommander"
 PACKAGECONFIG[intertechno] = "PLUGINS+=intertechno, PLUGINS-=intertechno"
@@ -83,8 +101,12 @@ PACKAGECONFIG[leynew] = "PLUGINS+=leynew, PLUGINS-=leynew"
 PACKAGECONFIG[lgsmarttv] = "PLUGINS+=lgsmarttv, PLUGINS-=lgsmarttv"
 PACKAGECONFIG[mailnotification] = "PLUGINS+=mailnotification, PLUGINS-=mailnotification"
 PACKAGECONFIG[mqttclient] = "PLUGINS+=mqttclient, PLUGINS-=mqttclient"
+PACKAGECONFIG[nanoleaf] = "PLUGINS+=nanoleaf, PLUGINS-=nanoleaf"
 PACKAGECONFIG[netatmo] = "PLUGINS+=netatmo, PLUGINS-=netatmo"
 PACKAGECONFIG[networkdetector] = "PLUGINS+=networkdetector, PLUGINS-=networkdetector"
+PACKAGECONFIG[nuki] = "PLUGINS+=nuki, PLUGINS-=nuki, libsodium"
+PACKAGECONFIG[onewire] = "PLUGINS+=onewire, PLUGINS-=onewire, owfs"
+PACKAGECONFIG[openuv] = "PLUGINS+=openuv, PLUGINS-=openuv"
 PACKAGECONFIG[openweathermap] = "PLUGINS+=openweathermap, PLUGINS-=openweathermap"
 PACKAGECONFIG[osdomotics] = "PLUGINS+=osdomotics, PLUGINS-=osdomotics"
 PACKAGECONFIG[philipshue] = "PLUGINS+=philipshue, PLUGINS-=philipshue"
@@ -94,14 +116,21 @@ PACKAGECONFIG[senic] = "PLUGINS+=senic, PLUGINS-=senic"
 PACKAGECONFIG[serialportcommander] = "PLUGINS+=serialportcommander, PLUGINS-=serialportcommander, qtserialport"
 PACKAGECONFIG[shelly] = "PLUGINS+=shelly, PLUGINS-=shelly"
 PACKAGECONFIG[simulation] = "PLUGINS+=simulation, PLUGINS-=simulation"
+PACKAGECONFIG[sonos] = "PLUGINS+=sonos, PLUGINS-=sonos"
+PACKAGECONFIG[systemmonitor] = "PLUGINS+=systemmonitor, PLUGINS-=systemmonitor"
+PACKAGECONFIG[tado] = "PLUGINS+=tado, PLUGINS-=tado"
 PACKAGECONFIG[tasmota] = "PLUGINS+=tasmota, PLUGINS-=tasmota"
 PACKAGECONFIG[tcpcommander] = "PLUGINS+=tcpcommander, PLUGINS-=tcpcommander"
 PACKAGECONFIG[texasinstruments] = "PLUGINS+=texasinstruments, PLUGINS-=texasinstruments"
-PACKAGECONFIG[translations] = "PLUGINS+=translations, PLUGINS-=translations"
+PACKAGECONFIG[tplink] = "PLUGINS+=tplink, PLUGINS-=tplink"
+PACKAGECONFIG[tuya] = "PLUGINS+=tuya, PLUGINS-=tuya"
 PACKAGECONFIG[udpcommander] = "PLUGINS+=udpcommander, PLUGINS-=udpcommander"
+PACKAGECONFIG[unifi] = "PLUGINS+=unifi, PLUGINS-=unifi"
 PACKAGECONFIG[unitec] = "PLUGINS+=unitec, PLUGINS-=unitec"
+PACKAGECONFIG[usbrelay] = "PLUGINS+=usbrelay, PLUGINS-=usbreleay, hidapi"
 PACKAGECONFIG[wakeonlan] = "PLUGINS+=wakeonlan, PLUGINS-=wakeonlan"
 PACKAGECONFIG[wemo] = "PLUGINS+=wemo, PLUGINS-=wemo"
+PACKAGECONFIG[ws2812fx] = "PLUGINS+=ws2812fx, PLUGINS-=ws2812fx"
 
 
 EXTRA_QMAKEVARS_PRE += "CONFIG+=selection ${PACKAGECONFIG_CONFARGS}"
@@ -111,6 +140,8 @@ FILES_nymea-plugin-anel = "${libdir}/nymea/plugins/libnymea_devicepluginanel.so"
 FILES_nymea-plugin-avahimonitor = "${libdir}/nymea/plugins/libnymea_devicepluginavahimonitor.so"
 FILES_nymea-plugin-awattar = "${libdir}/nymea/plugins/libnymea_devicepluginawattar.so"
 FILES_nymea-plugin-boblight = "${libdir}/nymea/plugins/libnymea_devicepluginboblight.so"
+FILES_nymea-plugin-bose = "${libdir}/nymea/plugins/libnymea_devicepluginbose.so"
+FILES_nymea-plugin-coinmarketcap = "${libdir}/nymea/plugins/libnymea_deviceplugincoinmarketcap.so"
 FILES_nymea-plugin-commandlauncher = "${libdir}/nymea/plugins/libnymea_deviceplugincommandlauncher.so"
 FILES_nymea-plugin-conrad = "${libdir}/nymea/plugins/libnymea_devicepluginconrad.so"
 FILES_nymea-plugin-datetime = "${libdir}/nymea/plugins/libnymea_deviceplugindatetime.so"
@@ -122,6 +153,7 @@ FILES_nymea-plugin-elro = "${libdir}/nymea/plugins/libnymea_devicepluginelro.so"
 FILES_nymea-plugin-eq-3 = "${libdir}/nymea/plugins/libnymea_deviceplugineq-3.so"
 FILES_nymea-plugin-flowercare = "${libdir}/nymea/plugins/libnymea_devicepluginflowercare.so"
 FILES_nymea-plugin-genericelements = "${libdir}/nymea/plugins/libnymea_deviceplugingenericelements.so"
+FILES_nymea-plugin-genericinterfaces = "${libdir}/nymea/plugins/libnymea_deviceplugingenericinterfaces.so"
 FILES_nymea-plugin-gpio = "${libdir}/nymea/plugins/libnymea_deviceplugingpio.so"
 FILES_nymea-plugin-httpcommander = "${libdir}/nymea/plugins/libnymea_devicepluginhttpcommander.so"
 FILES_nymea-plugin-intertechno = "${libdir}/nymea/plugins/libnymea_devicepluginintertechno.so"
@@ -131,8 +163,12 @@ FILES_nymea-plugin-leynew = "${libdir}/nymea/plugins/libnymea_devicepluginleynew
 FILES_nymea-plugin-lgsmarttv = "${libdir}/nymea/plugins/libnymea_devicepluginlgsmarttv.so"
 FILES_nymea-plugin-mailnotification = "${libdir}/nymea/plugins/libnymea_devicepluginmailnotification.so"
 FILES_nymea-plugin-mqttclient = "${libdir}/nymea/plugins/libnymea_devicepluginmqttclient.so"
+FILES_nymea-plugin-nanoleaf = "${libdir}/nymea/plugins/libnymea_devicepluginnanoleaf.so"
 FILES_nymea-plugin-netatmo = "${libdir}/nymea/plugins/libnymea_devicepluginnetatmo.so"
 FILES_nymea-plugin-networkdetector = "${libdir}/nymea/plugins/libnymea_devicepluginnetworkdetector.so"
+FILES_nymea-plugin-nuki = "${libdir}/nymea/plugins/libnymea_devicepluginnuki.so"
+FILES_nymea-plugin-onewire = "${libdir}/nymea/plugins/libnymea_devicepluginonewire.so"
+FILES_nymea-plugin-openuv = "${libdir}/nymea/plugins/libnymea_devicepluginopenuv.so"
 FILES_nymea-plugin-openweathermap = "${libdir}/nymea/plugins/libnymea_devicepluginopenweathermap.so"
 FILES_nymea-plugin-osdomotics = "${libdir}/nymea/plugins/libnymea_devicepluginosdomotics.so"
 FILES_nymea-plugin-philipshue = "${libdir}/nymea/plugins/libnymea_devicepluginphilipshue.so"
@@ -142,20 +178,29 @@ FILES_nymea-plugin-senic = "${libdir}/nymea/plugins/libnymea_devicepluginsenic.s
 FILES_nymea-plugin-serialportcommander = "${libdir}/nymea/plugins/libnymea_devicepluginserialportcommander.so"
 FILES_nymea-plugin-shelly = "${libdir}/nymea/plugins/libnymea_devicepluginshelly.so"
 FILES_nymea-plugin-simulation = "${libdir}/nymea/plugins/libnymea_devicepluginsimulation.so"
+FILES_nymea-plugin-sonos = "${libdir}/nymea/plugins/libnymea_devicepluginsonos.so"
+FILES_nymea-plugin-systemmonitor = "${libdir}/nymea/plugins/libnymea_devicepluginsystemmonitor.so"
+FILES_nymea-plugin-tado = "${libdir}/nymea/plugins/libnymea_deviceplugintado.so"
 FILES_nymea-plugin-tasmota = "${libdir}/nymea/plugins/libnymea_deviceplugintasmota.so"
 FILES_nymea-plugin-tcpcommander = "${libdir}/nymea/plugins/libnymea_deviceplugintcpcommander.so"
 FILES_nymea-plugin-texasinstruments = "${libdir}/nymea/plugins/libnymea_deviceplugintexasinstruments.so"
-FILES_nymea-plugin-translations = "${libdir}/nymea/plugins/libnymea_deviceplugintranslations.so"
+FILES_nymea-plugin-tplink = "${libdir}/nymea/plugins/libnymea_deviceplugintplink.so"
+FILES_nymea-plugin-tuya = "${libdir}/nymea/plugins/libnymea_deviceplugintuya.so"
 FILES_nymea-plugin-udpcommander = "${libdir}/nymea/plugins/libnymea_devicepluginudpcommander.so"
+FILES_nymea-plugin-unifi = "${libdir}/nymea/plugins/libnymea_devicepluginunifi.so"
 FILES_nymea-plugin-unitec = "${libdir}/nymea/plugins/libnymea_devicepluginunitec.so"
+FILES_nymea-plugin-usbrelay = "${libdir}/nymea/plugins/libnymea_devicepluginusbrelay.so"
 FILES_nymea-plugin-wakeonlan = "${libdir}/nymea/plugins/libnymea_devicepluginwakeonlan.so"
 FILES_nymea-plugin-wemo = "${libdir}/nymea/plugins/libnymea_devicepluginwemo.so"
+FILES_nymea-plugin-ws2812fx = "${libdir}/nymea/plugins/libnymea_devicepluginws2812fx.so"
 
 
 PACKAGES += "nymea-plugin-anel \
 	nymea-plugin-avahimonitor \
         nymea-plugin-awattar \
         nymea-plugin-boblight \
+        nymea-plugin-bose \
+        nymea-plugin-coinmarketcap \
         nymea-plugin-commandlauncher \
         nymea-plugin-conrad \
         nymea-plugin-datetime \
@@ -167,6 +212,7 @@ PACKAGES += "nymea-plugin-anel \
         nymea-plugin-eq-3 \
         nymea-plugin-flowercare \
         nymea-plugin-genericelements \
+        nymea-plugin-genericinterfaces \
         nymea-plugin-gpio \
         nymea-plugin-httpcommander \
         nymea-plugin-intertechno \
@@ -176,8 +222,12 @@ PACKAGES += "nymea-plugin-anel \
         nymea-plugin-lgsmarttv \
         nymea-plugin-mailnotification \
         nymea-plugin-mqttclient \
+        nymea-plugin-nanoleaf \
         nymea-plugin-netatmo \
         nymea-plugin-networkdetector \
+        nymea-plugin-nuki \
+        nymea-plugin-onewire \
+        nymea-plugin-openuv \
         nymea-plugin-openweathermap \
         nymea-plugin-osdomotics \
         nymea-plugin-philipshue \
@@ -187,11 +237,19 @@ PACKAGES += "nymea-plugin-anel \
         nymea-plugin-serialportcommander \
         nymea-plugin-shelly \
         nymea-plugin-simulation \
+        nymea-plugin-sonos \
+        nymea-plugin-systemmonitor \
+        nymea-plugin-tado \
         nymea-plugin-tasmota \
         nymea-plugin-tcpcommander \
         nymea-plugin-texasinstruments \
+        nymea-plugin-tplink \
+        nymea-plugin-tuya \
         nymea-plugin-udpcommander \
+        nymea-plugin-unifi \
         nymea-plugin-unitec \
+        nymea-plugin-usbrelay \
         nymea-plugin-wakeonlan \
         nymea-plugin-wemo \
+        nymea-plugin-ws2812fx \
 "
