@@ -1,6 +1,6 @@
 DESCRIPTION = "nymea"
 
-LICENSE = "GPLv3"
+LICENSE = "GPL-3 | NYMEA-COMMERCIAL"
 LIC_FILES_CHKSUM="file://LICENSE.GPL3;md5=1ebbd3e34237af26da5dc08a4e440464"
 
 SRC_URI="git://github.com/guh/nymea.git;protocol=https;branch=master \
