@@ -15,6 +15,7 @@ inherit qmake5
 S = "${WORKDIR}/git"
 
 PACKAGECONFIG ?= "anel \
+        aqi \
 	avahimonitor \
 	awattar \
 	boblight \
@@ -26,6 +27,7 @@ PACKAGECONFIG ?= "anel \
 	daylightsensor \
 	denon \
 	dweetio \
+        dynatrace \
 	elgato \
 	elro \
 	eq-3 \
@@ -75,6 +77,7 @@ PACKAGECONFIG ?= "anel \
 
 
 PACKAGECONFIG[anel] = "PLUGINS+=anel, PLUGINS-=anel"
+PACKAGECONFIG[aqi] = "PLUGINS+=aqi, PLUGINS-=aqi"
 PACKAGECONFIG[avahimonitor] = "PLUGINS+=avahimonitor, PLUGINS-=avahimonitor"
 PACKAGECONFIG[awattar] = "PLUGINS+=awattar, PLUGINS-=awattar"
 PACKAGECONFIG[boblight] = "PLUGINS+=boblight, PLUGINS-=boblight, boblight"
@@ -87,6 +90,7 @@ PACKAGECONFIG[daylightsensor] = "PLUGINS+=daylightsensor, PLUGINS-=daylightsenso
 PACKAGECONFIG[debian] = "PLUGINS+=debian, PLUGINS-=debian"
 PACKAGECONFIG[denon] = "PLUGINS+=denon, PLUGINS-=denon"
 PACKAGECONFIG[dweetio] = "PLUGINS+=dweetio, PLUGINS-=dweetio"
+PACKAGECONFIG[dynatrace] = "PLUGINS+=dynatrace, PLUGINS-=dynatrace"
 PACKAGECONFIG[elgato] = "PLUGINS+=elgato, PLUGINS-=elgato"
 PACKAGECONFIG[elro] = "PLUGINS+=elro, PLUGINS-=elro"
 PACKAGECONFIG[eq-3] = "PLUGINS+=eq-3, PLUGINS-=eq-3"
