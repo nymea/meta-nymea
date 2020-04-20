@@ -4,7 +4,8 @@ LICENSE = "LGPL-3 | NYMEA-COMMERCIAL"
 LIC_FILES_CHKSUM="file://LICENSE.LGPL3;md5=3000208d539ec061b899bce1d9ce9404"
 
 SRC_URI="git://github.com/guh/nymea-plugins.git;protocol=https;branch=master"
-SRCREV="657bc7d187d0c2243ccc44ef12e012de3b31d9f5" # 0.20.0
+# Release: 0.20.0
+SRCREV="657bc7d187d0c2243ccc44ef12e012de3b31d9f5"
 PV = "git${SRCPV}"
 
 DEPENDS += "nymead nymead-native"

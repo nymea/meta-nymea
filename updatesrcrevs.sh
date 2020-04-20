@@ -24,6 +24,7 @@ do
     tag=$target
   fi
   echo "  Revision: $rev Tag: $tag"
-  sed -i "s/^SRCREV=.*$/SRCREV=\"$rev\" \# $tag/" $recipe
+  sed -i "s/^SRCREV=.*$/SRCREV=\"$rev\"/" $recipe
+  sed -i "s/^\# Release: .*/\# Release: $tag/" $recipe
 done < "$input"
 
