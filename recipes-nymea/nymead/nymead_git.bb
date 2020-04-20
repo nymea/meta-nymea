@@ -30,6 +30,6 @@ do_install_append_class-target() {
        install -m 0755 ${WORKDIR}/init ${D}${INIT_D_DIR}/nymead
 }
 
-FILES_${PN}-test = "${libdir}/nymea/plugins/libnymea_devicepluginmock.so \
+FILES_${PN}-test = "${libdir}/nymea/plugins/libnymea_integrationpluginmock.so \
 	/usr/tests/*"
 PACKAGES += "${PN}-test"
