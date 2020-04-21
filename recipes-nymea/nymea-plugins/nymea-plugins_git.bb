@@ -142,6 +142,7 @@ EXTRA_QMAKEVARS_PRE += "CONFIG+=selection ${PACKAGECONFIG_CONFARGS}"
 
 
 FILES_nymea-plugin-anel = "${libdir}/nymea/plugins/libnymea_integrationpluginanel.so"
+FILES_nymea-plugin-aqi = "${libdir}/nymea/plugins/libnymea_integrationpluginaqi.so"
 FILES_nymea-plugin-avahimonitor = "${libdir}/nymea/plugins/libnymea_integrationpluginavahimonitor.so"
 FILES_nymea-plugin-awattar = "${libdir}/nymea/plugins/libnymea_integrationpluginawattar.so"
 FILES_nymea-plugin-boblight = "${libdir}/nymea/plugins/libnymea_integrationpluginboblight.so"
@@ -153,6 +154,7 @@ FILES_nymea-plugin-datetime = "${libdir}/nymea/plugins/libnymea_integrationplugi
 FILES_nymea-plugin-daylightsensor = "${libdir}/nymea/plugins/libnymea_integrationplugindaylightsensor.so"
 FILES_nymea-plugin-denon = "${libdir}/nymea/plugins/libnymea_integrationplugindenon.so"
 FILES_nymea-plugin-dweetio = "${libdir}/nymea/plugins/libnymea_integrationplugindweetio.so"
+FILES_nymea-plugin-dynatrace = "${libdir}/nymea/plugins/libnymea_integrationplugindynatrace.so"
 FILES_nymea-plugin-elgato = "${libdir}/nymea/plugins/libnymea_integrationpluginelgato.so"
 FILES_nymea-plugin-elro = "${libdir}/nymea/plugins/libnymea_integrationpluginelro.so"
 FILES_nymea-plugin-eq-3 = "${libdir}/nymea/plugins/libnymea_integrationplugineq-3.so"
