@@ -18,7 +18,7 @@ PACKAGECONFIG ?= "anel \
         aqi \
 	avahimonitor \
 	awattar \
-	boblight \
+	${@incompatible_license_contains('GPL-3.0', '', 'boblight', d)} \
         bose \
         coinmarketcap \
 	commandlauncher \
