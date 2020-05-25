@@ -8,7 +8,7 @@ SRC_URI="git://github.com/nymea/nymea-zeroconf-plugin-dnssd.git;protocol=https;b
 SRCREV="c928ca6d501be771c97e63a586318a3244044704"
 PV = "git${SRCPV}"
 
-DEPENDS += "nymead"
+DEPENDS += "nymead mdns"
 
 inherit qmake5
 
