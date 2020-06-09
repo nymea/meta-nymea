@@ -1,1 +1,1 @@
-PACKAGECONFIG += "sql-sqlite gles2 openssl"
+PACKAGECONFIG += "sql-sqlite openssl"
