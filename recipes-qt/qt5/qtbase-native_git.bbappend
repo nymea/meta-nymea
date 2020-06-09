@@ -1,1 +1,1 @@
-PACKAGECONFIG_CONFARGS_remove = "-no-openssl"
+PACKAGECONFIG_CONFARGS_append = " -openssl"
