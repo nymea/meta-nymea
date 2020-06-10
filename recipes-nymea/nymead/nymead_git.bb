@@ -9,8 +9,8 @@ LIC_FILES_CHKSUM="file://LICENSE.GPL3;md5=1ebbd3e34237af26da5dc08a4e440464 \
 SRC_URI="git://github.com/guh/nymea.git;protocol=https;branch=master \
 	file://init \
 	"
-# Release: 0.20.0
-SRCREV="9af820b69683e09bba2643fd6631b407824969ec"
+# Release: 0.21.0
+SRCREV="1fd9ac3af769f80311c18ad181a59525ee46630b"
 PV = "git${SRCPV}"
 
 S = "${WORKDIR}/git"
@@ -20,7 +20,7 @@ inherit update-rc.d qmake5
 BBCLASSEXTEND += "native"
 
 DEPENDS = "qtbase qtwebsockets qtconnectivity qtdeclarative nymea-mqtt"
-DEPENDS_append_class-target = " nymea-remoteproxy"
+DEPENDS_append_class-target = " nymea-remoteproxy libnymea-networkmanager"
 
 INITSCRIPT_PACKAGES = "${PN}"
 INITSCRIPT_NAME = "nymead"
