@@ -91,7 +91,7 @@ PACKAGECONFIG[elro] = "PLUGINS+=elro, PLUGINS-=elro"
 PACKAGECONFIG[eq-3] = "PLUGINS+=eq-3, PLUGINS-=eq-3"
 PACKAGECONFIG[flowercare] = "PLUGINS+=flowercare, PLUGINS-=flowercare"
 PACKAGECONFIG[genericelements] = "PLUGINS+=genericelements, PLUGINS-=genericelements"
-PACKAGECONFIG[genericinterfaces] = "PLUGINS+=genericinterfaces, PLUGINS-=genericinterfaces"
+PACKAGECONFIG[genericthings] = "PLUGINS+=genericthings, PLUGINS-=genericthings"
 PACKAGECONFIG[gpio] = "PLUGINS+=gpio, PLUGINS-=gpio"
 PACKAGECONFIG[httpcommander] = "PLUGINS+=httpcommander, PLUGINS-=httpcommander"
 PACKAGECONFIG[intertechno] = "PLUGINS+=intertechno, PLUGINS-=intertechno"
@@ -155,7 +155,7 @@ FILES_nymea-plugin-elro = "${libdir}/nymea/plugins/libnymea_integrationpluginelr
 FILES_nymea-plugin-eq-3 = "${libdir}/nymea/plugins/libnymea_integrationplugineq-3.so"
 FILES_nymea-plugin-flowercare = "${libdir}/nymea/plugins/libnymea_integrationpluginflowercare.so"
 FILES_nymea-plugin-genericelements = "${libdir}/nymea/plugins/libnymea_integrationplugingenericelements.so"
-FILES_nymea-plugin-genericinterfaces = "${libdir}/nymea/plugins/libnymea_integrationplugingenericinterfaces.so"
+FILES_nymea-plugin-genericthings = "${libdir}/nymea/plugins/libnymea_integrationplugingenericthings.so"
 FILES_nymea-plugin-gpio = "${libdir}/nymea/plugins/libnymea_integrationplugingpio.so"
 FILES_nymea-plugin-httpcommander = "${libdir}/nymea/plugins/libnymea_integrationpluginhttpcommander.so"
 FILES_nymea-plugin-intertechno = "${libdir}/nymea/plugins/libnymea_integrationpluginintertechno.so"
@@ -216,7 +216,7 @@ PACKAGES += "nymea-plugin-anel \
         nymea-plugin-eq-3 \
         nymea-plugin-flowercare \
         nymea-plugin-genericelements \
-        nymea-plugin-genericinterfaces \
+        nymea-plugin-genericthings \
         nymea-plugin-gpio \
         nymea-plugin-httpcommander \
         nymea-plugin-intertechno \
