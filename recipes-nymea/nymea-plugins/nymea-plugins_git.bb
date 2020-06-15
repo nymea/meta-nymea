@@ -22,24 +22,20 @@ PACKAGECONFIG ?= "anel \
         bose \
         coinmarketcap \
 	commandlauncher \
-	conrad \
 	datetime \
 	daylightsensor \
 	denon \
 	dweetio \
         dynatrace \
 	elgato \
-	elro \
 	eq-3 \
 	flowercare \
-	genericelements \
-        genericinterfaces \
+        genericelements \
+	genericthings \
 	gpio \
 	httpcommander \
-	intertechno \
 	keba \
 	kodi \
-	leynew \
 	lgsmarttv \
 	mailnotification \
 	mqttclient \
@@ -68,7 +64,6 @@ PACKAGECONFIG ?= "anel \
         tuya \
 	udpcommander \
         unifi \
-	unitec \
         usbrelay \
 	wakeonlan \
 	wemo \
