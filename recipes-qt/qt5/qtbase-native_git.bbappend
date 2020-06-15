@@ -1,1 +1,3 @@
-PACKAGECONFIG_CONFARGS_append = " -openssl"
+PACKAGECONFIG[openssl] = "-openssl,-no-openssl,openssl"
+
+PACKAGECONFIG += "openssl"
