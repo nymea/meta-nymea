@@ -9,7 +9,7 @@ SRC_URI="git://github.com/nymea/libnymea-networkmanager.git;protocol=https;branc
 SRCREV="86d513bfa406a82116f6e7502f4566fc0cec6746"
 PV = "git${SRCPV}"
 
-DEPENDS += "qtbase"
+DEPENDS += "qtbase qtconnectivity"
 
 S = "${WORKDIR}/git"
 
