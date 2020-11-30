@@ -22,8 +22,10 @@ do
     tag=`echo $tagline | cut -d "/" -f 4`
   else
     tag=$target
+    rev='${AUTOREV}'
   fi
   echo "  Revision: $rev Tag: $tag"
+  sed -i "s/\(SRC_URI=[\;\"a-z:\/\.=\-]*branch\=\)[a-z\-]*/\1$target/" $recipe
   sed -i "s/^SRCREV=.*$/SRCREV=\"$rev\"/" $recipe
   sed -i "s/^\# Release: .*/\# Release: $tag/" $recipe
 done < "$input"
