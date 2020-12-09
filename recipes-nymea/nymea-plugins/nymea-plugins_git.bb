@@ -271,4 +271,9 @@ PACKAGES += "nymea-plugin-anel \
         nymea-plugin-wakeonlan \
         nymea-plugin-wemo \
         nymea-plugin-ws2812fx \
+        nymea-plugin-zigbee-generic-lights \
+        nymea-plugin-zigbee-generic \
+        nymea-plugin-zigbee-lumi \
+        nymea-plugin-zigbee-philipshue \
+        nymea-plugin-zigbee-tradfri \
 "
