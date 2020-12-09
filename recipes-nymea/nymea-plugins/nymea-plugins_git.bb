@@ -68,11 +68,11 @@ PACKAGECONFIG ?= "anel \
 	wakeonlan \
 	wemo \
         ws2812fx \
-        zigbee-generic-lights \
-        zigbee-generic \
-        zigbee-lumi \
-        zigbee-philipshue \
-        zigbee-tradfri \
+        zigbeegenericlights \
+        zigbeegeneric \
+        zigbeelumi \
+        zigbeephilipshue \
+        zigbeetradfri \
 	"
 
 
@@ -136,11 +136,11 @@ PACKAGECONFIG[usbrelay] = "PLUGINS+=usbrelay, PLUGINS-=usbreleay, hidapi"
 PACKAGECONFIG[wakeonlan] = "PLUGINS+=wakeonlan, PLUGINS-=wakeonlan"
 PACKAGECONFIG[wemo] = "PLUGINS+=wemo, PLUGINS-=wemo"
 PACKAGECONFIG[ws2812fx] = "PLUGINS+=ws2812fx, PLUGINS-=ws2812fx"
-PACKAGECONFIG[zigbee-generic-lights] = "PLUGINS+=zigbee-generic-lights, PLUGINS-=zigbee-generic-lights"
-PACKAGECONFIG[zigbee-generic] = "PLUGINS+=zigbee-generic, PLUGINS-=zigbee-generic"
-PACKAGECONFIG[zigbee-lumi] = "PLUGINS+=zigbee-lumi, PLUGINS-=zigbee-lumi"
-PACKAGECONFIG[zigbee-philipshue] = "PLUGINS+=zigbee-philipshue, PLUGINS-=zigbee-philipshue"
-PACKAGECONFIG[zigbee-tradfri] = "PLUGINS+=zigbee-tradfri, PLUGINS-=zigbee-tradfri"
+PACKAGECONFIG[zigbeegenericlights] = "PLUGINS+=zigbeegenericlights, PLUGINS-=zigbeegenericlights"
+PACKAGECONFIG[zigbeegeneric] = "PLUGINS+=zigbeegeneric, PLUGINS-=zigbeegeneric"
+PACKAGECONFIG[zigbeelumi] = "PLUGINS+=zigbeelumi, PLUGINS-=zigbeelumi"
+PACKAGECONFIG[zigbeephilipshue] = "PLUGINS+=zigbeephilipshue, PLUGINS-=zigbeephilipshue"
+PACKAGECONFIG[zigbeetradfri] = "PLUGINS+=zigbeetradfri, PLUGINS-=zigbeetradfri"
 
 
 EXTRA_QMAKEVARS_PRE += "CONFIG+=selection ${PACKAGECONFIG_CONFARGS}"
@@ -205,11 +205,11 @@ FILES_nymea-plugin-usbrelay = "${libdir}/nymea/plugins/libnymea_integrationplugi
 FILES_nymea-plugin-wakeonlan = "${libdir}/nymea/plugins/libnymea_integrationpluginwakeonlan.so"
 FILES_nymea-plugin-wemo = "${libdir}/nymea/plugins/libnymea_integrationpluginwemo.so"
 FILES_nymea-plugin-ws2812fx = "${libdir}/nymea/plugins/libnymea_integrationpluginws2812fx.so"
-FILES_nymea-plugin-zigbee-generic-lights = "${libdir}/nymea/plugins/libnymea_integrationpluginzigbeegenericlights.so"
-FILES_nymea-plugin-zigbee-generic = "${libdir}/nymea/plugins/libnymea_integrationpluginzigbeegeneric.so"
-FILES_nymea-plugin-zigbee-lumi = "${libdir}/nymea/plugins/libnymea_integrationpluginzigbeelumi.so"
-FILES_nymea-plugin-zigbee-philipshue = "${libdir}/nymea/plugins/libnymea_integrationpluginzigbeephilipshue.so"
-FILES_nymea-plugin-zigbee-tradfri = "${libdir}/nymea/plugins/libnymea_integrationpluginzigbeetradfri.so"
+FILES_nymea-plugin-zigbeegenericlights = "${libdir}/nymea/plugins/libnymea_integrationpluginzigbeegenericlights.so"
+FILES_nymea-plugin-zigbeegeneric = "${libdir}/nymea/plugins/libnymea_integrationpluginzigbeegeneric.so"
+FILES_nymea-plugin-zigbeelumi = "${libdir}/nymea/plugins/libnymea_integrationpluginzigbeelumi.so"
+FILES_nymea-plugin-zigbeephilipshue = "${libdir}/nymea/plugins/libnymea_integrationpluginzigbeephilipshue.so"
+FILES_nymea-plugin-zigbeetradfri = "${libdir}/nymea/plugins/libnymea_integrationpluginzigbeetradfri.so"
 
 
 PACKAGES += "nymea-plugin-anel \
@@ -271,9 +271,9 @@ PACKAGES += "nymea-plugin-anel \
         nymea-plugin-wakeonlan \
         nymea-plugin-wemo \
         nymea-plugin-ws2812fx \
-        nymea-plugin-zigbee-generic-lights \
-        nymea-plugin-zigbee-generic \
-        nymea-plugin-zigbee-lumi \
-        nymea-plugin-zigbee-philipshue \
-        nymea-plugin-zigbee-tradfri \
+        nymea-plugin-zigbeegenericlights \
+        nymea-plugin-zigbeegeneric \
+        nymea-plugin-zigbeelumi \
+        nymea-plugin-zigbeephilipshue \
+        nymea-plugin-zigbeetradfri \
 "
