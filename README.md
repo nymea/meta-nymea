@@ -40,6 +40,10 @@ In order to exclude a plugin (and its dependencies) from being built at all, cre
 	PACKAGECONFIG_remove += "plugin1 plugin2 ..."
 
 
-Each built plugin produces a package named "nymea-plugin-name". Currently, each wanted plugin must be explicitly included in the image.
+Each built plugin produces a package named "nymea-plugin-name". It is possible to manually specify all plugins to be installed with:
 
 	IMAGE_INSTALL += "nymea-plugin-philipshue nymea-plugin-netatmo ..."
+
+One can also install all plugins that were built with:
+
+	IMAGE_INSTALL += "nymea-plugins"

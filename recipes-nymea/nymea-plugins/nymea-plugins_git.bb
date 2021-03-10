@@ -150,8 +150,14 @@ PACKAGESPLITFUNCS_prepend = " split_nymea_plugins_packages "
 
 python split_nymea_plugins_packages() {
     nymea_libdir = d.expand('${libdir}/nymea/plugins/')
-    do_split_packages(d, nymea_libdir, r'^libnymea_integrationplugin(.*)\.so\.*', 'nymea-plugin-%s', 'Nymea integration plugin for %s', extra_depends='')
+    plugins = do_split_packages(d, nymea_libdir, r'^libnymea_integrationplugin(.*)\.so\.*', 'nymea-plugin-%s', 'Nymea integration plugin for %s', extra_depends='')
+
+    # Make nymea-plugins a meta package which RDEPENDS on all available nymea-plugin-
+    d.setVar('RDEPENDS_' + d.getVar('PN'), ' '.join(plugins))
 }
+
+ALLOW_EMPTY_${PN} = "1"
+FILES_${PN} = ""
 
 # Dynamically generate packages for all enabled plugins
 PACKAGES_DYNAMIC = "^nymea-plugin-.*"
