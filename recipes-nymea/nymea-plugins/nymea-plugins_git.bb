@@ -18,6 +18,7 @@ PACKAGECONFIG ?= "anel \
         aqi \
 	avahimonitor \
 	awattar \
+        bluos \
 	${@incompatible_license_contains('GPL-3.0', '', 'boblight', d)} \
         bose \
         coinmarketcap \
@@ -25,18 +26,23 @@ PACKAGECONFIG ?= "anel \
 	datetime \
 	daylightsensor \
 	denon \
+        doorbird \
 	dweetio \
         dynatrace \
 	elgato \
 	eq-3 \
 	flowercare \
+        fronius \
         genericelements \
 	genericthings \
 	gpio \
+        homeconnect \
 	httpcommander \
+        i2cdevices \
 	keba \
 	kodi \
 	lgsmarttv \
+        lifx \
 	mailnotification \
 	mqttclient \
         nanoleaf \
@@ -49,15 +55,19 @@ PACKAGECONFIG ?= "anel \
 	osdomotics \
 	philipshue \
 	pushbullet \
+        pushnotifications \
 	remotessh \
 	senic \
 	serialportcommander \
         shelly \
 	simulation \
+        solarlog \
+        somfytahoma \
         sonos \
         systemmonitor \
         tado \
 	tasmota \
+        telegram \
 	tcpcommander \
 	texasinstruments \
         tplink \
@@ -80,6 +90,7 @@ PACKAGECONFIG[anel] = "PLUGINS+=anel, PLUGINS-=anel"
 PACKAGECONFIG[aqi] = "PLUGINS+=aqi, PLUGINS-=aqi"
 PACKAGECONFIG[avahimonitor] = "PLUGINS+=avahimonitor, PLUGINS-=avahimonitor"
 PACKAGECONFIG[awattar] = "PLUGINS+=awattar, PLUGINS-=awattar"
+PACKAGECONFIG[bluos] = "PLUGINS+=bluos, PLUGINS-=bluos"
 PACKAGECONFIG[boblight] = "PLUGINS+=boblight, PLUGINS-=boblight, boblight"
 PACKAGECONFIG[bose] = "PLUGINS+=bose, PLUGINS-=bose"
 PACKAGECONFIG[coinmarketcap] = "PLUGINS+=coinmarketcap, PLUGINS-=coinmarketcap"
@@ -87,23 +98,27 @@ PACKAGECONFIG[commandlauncher] = "PLUGINS+=commandlauncher, PLUGINS-=commandlaun
 PACKAGECONFIG[conrad] = "PLUGINS+=conrad, PLUGINS-=conrad"
 PACKAGECONFIG[datetime] = "PLUGINS+=datetime, PLUGINS-=datetime"
 PACKAGECONFIG[daylightsensor] = "PLUGINS+=daylightsensor, PLUGINS-=daylightsensor"
-PACKAGECONFIG[debian] = "PLUGINS+=debian, PLUGINS-=debian"
 PACKAGECONFIG[denon] = "PLUGINS+=denon, PLUGINS-=denon"
+PACKAGECONFIG[doorbird] = "PLUGINS+=doorbird, PLUGINS-=doorbird"
 PACKAGECONFIG[dweetio] = "PLUGINS+=dweetio, PLUGINS-=dweetio"
 PACKAGECONFIG[dynatrace] = "PLUGINS+=dynatrace, PLUGINS-=dynatrace"
 PACKAGECONFIG[elgato] = "PLUGINS+=elgato, PLUGINS-=elgato"
 PACKAGECONFIG[elro] = "PLUGINS+=elro, PLUGINS-=elro"
 PACKAGECONFIG[eq-3] = "PLUGINS+=eq-3, PLUGINS-=eq-3"
 PACKAGECONFIG[flowercare] = "PLUGINS+=flowercare, PLUGINS-=flowercare"
+PACKAGECONFIG[fronius] = "PLUGINS+=fronius, PLUGINS-=fronius"
 PACKAGECONFIG[genericelements] = "PLUGINS+=genericelements, PLUGINS-=genericelements"
 PACKAGECONFIG[genericthings] = "PLUGINS+=genericthings, PLUGINS-=genericthings"
 PACKAGECONFIG[gpio] = "PLUGINS+=gpio, PLUGINS-=gpio"
+PACKAGECONFIG[homeconnect] = "PLUGINS+=homeconnect, PLUGINS-=homeconnect"
 PACKAGECONFIG[httpcommander] = "PLUGINS+=httpcommander, PLUGINS-=httpcommander"
+PACKAGECONFIG[i2cdevices] = "PLUGINS+=i2cdevices, PLUGINS-=i2cdevices"
 PACKAGECONFIG[intertechno] = "PLUGINS+=intertechno, PLUGINS-=intertechno"
 PACKAGECONFIG[keba] = "PLUGINS+=keba, PLUGINS-=keba"
 PACKAGECONFIG[kodi] = "PLUGINS+=kodi, PLUGINS-=kodi"
 PACKAGECONFIG[leynew] = "PLUGINS+=leynew, PLUGINS-=leynew"
 PACKAGECONFIG[lgsmarttv] = "PLUGINS+=lgsmarttv, PLUGINS-=lgsmarttv"
+PACKAGECONFIG[lifx] = "PLUGINS+=lifx, PLUGINS-=lifx"
 PACKAGECONFIG[mailnotification] = "PLUGINS+=mailnotification, PLUGINS-=mailnotification"
 PACKAGECONFIG[mqttclient] = "PLUGINS+=mqttclient, PLUGINS-=mqttclient"
 PACKAGECONFIG[nanoleaf] = "PLUGINS+=nanoleaf, PLUGINS-=nanoleaf"
@@ -116,15 +131,19 @@ PACKAGECONFIG[openweathermap] = "PLUGINS+=openweathermap, PLUGINS-=openweatherma
 PACKAGECONFIG[osdomotics] = "PLUGINS+=osdomotics, PLUGINS-=osdomotics"
 PACKAGECONFIG[philipshue] = "PLUGINS+=philipshue, PLUGINS-=philipshue"
 PACKAGECONFIG[pushbullet] = "PLUGINS+=pushbullet, PLUGINS-=pushbullet"
+PACKAGECONFIG[pushnotifications] = "PLUGINS+=pushnotifications, PLUGINS-=pushnotifications"
 PACKAGECONFIG[remotessh] = "PLUGINS+=remotessh, PLUGINS-=remotessh"
 PACKAGECONFIG[senic] = "PLUGINS+=senic, PLUGINS-=senic"
 PACKAGECONFIG[serialportcommander] = "PLUGINS+=serialportcommander, PLUGINS-=serialportcommander, qtserialport"
 PACKAGECONFIG[shelly] = "PLUGINS+=shelly, PLUGINS-=shelly"
 PACKAGECONFIG[simulation] = "PLUGINS+=simulation, PLUGINS-=simulation"
+PACKAGECONFIG[solarlog] = "PLUGINS+=solarlog, PLUGINS-=solarlog"
+PACKAGECONFIG[somfytahoma] = "PLUGINS+=somfytahoma, PLUGINS-=somfytahoma"
 PACKAGECONFIG[sonos] = "PLUGINS+=sonos, PLUGINS-=sonos"
 PACKAGECONFIG[systemmonitor] = "PLUGINS+=systemmonitor, PLUGINS-=systemmonitor"
 PACKAGECONFIG[tado] = "PLUGINS+=tado, PLUGINS-=tado"
 PACKAGECONFIG[tasmota] = "PLUGINS+=tasmota, PLUGINS-=tasmota"
+PACKAGECONFIG[telegram] = "PLUGINS+=telegram, PLUGINS-=telegram"
 PACKAGECONFIG[tcpcommander] = "PLUGINS+=tcpcommander, PLUGINS-=tcpcommander"
 PACKAGECONFIG[texasinstruments] = "PLUGINS+=texasinstruments, PLUGINS-=texasinstruments"
 PACKAGECONFIG[tplink] = "PLUGINS+=tplink, PLUGINS-=tplink"
