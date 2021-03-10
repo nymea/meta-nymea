@@ -6,11 +6,11 @@ LIC_FILES_CHKSUM="file://LICENSE.GPL3;md5=1ebbd3e34237af26da5dc08a4e440464 \
                   file://server/main.cpp;endline=26;md5=8a20c67e762ff092bbb93325ead286dc \
                   file://libnymea/libnymea.h;endline=26;md5=c334ac0bc498bb8b53007125752e1471"
 
-SRC_URI="git://github.com/nymea/nymea.git;protocol=https;branch=experimental-silo \
+SRC_URI="git://github.com/nymea/nymea.git;protocol=https;branch=master \
 	file://init \
 	"
-# Release: experimental-silo
-SRCREV="${AUTOREV}"
+# Release: 0.26.0
+SRCREV="96ae3cd01a4ffbafedae11dd242f502466061fc8"
 PV = "git${SRCPV}"
 
 S = "${WORKDIR}/git"
