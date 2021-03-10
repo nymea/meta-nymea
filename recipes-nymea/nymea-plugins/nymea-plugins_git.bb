@@ -16,74 +16,74 @@ S = "${WORKDIR}/git"
 
 PACKAGECONFIG ?= "anel \
         aqi \
-	avahimonitor \
-	awattar \
+        avahimonitor \
+        awattar \
         bluos \
-	${@incompatible_license_contains('GPL-3.0', '', 'boblight', d)} \
+        ${@incompatible_license_contains('GPL-3.0', '', 'boblight', d)} \
         bose \
         coinmarketcap \
-	commandlauncher \
-	datetime \
-	daylightsensor \
-	denon \
+        commandlauncher \
+        datetime \
+        daylightsensor \
+        denon \
         doorbird \
-	dweetio \
+        dweetio \
         dynatrace \
-	elgato \
-	eq-3 \
-	flowercare \
+        elgato \
+        eq-3 \
+        flowercare \
         fronius \
         genericelements \
-	genericthings \
-	gpio \
+        genericthings \
+        gpio \
         homeconnect \
-	httpcommander \
+        httpcommander \
         i2cdevices \
-	keba \
-	kodi \
-	lgsmarttv \
+        keba \
+        kodi \
+        lgsmarttv \
         lifx \
-	mailnotification \
-	mqttclient \
+        mailnotification \
+        mqttclient \
         nanoleaf \
-	netatmo \
-	networkdetector \
+        netatmo \
+        networkdetector \
         nuki \
         onewire \
         openuv \
-	openweathermap \
-	osdomotics \
-	philipshue \
-	pushbullet \
+        openweathermap \
+        osdomotics \
+        philipshue \
+        pushbullet \
         pushnotifications \
-	remotessh \
-	senic \
-	serialportcommander \
+        remotessh \
+        senic \
+        serialportcommander \
         shelly \
-	simulation \
+        simulation \
         solarlog \
         somfytahoma \
         sonos \
         systemmonitor \
         tado \
-	tasmota \
+        tasmota \
         telegram \
-	tcpcommander \
-	texasinstruments \
+        tcpcommander \
+        texasinstruments \
         tplink \
         tuya \
-	udpcommander \
+        udpcommander \
         unifi \
         usbrelay \
-	wakeonlan \
-	wemo \
+        wakeonlan \
+        wemo \
         ws2812fx \
         zigbeegenericlights \
         zigbeegeneric \
         zigbeelumi \
         zigbeephilipshue \
         zigbeetradfri \
-	"
+        "
 
 
 PACKAGECONFIG[anel] = "PLUGINS+=anel, PLUGINS-=anel"
