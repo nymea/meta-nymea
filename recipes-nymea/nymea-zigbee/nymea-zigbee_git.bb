@@ -9,7 +9,6 @@ SRCREV="977938c49fb95ece49f61638113118f250ed648d"
 PV = "git${SRCPV}"
 
 DEPENDS += "qtbase qtserialport eudev"
-BBCLASSEXTEND += "native"
 
 S = "${WORKDIR}/git"
 
