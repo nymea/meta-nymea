@@ -9,8 +9,8 @@ LIC_FILES_CHKSUM="file://LICENSE.GPL3;md5=1ebbd3e34237af26da5dc08a4e440464 \
 SRC_URI="git://github.com/nymea/nymea.git;protocol=https;branch=master \
 	file://init \
 	"
-# Release: 0.28.1
-SRCREV="685450fdb36fcb2b81d1d5d095ce98c3fccf8a54"
+# Release: 1.0.0
+SRCREV="bb03d17c799ff4e41920f094b166e8da8009e35d"
 PV = "git${SRCPV}"
 
 S = "${WORKDIR}/git"

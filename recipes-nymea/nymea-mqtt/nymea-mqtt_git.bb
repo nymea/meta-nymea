@@ -7,8 +7,8 @@ LIC_FILES_CHKSUM="file://LICENSE.LGPL3;md5=3000208d539ec061b899bce1d9ce9404 \
                   file://libnymea-mqtt/mqtt.h;endline=26;md5=8145dc10125aa2f5603e524b7245a070"
 
 SRC_URI="git://github.com/nymea/nymea-mqtt.git;protocol=https;branch=master"
-# Release: 0.1.9
-SRCREV="b856c584f82d48a6fa9f0951e89e8957d831ebb5"
+# Release: 1.0.0
+SRCREV="c67071ff09a844abd4f752c91eda8a425ab50096"
 PV = "git${SRCPV}"
 
 DEPENDS += "qtbase"
