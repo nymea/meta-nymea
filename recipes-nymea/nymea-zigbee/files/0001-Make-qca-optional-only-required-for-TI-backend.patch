@@ -1,0 +1,55 @@
+From 932a4bcd22a529c9437f1ea12a445520ab75898b Mon Sep 17 00:00:00 2001
+From: Lukas Pfeifhofer <lukas.pfeifhofer@streamunlimited.com>
+Date: Mon, 7 Feb 2022 10:51:34 +0100
+Subject: [PATCH 1/1] Make qca optional, only required for TI backend.
+
+---
+ libnymea-zigbee/backends/ti/zigbeenetworkti.cpp | 4 +++-
+ libnymea-zigbee/libnymea-zigbee.pro             | 8 +++++++-
+ 2 files changed, 10 insertions(+), 2 deletions(-)
+
+diff --git a/libnymea-zigbee/backends/ti/zigbeenetworkti.cpp b/libnymea-zigbee/backends/ti/zigbeenetworkti.cpp
+index dc2b93c..285ec1e 100644
+--- a/libnymea-zigbee/backends/ti/zigbeenetworkti.cpp
++++ b/libnymea-zigbee/backends/ti/zigbeenetworkti.cpp
+@@ -32,7 +32,9 @@
+ #include "zigbeenetworkdatabase.h"
+ 
+ #include <QDataStream>
++#ifndef DISABLE_QCA
+ #include <QtCrypto>
++#endif
+ 
+ ZigbeeNetworkTi::ZigbeeNetworkTi(const QUuid &networkUuid, QObject *parent) :
+     ZigbeeNetwork(networkUuid, parent)
+@@ -290,7 +292,7 @@ void ZigbeeNetworkTi::processGreenPowerFrame(const Zigbee::ApsdeDataIndication &
+ 
+ QByteArray ZigbeeNetworkTi::encryptSecurityKey(quint32 sourceId, const QByteArray &securityKey)
+ {
+-#if (QCA_VERSION >= QCA_VERSION_CHECK(2, 2, 0))
++#ifndef DISABLE_QCA
+     QByteArray sourceIdArray;
+     sourceIdArray.append(static_cast<quint8>(sourceId & 0x000000ff));
+     sourceIdArray.append(static_cast<quint8>((sourceId & 0x0000ff00) >> 8));
+diff --git a/libnymea-zigbee/libnymea-zigbee.pro b/libnymea-zigbee/libnymea-zigbee.pro
+index 7f701c4..d3fd6f4 100644
+--- a/libnymea-zigbee/libnymea-zigbee.pro
++++ b/libnymea-zigbee/libnymea-zigbee.pro
+@@ -12,7 +12,13 @@ packagesExist(libudev) {
+     DEFINES += DISABLE_UDEV
+ }
+ 
+-PKGCONFIG += qca2-qt5
++packagesExist(qca2-qt5) {
++    message(Build with libqca2 support)
++    PKGCONFIG += qca2-qt5
++} else {
++    message(Build without libqca2 support)
++    DEFINES += DISABLE_QCA
++}
+ 
+ SOURCES += \
+     backends/deconz/interface/zigbeeinterfacedeconz.cpp \
+-- 
+2.25.1
+

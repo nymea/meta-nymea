@@ -8,6 +8,11 @@ SRC_URI="git://github.com/nymea/nymea-zigbee.git;protocol=https;branch=master"
 SRCREV="187278cf7cce597c3cdac7f0d71d0695e5f48186"
 PV = "git${SRCPV}"
 
+# Make dependency on qca2-qt5 optional if we do not want to support TI Zigbee backend
+SRC_URI += "\
+		file://0001-Make-qca-optional-only-required-for-TI-backend.patch \
+	"
+
 DEPENDS += "qtbase qtserialport eudev"
 
 S = "${WORKDIR}/git"
