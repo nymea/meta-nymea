@@ -32,7 +32,7 @@ PACKAGECONFIG[onewire] = ", WITHOUT_PLUGINS+=onewire, owfs"
 PACKAGECONFIG[serialportcommander] = ", WITHOUT_PLUGINS+=serialportcommander, qtserialport"
 PACKAGECONFIG[usbrelay] = ", WITHOUT_PLUGINS+=usbreleay, hidapi"
 
-EXTRA_QMAKEVARS_PRE += "CONFIG+=selection ${PACKAGECONFIG_CONFARGS}"
+EXTRA_QMAKEVARS_PRE += "${PACKAGECONFIG_CONFARGS}"
 
 # One can find all available plugins by running oe-pkgdata-util list-pkgs nymea-plugins after having bitbake'd nymea-plugins
 PACKAGESPLITFUNCS_prepend = " split_nymea_plugins_packages "
@@ -49,4 +49,4 @@ ALLOW_EMPTY_${PN} = "1"
 FILES_${PN} = ""
 
 # Dynamically generate packages for all enabled plugins
-PACKAGES_DYNAMIC = "^nymea-plugin-.*"
+PACKAGES_DYNAMIC = "^nymea-plugin-(?!zigbee).*"
