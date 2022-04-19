@@ -22,6 +22,9 @@ BBCLASSEXTEND += "native"
 DEPENDS = "qtbase"
 DEPENDS_append_class-target = " qtwebsockets qtconnectivity qtdeclarative nymea-gpio nymea-remoteproxy libnymea-networkmanager nymea-mqtt nymea-zigbee"
 
+# dpkg-parsechangelog
+DEPENDS += "dpkg-native"
+
 INITSCRIPT_PACKAGES = "${PN}"
 INITSCRIPT_NAME = "nymead"
 #INISCRIPTS_PARAMS = "defaults 10"
