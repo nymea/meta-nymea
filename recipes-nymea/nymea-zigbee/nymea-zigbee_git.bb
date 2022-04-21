@@ -8,7 +8,11 @@ SRC_URI="git://github.com/nymea/nymea-zigbee.git;protocol=https;branch=master"
 SRCREV="c5d9b119af707ea66af5545754afe4c560f518b7"
 PV = "git${SRCPV}"
 
-DEPENDS += "qtbase qtserialport eudev"
+PACKAGECONFIG[eudev] = ", , eudev"
+
+PACKAGECONFIG ??= "eudev"
+
+DEPENDS += "qtbase qtserialport"
 
 S = "${WORKDIR}/git"
 
