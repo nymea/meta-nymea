@@ -18,4 +18,4 @@ inherit qmake5
 
 S = "${WORKDIR}/git"
 
-FILES_${PN} += "${libdir}/nymea/platform/libnymea_zeroconfpluginavahi.so"
+FILES:${PN} += "${libdir}/nymea/platform/libnymea_zeroconfpluginavahi.so"

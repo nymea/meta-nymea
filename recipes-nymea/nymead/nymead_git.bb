@@ -20,7 +20,7 @@ inherit update-rc.d qmake5
 BBCLASSEXTEND += "native"
 
 DEPENDS = "qtbase"
-DEPENDS_append_class-target = " qtwebsockets qtconnectivity qtdeclarative nymea-gpio nymea-remoteproxy libnymea-networkmanager nymea-mqtt nymea-zigbee"
+DEPENDS:append:class-target = " qtwebsockets qtconnectivity qtdeclarative nymea-gpio nymea-remoteproxy libnymea-networkmanager nymea-mqtt nymea-zigbee"
 
 # dpkg-parsechangelog
 DEPENDS += "dpkg-native"
@@ -29,13 +29,13 @@ INITSCRIPT_PACKAGES = "${PN}"
 INITSCRIPT_NAME = "nymead"
 #INISCRIPTS_PARAMS = "defaults 10"
 
-EXTRA_QMAKEVARS_PRE_class-native += "CONFIG+=piconly"
+EXTRA_QMAKEVARS_PRE:class-native += "CONFIG+=piconly"
 
-do_install_append_class-target() {
+do_install:append:class-target() {
        install -d ${D}${INIT_D_DIR}
        install -m 0755 ${WORKDIR}/init ${D}${INIT_D_DIR}/nymead
 }
 
-FILES_${PN}-test = "${libdir}/nymea/plugins/libnymea_integrationpluginmock.so \
+FILES:${PN}-test = "${libdir}/nymea/plugins/libnymea_integrationpluginmock.so \
 	/usr/tests/*"
 PACKAGES += "${PN}-test"

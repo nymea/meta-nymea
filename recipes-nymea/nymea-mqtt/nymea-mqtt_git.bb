@@ -18,7 +18,7 @@ S = "${WORKDIR}/git"
 
 inherit qmake5
 
-do_install_append() {
+do_install:append() {
 	# FIXME: upstream installs tests to /usr/share/qt5 which seems wrong. Let's delete it for now
 	rm -rf ${D}/usr/share/
 }

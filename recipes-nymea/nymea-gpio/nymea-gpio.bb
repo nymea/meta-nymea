@@ -1,7 +1,7 @@
 DESCRIPTION = "nymea-gpio package"
 
 LICENSE = "LGPL-3.0 | NYMEA-COMMERCIAL"
-LICENSE_${PN}-utils = "LICENSE.GPL3 | NYMEA-COMMERCIAL"
+LICENSE:${PN}-utils = "LICENSE.GPL3 | NYMEA-COMMERCIAL"
 LIC_FILES_CHKSUM="file://LICENSE.LPGL3;md5=3000208d539ec061b899bce1d9ce9404 \
                   file://LICENSE.GPL3;md5=1ebbd3e34237af26da5dc08a4e440464"
 
@@ -16,7 +16,7 @@ S = "${WORKDIR}/git"
 
 PACKAGES += "${PN}-utils"
 
-FILES_${PN} = "${libdir}/*.so.*"
-FILES_${PN}-utils = "${bindir}/*"
+FILES:${PN} = "${libdir}/*.so.*"
+FILES:${PN}-utils = "${bindir}/*"
 
 inherit qmake5

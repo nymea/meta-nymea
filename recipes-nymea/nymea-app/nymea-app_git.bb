@@ -16,7 +16,7 @@ S = "${WORKDIR}/git"
 
 inherit qmake5
 
-do_install_append() {
+do_install:append() {
 	# FIXME: drop icons, unneeded on this platform
 	rm -rf ${D}/usr/share/icons/
 }
