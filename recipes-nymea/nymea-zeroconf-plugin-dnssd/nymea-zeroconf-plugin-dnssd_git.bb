@@ -11,7 +11,7 @@ PV = "git${SRCPV}"
 
 DEPENDS += "nymead mdns"
 
-inherit qmake5
+inherit qmake5 pkgconfig
 
 S = "${WORKDIR}/git"
 

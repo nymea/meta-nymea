@@ -10,7 +10,7 @@ PV = "git${SRCPV}"
 
 DEPENDS += "nymead nymead-native"
 
-inherit qmake5
+inherit qmake5 pkgconfig
 
 S = "${WORKDIR}/git"
 

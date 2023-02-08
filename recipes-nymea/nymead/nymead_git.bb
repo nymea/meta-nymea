@@ -15,7 +15,7 @@ PV = "git${SRCPV}"
 
 S = "${WORKDIR}/git"
 
-inherit update-rc.d qmake5
+inherit update-rc.d qmake5 pkgconfig
 
 BBCLASSEXTEND += "native"
 
