@@ -1,6 +1,6 @@
 DESCRIPTION = "nymea-remoteproxy package"
 
-LICENSE = "(GPL-3.0 & LGPL-3.0) | NYMEA-COMMERCIAL"
+LICENSE = "(GPL-3.0-only & LGPL-3.0-only) | NYMEA-COMMERCIAL"
 LIC_FILES_CHKSUM="file://LICENSE.LGPL3;md5=3000208d539ec061b899bce1d9ce9404 \
                   file://LICENSE.GPL3;md5=500948a8f0c6fefa21e8694792e6b728 \
                   file://server/main.cpp;endline=26;md5=6ad94e4fdc53ed04d6af1e48393a1d49 \

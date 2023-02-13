@@ -1,6 +1,6 @@
 DESCRIPTION = "nymea-zeroconf-plugin-dnssd"
 
-LICENSE = "LGPL-3.0 | NYMEA-COMMERCIAL"
+LICENSE = "LGPL-3.0-only | NYMEA-COMMERCIAL"
 LIC_FILES_CHKSUM="file://LICENSE.LGPL3;md5=3000208d539ec061b899bce1d9ce9404 \
                   file://platformzeroconfcontrollerdnssd.cpp;endline=29;md5=02466154ec3d6f169e687813994f869a"
 

@@ -1,6 +1,6 @@
 DESCRIPTION = "nymea-zeroconf-plugin-avahi"
 
-LICENSE = "LGPL-2.1+ & (LGPL-3.0+ | NYMEA-COMMERCIAL)"
+LICENSE = "LGPL-2.1-or-later & (LGPL-3.0-or-later | NYMEA-COMMERCIAL)"
 LIC_FILES_CHKSUM=" \
                   file://LICENSE.LGPL2;md5=4fbd65380cdd255951079008b364516c \
                   file://LICENSE.LGPL3;md5=3000208d539ec061b899bce1d9ce9404 \
