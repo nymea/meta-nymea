@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM=" \
                   file://zeroconfservicebrowseravahi.h;endline=29;md5=02466154ec3d6f169e687813994f869a \
                   "
 
-SRC_URI="git://github.com/nymea/nymea-zeroconf-plugin-avahi.git;protocol=https"
+SRC_URI="git://github.com/nymea/nymea-zeroconf-plugin-avahi.git;protocol=https;branch=master"
 # Release: 1.0.0
 SRCREV="6d564faa75fd948a88836b1b7c0bf948925dde8d"
 PV = "git${SRCPV}"
