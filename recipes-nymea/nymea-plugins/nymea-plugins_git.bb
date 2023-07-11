@@ -1,16 +1,16 @@
 DESCRIPTION = "nymea-plugins"
 
-LICENSE = "LGPL-3.0 | NYMEA-COMMERCIAL"
-LIC_FILES_CHKSUM="file://LICENSE.LGPL3;md5=3000208d539ec061b899bce1d9ce9404"
+LICENSE = "LGPL-3.0-only | NYMEA-COMMERCIAL"
+LIC_FILES_CHKSUM = "file://LICENSE.LGPL3;md5=3000208d539ec061b899bce1d9ce9404"
 
-SRC_URI="git://github.com/nymea/nymea-plugins.git;protocol=https;branch=master"
-# Release: 1.0.0
-SRCREV="750afb77f98cb0c41c91948b6b0395d24ce6b914"
+SRC_URI = "git://github.com/nymea/nymea-plugins.git;protocol=https;branch=master"
+# Release: 1.8.1
+SRCREV = "17489941cfbfbe354d295f3194993310dbbbc3e3"
 PV = "git${SRCPV}"
 
 DEPENDS += "nymead nymead-native"
 
-inherit qmake5
+inherit qmake5 pkgconfig
 
 S = "${WORKDIR}/git"
 
@@ -35,18 +35,16 @@ PACKAGECONFIG[usbrelay] = ", WITHOUT_PLUGINS+=usbreleay, hidapi"
 EXTRA_QMAKEVARS_PRE += "${PACKAGECONFIG_CONFARGS}"
 
 # One can find all available plugins by running oe-pkgdata-util list-pkgs nymea-plugins after having bitbake'd nymea-plugins
-PACKAGESPLITFUNCS_prepend = " split_nymea_plugins_packages "
-
-python split_nymea_plugins_packages() {
+python populate_packages:prepend (){
     nymea_libdir = d.expand('${libdir}/nymea/plugins/')
     plugins = do_split_packages(d, nymea_libdir, r'^libnymea_integrationplugin(.*)\.so\.*', 'nymea-plugin-%s', 'Nymea integration plugin for %s', extra_depends='')
 
     # Make nymea-plugins a meta package which RDEPENDS on all available nymea-plugin-
-    d.setVar('RDEPENDS_' + d.getVar('PN'), ' '.join(plugins))
+    d.setVar('RDEPENDS:' + d.getVar('PN'), ' '.join(plugins))
 }
 
-ALLOW_EMPTY_${PN} = "1"
-FILES_${PN} = ""
+ALLOW_EMPTY:${PN} = "1"
+FILES:${PN} = ""
 
 # Dynamically generate packages for all enabled plugins
 PACKAGES_DYNAMIC = "^nymea-plugin-(?!zigbee).*"

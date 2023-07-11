@@ -37,7 +37,7 @@ nymea-plugins can be configured to include/exclude inndividual plugins using PAC
 
 In order to exclude a plugin (and its dependencies) from being built at all, create a nymea-plugins.bbappend recipe and add
 
-	PACKAGECONFIG_remove += "plugin1 plugin2 ..."
+	PACKAGECONFIG:remove += "plugin1 plugin2 ..."
 
 
 Each built plugin produces a package named "nymea-plugin-name". It is possible to manually specify all plugins to be installed with:
