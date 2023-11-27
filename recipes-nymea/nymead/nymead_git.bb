@@ -20,7 +20,7 @@ inherit update-rc.d qmake5 pkgconfig
 BBCLASSEXTEND += "native"
 
 DEPENDS = "qtbase"
-DEPENDS:append:class-target = " qtwebsockets qtconnectivity qtdeclarative nymea-gpio nymea-remoteproxy libnymea-networkmanager nymea-mqtt nymea-zigbee"
+DEPENDS:append:class-target = " qtwebsockets qtconnectivity qtdeclarative qtserialport qtserialbus nymea-gpio nymea-remoteproxy libnymea-networkmanager nymea-mqtt nymea-zigbee influxdb"
 
 # dpkg-parsechangelog
 DEPENDS += "dpkg-native"
@@ -29,13 +29,28 @@ INITSCRIPT_PACKAGES = "${PN}"
 INITSCRIPT_NAME = "nymead"
 #INISCRIPTS_PARAMS = "defaults 10"
 
+SYSTEMD_SERVICE:${PN} = "nymead.service"
+SYSTEMD_AUTO_ENABLE = "enable"
+
+FILES:${PN} += "${systemd_system_unitdir}/nymead.service"
+
 EXTRA_QMAKEVARS_PRE:class-native += "CONFIG+=piconly"
 
 do_install:append:class-target() {
-       install -d ${D}${INIT_D_DIR}
-       install -m 0755 ${WORKDIR}/init ${D}${INIT_D_DIR}/nymead
+
+	install -d ${D}/usr/share/nymea/nymead/
+	install -m 0755 ${S}/data/mac-database/mac-addresses.db ${D}/usr/share/nymea/nymead/
+
+	if [ "${@bb.utils.filter('DISTRO_FEATURES', 'systemd', d)}" ] ; then
+		install -d ${D}${systemd_unitdir}/system
+		install -m 0644 ${S}/data/systemd/nymead.service ${D}${systemd_system_unitdir}/nymead.service
+	else
+		install -d ${D}${INIT_D_DIR}
+		install -m 0755 ${WORKDIR}/init ${D}${INIT_D_DIR}/nymead
+	fi
 }
 
 FILES:${PN}-test = "${libdir}/nymea/plugins/libnymea_integrationpluginmock.so \
-	/usr/tests/*"
+	/usr/tests/* \
+	/usr/share/nymea/nymead/"
 PACKAGES += "${PN}-test"

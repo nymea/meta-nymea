@@ -13,7 +13,7 @@ SRC_URI += "\
 		file://0001-Make-qca-optional-only-required-for-TI-backend.patch \
 	"
 
-DEPENDS += "qtbase qtserialport eudev"
+DEPENDS += "qtbase qtserialport udev"
 
 S = "${WORKDIR}/git"
 
