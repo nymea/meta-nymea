@@ -15,12 +15,14 @@ PV = "git${SRCPV}"
 
 S = "${WORKDIR}/git"
 
-inherit update-rc.d qmake5 pkgconfig
+inherit update-rc.d qmake5 pkgconfig systemd
 
 BBCLASSEXTEND += "native"
 
 DEPENDS = "qtbase"
 DEPENDS:append:class-target = " qtwebsockets qtconnectivity qtdeclarative qtserialport qtserialbus nymea-gpio nymea-remoteproxy libnymea-networkmanager nymea-mqtt nymea-zigbee influxdb"
+
+IMAGE_INSTALL:append = " influxdb"
 
 # dpkg-parsechangelog
 DEPENDS += "dpkg-native"
@@ -30,9 +32,11 @@ INITSCRIPT_NAME = "nymead"
 #INISCRIPTS_PARAMS = "defaults 10"
 
 SYSTEMD_SERVICE:${PN} = "nymead.service"
-SYSTEMD_AUTO_ENABLE = "enable"
+SYSTEMD_AUTO_ENABLE ??= "enable"
 
-FILES:${PN} += "${systemd_system_unitdir}/nymead.service"
+FILES:${PN} += "${systemd_system_unitdir}/nymead.service \
+	/usr/share/nymea/nymead/mac-addresses.db \
+	"
 
 EXTRA_QMAKEVARS_PRE:class-native += "CONFIG+=piconly"
 
@@ -52,5 +56,5 @@ do_install:append:class-target() {
 
 FILES:${PN}-test = "${libdir}/nymea/plugins/libnymea_integrationpluginmock.so \
 	/usr/tests/* \
-	/usr/share/nymea/nymead/"
+	"
 PACKAGES += "${PN}-test"

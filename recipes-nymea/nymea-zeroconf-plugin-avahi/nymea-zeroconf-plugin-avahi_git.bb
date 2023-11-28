@@ -13,8 +13,9 @@ SRCREV="5431ac084cccb546495a71e310b16acca05badac"
 PV = "git${SRCPV}"
 
 DEPENDS += "nymead avahi"
+IMAGE_INSTALL:append = " avahi-daemon libavahi-client"
 
-inherit qmake5
+inherit qmake5 pkgconfig
 
 S = "${WORKDIR}/git"
 
