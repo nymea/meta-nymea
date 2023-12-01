@@ -8,12 +8,12 @@ LIC_FILES_CHKSUM=" \
                   "
 
 SRC_URI="git://github.com/nymea/nymea-zeroconf-plugin-avahi.git;protocol=https;branch=master"
+
 # Release: 1.8.1
 SRCREV="5431ac084cccb546495a71e310b16acca05badac"
 PV = "git${SRCPV}"
 
 DEPENDS += "nymead avahi"
-IMAGE_INSTALL:append = " avahi-daemon libavahi-client"
 
 inherit qmake5 pkgconfig
 

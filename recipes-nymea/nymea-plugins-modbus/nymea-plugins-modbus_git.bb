@@ -4,6 +4,7 @@ LICENSE = "LGPL-3.0-only | NYMEA-COMMERCIAL"
 LIC_FILES_CHKSUM = "file://LICENSE.LGPL3;md5=3000208d539ec061b899bce1d9ce9404"
 
 SRC_URI = "git://github.com/nymea/nymea-plugins-modbus.git;protocol=https;branch=add-license-file"
+
 # Release: 1.8.1
 SRCREV = "b9891d605537442535913127b138d2c7e4d36d21"
 PV = "git${SRCPV}"
@@ -17,9 +18,16 @@ S = "${WORKDIR}/git"
 # Only plugins which require a build time or runtime dependency need to be
 # explicitly listed, so that they can be disabled and make the build slightly
 # faster.
-PACKAGECONFIG ?= ""
+#PACKAGECONFIG ?= "sunspec"
+#PACKAGECONFIG[sunspec] = ", WITHOUT_PLUGINS+=sunspec, libnymea-sunspec1"
 
-PACKAGES =+ "libnymea-modbus libnymea-sunspec1"
+PACKAGES =+ " \
+	nymea-modbus-cli \
+	libnymea-modbus \
+	libnymea-modbus-dev \
+	libnymea-sunspec1 \
+	libnymea-sunspec1-dev \
+	"
 
 EXTRA_QMAKEVARS_PRE += "${PACKAGECONFIG_CONFARGS}"
 
@@ -32,34 +40,21 @@ python populate_packages:prepend (){
     d.setVar('RDEPENDS:' + d.getVar('PN'), ' '.join(plugins) + ', libnymea-modbus')
 }
 
-do_install:append:class-target() {
-        install -d ${D}${libdir}
-        install -m 0755 ${B}/libnymea-sunspec/libnymea-sunspec1.so ${D}${libdir}
-        install -m 0755 ${B}/libnymea-sunspec/libnymea-sunspec1.so.1 ${D}${libdir}
-        install -m 0755 ${B}/libnymea-sunspec/libnymea-sunspec1.so.1.0 ${D}${libdir}
-        install -m 0755 ${B}/libnymea-sunspec/libnymea-sunspec1.so.1.0.0 ${D}${libdir}
-        install -m 0755 ${B}/libnymea-modbus/libnymea-modbus.so ${D}${libdir}
-        install -m 0755 ${B}/libnymea-modbus/libnymea-modbus.so.1 ${D}${libdir}
-        install -m 0755 ${B}/libnymea-modbus/libnymea-modbus.so.1.0 ${D}${libdir}
-        install -m 0755 ${B}/libnymea-modbus/libnymea-modbus.so.1.0.0 ${D}${libdir}
-
-	install -d ${D}${bindir}
-	install -m 0755 ${B}/nymea-modbus-cli/nymea-modbus-cli ${D}${bindir}
-}
-
 ALLOW_EMPTY:${PN} = "1"
-FILES:libnymea-sunspec1 = "${libdir}/libnymea-sunspec1.so \
-	${libdir}/libnymea-sunspec1.so.1 \
-	${libdir}/libnymea-sunspec1.so.1.0 \
-	${libdir}/libnymea-sunspec1.so.1.0.0 \
+
+FILES:libnymea-sunspec1 = "${libdir}/libnymea-sunspec1*${SOLIBS}"
+FILES:libnymea-sunspec1-dev = " \
+	${libdir}/libnymea-sunspec1*${SOLIBSDEV} \
+	${libdir}/pkgconfig/nymea-sunspec.pc \
+	${incldir}/nymea-sunspec \
 	"
 
-FILES:libnymea-modbus = "${libdir}/libnymea-modbus.so \
-	${libdir}/libnymea-modbus.so.1 \
-	${libdir}/libnymea-modbus.so.1.0 \
-	${libdir}/libnymea-modbus.so.1.0.0 \
+FILES:libnymea-modbus = "${libdir}/libnymea-modbus*${SOLIBS}"
+FILES:libnymea-modbus-dev = " \
+	${libdir}/libnymea-modbus*${SOLIBSDEV} \
+	${libdir}/pkgconfig/nymea-modbus.pc \
+	${incldir}/nymea-modbus \
 	"
-
 FILES:nymea-modbus-cli = "${bindir}/nymea-modbus-cli"
 
 # Dynamically generate packages for all enabled plugins

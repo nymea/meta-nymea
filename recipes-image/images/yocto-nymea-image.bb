@@ -9,6 +9,7 @@ CORE_IMAGE_EXTRA_INSTALL = " \
         nymea-experience-plugin-energy \
         nymea-system-plugin-systemd \
         nymea-zeroconf-plugin-avahi \
+	influxdb \
 	avahi-daemon \
 	libavahi-client \
 	"

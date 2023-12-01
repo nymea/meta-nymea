@@ -9,8 +9,8 @@ SRCREV = "4f33ca0db54d19fc7c949ada6658c4a051297aa6"
 PV = "git${SRCPV}"
 
 DEPENDS += "nymead sqlite3"
-
-PACKAGES =+ "libnymea-energy"
+RDEPENDS:${PN} += "libnymea-energy"
+PACKAGES =+ "libnymea-energy libnymea-energy-dev"
 
 inherit qmake5 pkgconfig
 
@@ -18,16 +18,9 @@ S = "${WORKDIR}/git"
 
 FILES:${PN} += "${libdir}/nymea/experiences/libnymea_experiencepluginenergy.so"
 
-do_install:append:class-target() {
-        install -d ${D}${libdir}
-        install -m 0755 ${B}/libnymea-energy/libnymea-energy.so ${D}${libdir}
-        install -m 0755 ${B}/libnymea-energy/libnymea-energy.so.1 ${D}${libdir}
-        install -m 0755 ${B}/libnymea-energy/libnymea-energy.so.1.0 ${D}${libdir}
-        install -m 0755 ${B}/libnymea-energy/libnymea-energy.so.1.0.0 ${D}${libdir}
-}
-
-FILES:libnymea-energy = "${libdir}/libnymea-energy.so \
-        ${libdir}/libnymea-energy.so.1 \
-        ${libdir}/libnymea-energy.so.1.0 \
-        ${libdir}/libnymea-energy.so.1.0.0 \
+FILES:libnymea-energy = "${libdir}/libnymea-energy*${SOLIBS}"
+FILES:libnymea-energy-dev = " \
+        ${libdir}/libnymea-energy*${SOLIBSDEV} \
+        ${libdir}/pkgconfig/nymea-energy.pc \
+        ${incldir}/nymea-energy \
         "
