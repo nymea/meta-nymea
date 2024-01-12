@@ -4,8 +4,8 @@ LICENSE = "LGPL-3.0-only | NYMEA-COMMERCIAL"
 LIC_FILES_CHKSUM = "file://LICENSE.LGPL3;md5=3000208d539ec061b899bce1d9ce9404"
 
 SRC_URI = "git://github.com/nymea/nymea-plugins-genericthings.git;protocol=https;branch=master"
-# Release: 1.8.1
-SRCREV = "5e7912fce69d30802bd859a35916f24429397e59"
+# Release: 1.9.0
+SRCREV = "c66dd6274f24a78a16020f431080cacbf103c6d0"
 PV = "git${SRCPV}"
 
 DEPENDS += "nymead nymead-native"
@@ -29,4 +29,4 @@ ALLOW_EMPTY:${PN} = "1"
 FILES:${PN} = ""
 
 # Dynamically generate packages for all enabled plugins
-PACKAGES_DYNAMIC = "^nymea-plugin-generic*"
+PACKAGES_DYNAMIC = "^nymea-plugin-generic-*"

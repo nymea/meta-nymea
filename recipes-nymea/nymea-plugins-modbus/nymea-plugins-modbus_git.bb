@@ -3,10 +3,10 @@ DESCRIPTION = "nymea-plugins-modbus"
 LICENSE = "LGPL-3.0-only | NYMEA-COMMERCIAL"
 LIC_FILES_CHKSUM = "file://LICENSE.LGPL3;md5=3000208d539ec061b899bce1d9ce9404"
 
-SRC_URI = "git://github.com/nymea/nymea-plugins-modbus.git;protocol=https;branch=add-license-file"
+SRC_URI = "git://github.com/nymea/nymea-plugins-modbus.git;protocol=https;branch=master"
 
-# Release: 1.8.1
-SRCREV = "b9891d605537442535913127b138d2c7e4d36d21"
+# Release: 1.9.0
+SRCREV = "aa79edac5ce18008470e1f66fed49f71f0230013"
 PV = "git${SRCPV}"
 
 DEPENDS += "nymead nymead-native qtserialport qtserialbus python3 i2c-tools"

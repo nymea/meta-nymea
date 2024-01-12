@@ -11,13 +11,13 @@ LIC_FILES_CHKSUM="file://LICENSE.GPL3;md5=1ebbd3e34237af26da5dc08a4e440464 \
 SRC_URI="git://github.com/nymea/nymea.git;protocol=https;branch=master \
 	file://init \
 	"
-# Release: 1.8.1
-SRCREV="bb402e31271fe7e82b4454fb8042b20a5da957ff"
+# Release: 1.9.0
+SRCREV = "a3be47b815fb2cc2b20e8016e0b2042fa5ddd99f"
 PV = "git${SRCPV}"
 
 S = "${WORKDIR}/git"
 
-inherit update-rc.d qmake5 pkgconfig systemd
+inherit qmake5 pkgconfig systemd update-rc.d
 
 BBCLASSEXTEND += "native"
 
@@ -69,6 +69,9 @@ do_install:append:class-target() {
 
 	install -d ${D}${datadir}/nymea/nymead/
 	install -m 0755 ${S}/data/mac-database/mac-addresses.db ${D}${datadir}/nymea/nymead/
+
+	install -d ${D}/etc/dbus-1/system.d/
+	install -m 0755 ${S}/data/dbus-1/io.guh.nymead.conf ${D}/etc/dbus-1/system.d/
 
 	if [ "${@bb.utils.filter('DISTRO_FEATURES', 'sysvinit', d)}" ] ; then
 		install -d ${D}${INIT_D_DIR}
