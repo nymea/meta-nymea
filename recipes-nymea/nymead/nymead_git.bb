@@ -13,7 +13,7 @@ SRC_URI="git://github.com/nymea/nymea.git;protocol=https;branch=master \
 	"
 # Release: 1.9.0
 SRCREV = "a3be47b815fb2cc2b20e8016e0b2042fa5ddd99f"
-PV = "git${SRCPV}"
+PV = "1.9.0-git${SRCPV}"
 
 S = "${WORKDIR}/git"
 
@@ -63,7 +63,7 @@ FILES:libnymea-tests-dev = " \
         ${incldir}/nymea-tests \
         "
 
-EXTRA_QMAKEVARS_PRE:class-native += "CONFIG+=piconly"
+EXTRA_QMAKEVARS_PRE:class-native += "CONFIG+=piconly NYMEA_VERSION=${PV}"
 
 do_install:append:class-target() {
 

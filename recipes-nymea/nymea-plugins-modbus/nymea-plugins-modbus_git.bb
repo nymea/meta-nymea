@@ -7,7 +7,7 @@ SRC_URI = "git://github.com/nymea/nymea-plugins-modbus.git;protocol=https;branch
 
 # Release: 1.9.0
 SRCREV = "aa79edac5ce18008470e1f66fed49f71f0230013"
-PV = "git${SRCPV}"
+PV = "1.9.0-git${SRCPV}"
 
 DEPENDS += "nymead nymead-native qtserialport qtserialbus python3 i2c-tools"
 
@@ -36,8 +36,8 @@ python populate_packages:prepend (){
     nymea_libdir = d.expand('${libdir}/nymea/plugins/')
     plugins = do_split_packages(d, nymea_libdir, r'^libnymea_integrationplugin(.*)\.so\.*', 'nymea-plugin-%s', 'Nymea integration plugin for %s', extra_depends='')
 
-    # Make nymea-plugins a meta package which RDEPENDS on all available nymea-plugin-
-    d.setVar('RDEPENDS:' + d.getVar('PN'), ' '.join(plugins) + ', libnymea-modbus')
+    # Make nymea-plugins-modbus a meta package which RDEPENDS on all available nymea-plugin-
+    d.setVar('RDEPENDS:' + d.getVar('PN'), ' '.join(plugins))
 }
 
 ALLOW_EMPTY:${PN} = "1"

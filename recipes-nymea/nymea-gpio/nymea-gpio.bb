@@ -8,7 +8,7 @@ LIC_FILES_CHKSUM="file://LICENSE.LGPL3;md5=3000208d539ec061b899bce1d9ce9404 \
 SRC_URI="git://github.com/nymea/nymea-gpio.git;protocol=https;branch=master"
 # Release: 1.9.0
 SRCREV="cc0e1b61be09ef21afdf35c679b250f873993681"
-PV = "git${SRCPV}"
+PV = "1.9.0-git${SRCPV}"
 
 DEPENDS += "qtbase"
 
