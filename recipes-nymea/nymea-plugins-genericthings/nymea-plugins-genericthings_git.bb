@@ -1,4 +1,7 @@
 DESCRIPTION = "nymea-plugins-genericthings"
+SUMMARY = "Collection of generic integration plugins for the nymea daemon"
+HOMEPAGE = "https://nymea.io"
+BUGTRACKER = "https://github.com/nymea/nymea-plugins-genericthings/issues"
 
 LICENSE = "LGPL-3.0-only | NYMEA-COMMERCIAL"
 LIC_FILES_CHKSUM = "file://LICENSE.LGPL3;md5=3000208d539ec061b899bce1d9ce9404"
@@ -6,7 +9,7 @@ LIC_FILES_CHKSUM = "file://LICENSE.LGPL3;md5=3000208d539ec061b899bce1d9ce9404"
 SRC_URI = "git://github.com/nymea/nymea-plugins-genericthings.git;protocol=https;branch=master"
 # Release: 1.9.0
 SRCREV = "c66dd6274f24a78a16020f431080cacbf103c6d0"
-PV = "git${SRCPV}"
+PV = "1.9.0-git${SRCPV}"
 
 DEPENDS += "nymead nymead-native"
 

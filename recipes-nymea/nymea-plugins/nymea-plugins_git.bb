@@ -1,4 +1,7 @@
 DESCRIPTION = "nymea-plugins"
+SUMMARY = "Collection of integration plugins for the nymea daemon"
+HOMEPAGE = "https://nymea.io"
+BUGTRACKER = "https://github.com/nymea/nymea-plugins/issues"
 
 LICENSE = "LGPL-3.0-only | NYMEA-COMMERCIAL"
 LIC_FILES_CHKSUM = "file://LICENSE.LGPL3;md5=3000208d539ec061b899bce1d9ce9404"

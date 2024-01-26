@@ -1,4 +1,7 @@
 DESCRIPTION = "nymea-plugins-zigbee"
+SUMMARY = "Collection of zigbee integration plugins for the nymea daemon"
+HOMEPAGE = "https://nymea.io"
+BUGTRACKER = "https://github.com/nymea/nymea-plugins-zigbee/issues"
 
 LICENSE = "LGPL-3.0-only | NYMEA-COMMERCIAL"
 LIC_FILES_CHKSUM = "file://LICENSE.LGPL3;md5=3000208d539ec061b899bce1d9ce9404"
@@ -6,7 +9,7 @@ LIC_FILES_CHKSUM = "file://LICENSE.LGPL3;md5=3000208d539ec061b899bce1d9ce9404"
 SRC_URI = "git://github.com/nymea/nymea-plugins-zigbee.git;protocol=https;branch=master"
 # Release: 1.9.0
 SRCREV = "fa0efc7d1cf93a6b733873bf5cc2d30e4b3150f3"
-PV = "git${SRCPV}"
+PV = "1.9.0-git${SRCPV}"
 
 DEPENDS += "nymead nymead-native"
 
@@ -32,4 +35,4 @@ ALLOW_EMPTY:${PN} = "1"
 FILES:${PN} = ""
 
 # Dynamically generate packages for all enabled plugins
-PACKAGES_DYNAMIC = "^nymea-plugin-zigbee.*"
+PACKAGES_DYNAMIC = "^nymea-plugin-zigbee*"

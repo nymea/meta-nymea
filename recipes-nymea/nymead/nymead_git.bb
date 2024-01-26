@@ -1,23 +1,25 @@
-DESCRIPTION = "nymea"
-SUMMARY = "An open source IoT server - daemon"
+DESCRIPTION = "nymead"
+SUMMARY = "An open source IoT server"
 HOMEPAGE = "https://nymea.io"
+BUGTRACKER = "https://github.com/nymea/nymea/issues"
 
 LICENSE = "(GPL-3.0-only & LGPL-3.0-only) | NYMEA-COMMERCIAL"
-LIC_FILES_CHKSUM="file://LICENSE.GPL3;md5=1ebbd3e34237af26da5dc08a4e440464 \
-                  file://LICENSE.LGPL3;md5=3000208d539ec061b899bce1d9ce9404 \
-                  file://server/main.cpp;endline=26;md5=8a20c67e762ff092bbb93325ead286dc \
-                  file://libnymea/libnymea.h;endline=26;md5=c334ac0bc498bb8b53007125752e1471"
+LIC_FILES_CHKSUM=" \
+	file://LICENSE.GPL3;md5=1ebbd3e34237af26da5dc08a4e440464 \
+	file://LICENSE.LGPL3;md5=3000208d539ec061b899bce1d9ce9404 \
+	"
 
-SRC_URI="git://github.com/nymea/nymea.git;protocol=https;branch=master \
+SRC_URI=" \
+	git://github.com/nymea/nymea.git;protocol=https;branch=master \
 	file://init \
 	"
 # Release: 1.9.0
 SRCREV = "a3be47b815fb2cc2b20e8016e0b2042fa5ddd99f"
 PV = "1.9.0-git${SRCPV}"
 
-S = "${WORKDIR}/git"
-
 inherit qmake5 pkgconfig systemd update-rc.d
+
+S = "${WORKDIR}/git"
 
 BBCLASSEXTEND += "native"
 
@@ -29,9 +31,6 @@ RPROVIDES:${PN} += "libnymea"
 RRECOMMENDS:${PN} += "nymea-data"
 RDEPENDS:nymea-tests += "libnymea-tests"
 
-# dpkg-parsechangelog
-DEPENDS += "dpkg-native"
-
 INITSCRIPT_PACKAGES = "${PN}"
 INITSCRIPT_NAME = "nymead"
 #INISCRIPTS_PARAMS = "defaults 10"
@@ -39,7 +38,10 @@ INITSCRIPT_NAME = "nymead"
 SYSTEMD_SERVICE:${PN} = "nymead.service"
 SYSTEMD_AUTO_ENABLE = "enable"
 
-FILES:${PN} += "${systemd_system_unitdir}/nymead.service"
+FILES:${PN} += " \
+	${bindir}/nymead \
+	${systemd_system_unitdir}/nymead.service \
+	"
 
 FILES:nymea-data += "${datadir}/nymea/nymead/mac-addresses.db"
 
@@ -50,18 +52,18 @@ FILES:nymea-tests = " \
 
 FILES:libnymea = "${libdir}/libnymea*${SOLIBS}"
 FILES:libnymea-dev = " \
-        ${libdir}/libnymea*${SOLIBSDEV} \
-        ${libdir}/pkgconfig/nymea.pc \
-        ${incldir}/nymea \
+	${libdir}/libnymea*${SOLIBSDEV} \
+	${libdir}/pkgconfig/nymea.pc \
+	${incldir}/nymea \
 	${bindir}/nymea-plugininfocompiler \
-        "
+	"
 
 FILES:libnymea-tests = "${libdir}/libnymea-tests*${SOLIBS}"
 FILES:libnymea-tests-dev = " \
-        ${libdir}/libnymea-tests*${SOLIBSDEV} \
-        ${libdir}/pkgconfig/nymea-tests.pc \
-        ${incldir}/nymea-tests \
-        "
+	${libdir}/libnymea-tests*${SOLIBSDEV} \
+	${libdir}/pkgconfig/nymea-tests.pc \
+	${incldir}/nymea-tests \
+	"
 
 EXTRA_QMAKEVARS_PRE:class-native += "CONFIG+=piconly NYMEA_VERSION=${PV}"
 

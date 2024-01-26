@@ -1,4 +1,7 @@
 DESCRIPTION = "nymea-experience-plugin-energy"
+SUMMARY = "Zeroconf plugin for nymea in order to interact with the avahi-daemon"
+HOMEPAGE = "https://nymea.io"
+BUGTRACKER = "https://github.com/nymea/nymea-zeroconf-plugin-avahi/issues"
 
 LICENSE = "GPL-3.0-or-later | NYMEA-COMMERCIAL"
 LIC_FILES_CHKSUM = "file://LICENSE.GPL3;md5=1ebbd3e34237af26da5dc08a4e440464"
@@ -12,9 +15,9 @@ DEPENDS += "nymead sqlite3"
 RDEPENDS:${PN} += "libnymea-energy"
 PACKAGES =+ "libnymea-energy libnymea-energy-dev"
 
-inherit qmake5 pkgconfig
-
 S = "${WORKDIR}/git"
+
+inherit qmake5 pkgconfig
 
 FILES:${PN} += "${libdir}/nymea/experiences/libnymea_experiencepluginenergy.so"
 
