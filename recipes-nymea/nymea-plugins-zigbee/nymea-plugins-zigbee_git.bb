@@ -11,7 +11,7 @@ SRC_URI = "git://github.com/nymea/nymea-plugins-zigbee.git;protocol=https;branch
 SRCREV = "fa0efc7d1cf93a6b733873bf5cc2d30e4b3150f3"
 PV = "1.9.0-git${SRCPV}"
 
-DEPENDS += "nymead nymead-native"
+DEPENDS += "nymea nymea-native"
 
 inherit qmake5 pkgconfig
 

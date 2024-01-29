@@ -11,9 +11,9 @@ SRC_URI = "git://github.com/nymea/nymea-experience-plugin-energy.git;protocol=ht
 SRCREV = "3ff137e9416bc19aeb68c30cf1a14cdc9416dcd9"
 PV = "1.9.0-git${SRCPV}"
 
-DEPENDS += "nymead sqlite3"
-RDEPENDS:${PN} += "libnymea-energy"
+DEPENDS += "nymea sqlite3"
 PACKAGES =+ "libnymea-energy libnymea-energy-dev"
+RDEPENDS:${PN} += "libnymea libnymea-energy (= ${EXTENDPKGV}) sqlite3"
 
 S = "${WORKDIR}/git"
 
@@ -21,9 +21,14 @@ inherit qmake5 pkgconfig
 
 FILES:${PN} += "${libdir}/nymea/experiences/libnymea_experiencepluginenergy.so"
 
+FILES:${PN}-dev = ""
+ALLOW_EMPTY:${PN}-dev = "1"
+RDEPENDS:${PN}-dev = "libnymea-energy-dev"
+
 FILES:libnymea-energy = "${libdir}/libnymea-energy*${SOLIBS}"
+RDEPENDS:libnymea-energy-dev = "libnymea-energy (= ${EXTENDPKGV})"
 FILES:libnymea-energy-dev = " \
         ${libdir}/libnymea-energy*${SOLIBSDEV} \
         ${libdir}/pkgconfig/nymea-energy.pc \
-        ${incldir}/nymea-energy \
+        ${includedir}/nymea-energy \
         "

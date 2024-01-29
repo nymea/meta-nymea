@@ -14,7 +14,8 @@ SRC_URI = "git://github.com/nymea/nymea-zeroconf-plugin-avahi.git;protocol=https
 SRCREV = "b86f6a13d964140b5738ac79db8e59d13df04ad7"
 PV = "1.9.0-git${SRCPV}"
 
-DEPENDS += "nymead avahi"
+DEPENDS += "nymea avahi"
+RDEPENDS:${PN} += "nymea avahi-daemon"
 
 inherit qmake5 pkgconfig
 

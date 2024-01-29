@@ -1,4 +1,4 @@
-DESCRIPTION = "nymead"
+DESCRIPTION = "nymea"
 SUMMARY = "An open source IoT server"
 HOMEPAGE = "https://nymea.io"
 BUGTRACKER = "https://github.com/nymea/nymea/issues"
@@ -26,43 +26,64 @@ BBCLASSEXTEND += "native"
 DEPENDS = "qtbase"
 DEPENDS:append:class-target = " qtwebsockets qtconnectivity qtdeclarative qtserialport qtserialbus nymea-gpio nymea-remoteproxy libnymea-networkmanager nymea-mqtt nymea-zigbee"
 
-PACKAGES += "nymea-tests libnymea-tests nymea-data"
-RPROVIDES:${PN} += "libnymea"
-RRECOMMENDS:${PN} += "nymea-data"
-RDEPENDS:nymea-tests += "libnymea-tests"
+PACKAGES += "${PN}d lib${PN} lib${PN}-dev lib${PN}-core lib${PN}-core-dev lib${PN}-tests lib${PN}-tests-dev ${PN}-data ${PN}-tests"
+RPROVIDES:${PN} += "${PN}d lib${PN} "
+RRECOMMENDS:${PN} += "${PN}-data"
 
-INITSCRIPT_PACKAGES = "${PN}"
+INITSCRIPT_PACKAGES = "${PN}d"
 INITSCRIPT_NAME = "nymead"
 #INISCRIPTS_PARAMS = "defaults 10"
 
-SYSTEMD_SERVICE:${PN} = "nymead.service"
+SYSTEMD_SERVICE:${PN}d = "nymead.service"
 SYSTEMD_AUTO_ENABLE = "enable"
 
-FILES:${PN} += " \
+FILES:${PN} = ""
+ALLOW_EMPTY:${PN} = "1"
+RDEPENDS:${PN} = "${PN}d (= ${EXTENDPKGV})"
+
+FILES:${PN}-dev = ""
+ALLOW_EMPTY:${PN}-dev = "1"
+RDEPENDS:${PN}-dev = "lib${PN}-dev lib${PN}-core-dev lib${PN}-tests-dev"
+
+# nymead
+RDEPENDS:${PN}d += "lib${PN}-core (= ${EXTENDPKGV}) lib${PN} (= ${EXTENDPKGV})"
+FILES:${PN}d = " \
 	${bindir}/nymead \
+	/etc/dbus-1/system.d \
 	${systemd_system_unitdir}/nymead.service \
 	"
 
-FILES:nymea-data += "${datadir}/nymea/nymead/mac-addresses.db"
+FILES:nymea-data += "${datadir}/${PN}/nymead/mac-addresses.db"
+RDEPENDS:nymea-data += "${PN}d"
 
 FILES:nymea-tests = " \
 	${libdir}/nymea/plugins/libnymea_integrationpluginmock.so \
 	${bindir}/nymeatest* \
 	"
 
-FILES:libnymea = "${libdir}/libnymea*${SOLIBS}"
-FILES:libnymea-dev = " \
-	${libdir}/libnymea*${SOLIBSDEV} \
-	${libdir}/pkgconfig/nymea.pc \
-	${incldir}/nymea \
-	${bindir}/nymea-plugininfocompiler \
+FILES:lib${PN} = "${libdir}/lib${PN}.so.*"
+RDEPENDS:lib${PN}-dev = "lib${PN} (= ${EXTENDPKGV})"
+FILES:lib${PN}-dev = " \
+	${bindir}/${PN}-plugininfocompiler \
+	${libdir}/lib${PN}.so \
+	${libdir}/pkgconfig/${PN}.pc \
+	${includedir}/${PN} \
 	"
 
-FILES:libnymea-tests = "${libdir}/libnymea-tests*${SOLIBS}"
-FILES:libnymea-tests-dev = " \
-	${libdir}/libnymea-tests*${SOLIBSDEV} \
-	${libdir}/pkgconfig/nymea-tests.pc \
-	${incldir}/nymea-tests \
+FILES:lib${PN}-core = "${libdir}/lib${PN}-core.so.*"
+RDEPENDS:lib${PN}-core-dev = "lib${PN}-core (= ${EXTENDPKGV})"
+FILES:lib${PN}-core-dev = " \
+	${libdir}/lib${PN}-core.so \
+	${libdir}/pkgconfig/${PN}-core.pc \
+	${includedir}/${PN}-core \
+	"
+
+FILES:lib${PN}-tests = "${libdir}/lib${PN}-tests.so.*"
+RDEPENDS:lib${PN}-tests-dev = "lib${PN}-core-dev (= ${EXTENDPKGV})"
+FILES:lib${PN}-tests-dev = " \
+	${libdir}/lib${PN}-tests.so \
+	${libdir}/pkgconfig/${PN}-tests.pc \
+	${includedir}/${PN}-tests \
 	"
 
 EXTRA_QMAKEVARS_PRE:class-native += "CONFIG+=piconly NYMEA_VERSION=${PV}"

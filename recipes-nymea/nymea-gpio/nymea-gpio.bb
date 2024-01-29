@@ -18,16 +18,25 @@ PV = "1.9.0-git${SRCPV}"
 
 DEPENDS += "qtbase"
 
-PACKAGES += "lib${PN} ${PN}-utils lib${PN}-dev"
-
 inherit qmake5
 
 S = "${WORKDIR}/git"
 
-FILES:lib${PN} = "${libdir}/libnymea-gpio*${SOLIBS}"
+PACKAGES += "lib${PN} ${PN}-utils lib${PN}-dev"
+
+FILES:${PN} = ""
+ALLOW_EMPTY:${PN} = "1"
+
+FILES:${PN}-dev = ""
+ALLOW_EMPTY:${PN}-dev = "1"
+RDEPENDS:${PN}-dev = "lib${PN} (= ${EXTENDPKGV})"
+
 FILES:${PN}-utils = "${bindir}/*"
+RDEPENDS:${PN}-utils = "lib${PN} (= ${EXTENDPKGV})"
+
+FILES:lib${PN} = "${libdir}/libnymea-gpio*${SOLIBS}"
 FILES:lib${PN}-dev = " \
 	${libdir}/libnymea-gpio*${SOLIBSDEV} \
 	${libdir}/pkgconfig/nymea-gpio.pc \
-	${incldir}/nymea-gpio \
+	${includedir}/nymea-gpio \
 	"

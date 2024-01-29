@@ -11,7 +11,7 @@ SRC_URI = "git://github.com/nymea/nymea-plugins-modbus.git;protocol=https;branch
 SRCREV = "aa79edac5ce18008470e1f66fed49f71f0230013"
 PV = "1.9.0-git${SRCPV}"
 
-DEPENDS += "nymead nymead-native qtserialport qtserialbus python3 i2c-tools"
+DEPENDS += "nymea nymea-native qtserialport qtserialbus python3 i2c-tools"
 
 inherit qmake5 pkgconfig
 

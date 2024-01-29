@@ -11,7 +11,7 @@ SRC_URI = "git://github.com/nymea/nymea-plugins-genericthings.git;protocol=https
 SRCREV = "c66dd6274f24a78a16020f431080cacbf103c6d0"
 PV = "1.9.0-git${SRCPV}"
 
-DEPENDS += "nymead nymead-native"
+DEPENDS += "nymea nymea-native"
 
 inherit qmake5 pkgconfig
 
@@ -24,7 +24,7 @@ python populate_packages:prepend (){
     nymea_libdir = d.expand('${libdir}/nymea/plugins/')
     plugins = do_split_packages(d, nymea_libdir, r'^libnymea_integrationplugingeneric(.*)\.so\.*', 'nymea-plugin-generic-%s', 'Nymea integration plugin for %s', extra_depends='')
 
-    # Make nymea-plugins a meta package which RDEPENDS on all available nymea-plugin-
+    # Make nymea-plugins a meta package which RDEPENDS on all available nymea-plugin-generic-
     d.setVar('RDEPENDS:' + d.getVar('PN'), ' '.join(plugins))
 }
 

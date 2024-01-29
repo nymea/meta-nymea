@@ -11,7 +11,7 @@ LIC_FILES_CHKSUM = " \
 
 SRC_URI = "git://github.com/nymea/nymea-mqtt.git;protocol=https;branch=add-disable-tests-option"
 # Release: 1.9.0
-SRCREV = "04e3ce68b9316538300bbc05b16a3d0f0de9798a"
+SRCREV = "166823ab6578bdbf97c5996e84205042c9eef90b"
 PV = "1.9.0-git${SRCPV}"
 
 DEPENDS += "qtbase qtwebsockets openssl"
@@ -25,14 +25,24 @@ EXTRA_QMAKEVARS_PRE += "CONFIG+=disabletests"
 
 PACKAGES =+ "lib${PN} lib${PN}-dev ${PN}-client ${PN}-server"
 
+FILES:${PN} = ""
+ALLOW_EMPTY:${PN} = "1"
+
+FILES:${PN}-dev = ""
+ALLOW_EMPTY:${PN}-dev = "1"
+RDEPENDS:${PN}-dev = "lib${PN}-dev (= ${EXTENDPKGV})"
+
 FILES:${PN}-client = "${bindir}/${PN}-client"
+RDEPENDS:${PN}-client = "lib${PN}"
+
 FILES:${PN}-server = "${bindir}/${PN}-server"
+RDEPENDS:${PN}-server = "lib${PN}"
+
+RDEPENDS:lib${PN}-dev = "lib${PN} (= ${EXTENDPKGV})"
 FILES:lib${PN} = "${libdir}/libnymea-mqtt*${SOLIBS}"
 FILES:lib${PN}-dev = " \
 	${libdir}/libnymea-mqtt*${SOLIBSDEV} \
 	${libdir}/pkgconfig/nymea-mqtt.pc \
-	${incldir}/nymea-mqtt \
+	${includedir}/nymea-mqtt \
 	"
 
-ALLOW_EMPTY:${PN} = "1"
-FILES:${PN} = ""
