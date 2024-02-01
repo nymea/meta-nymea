@@ -34,7 +34,7 @@ INITSCRIPT_PACKAGES = "${PN}d"
 INITSCRIPT_NAME = "nymead"
 #INISCRIPTS_PARAMS = "defaults 10"
 
-SYSTEMD_SERVICE:${PN}d = "nymead.service"
+SYSTEMD_SERVICE:${PN} = "nymead.service"
 
 FILES:${PN} = ""
 ALLOW_EMPTY:${PN} = "1"
