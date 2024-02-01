@@ -17,6 +17,10 @@ inherit qmake5 pkgconfig
 
 S = "${WORKDIR}/git"
 
+# The package nymea-plugins is only a meta package for all plugins
+ALLOW_EMPTY:${PN} = "1"
+FILES:${PN} = ""
+
 # Only plugins which require a build time or runtime dependency need to be
 # explicitly listed, so that they can be disabled and make the build slightly
 # faster.
@@ -40,14 +44,19 @@ EXTRA_QMAKEVARS_PRE += "${PACKAGECONFIG_CONFARGS}"
 # One can find all available plugins by running oe-pkgdata-util list-pkgs nymea-plugins after having bitbake'd nymea-plugins
 python populate_packages:prepend (){
     nymea_libdir = d.expand('${libdir}/nymea/plugins/')
-    plugins = do_split_packages(d, nymea_libdir, r'^libnymea_integrationplugin(.*)\.so\.*', 'nymea-plugin-%s', 'Nymea integration plugin for %s', extra_depends='')
 
-    # Make nymea-plugins a meta package which RDEPENDS on all available nymea-plugin-
+    # Make sure to name the dynamic created packages in a way so they can be identified using a regexp in PACKAGES_DYNAMIC.
+    plugins = do_split_packages(d, nymea_libdir, r'^libnymea_integrationplugin(.*)\.so\.*', 'nymea-plugin-common-%s', 'Nymea integration plugin for %s', extra_depends='')
+
+    # Make nymea-plugins a meta package which RDEPENDS on all available nymea-plugin-common-* packages
     d.setVar('RDEPENDS:' + d.getVar('PN'), ' '.join(plugins))
 }
 
-ALLOW_EMPTY:${PN} = "1"
-FILES:${PN} = ""
+# Note: since other plugin recipes use the same mechanism, it is important
+# to have a unique way to regepx the dynamic created subset of packages in
+# this PACKAGES_DYNAMIC property.
+# Best practice, as of now, is to have nymea-plugin-<topic>-* naming schema.
+# Warning: this might break if other layers or recipes use the same schema.
 
 # Dynamically generate packages for all enabled plugins
-PACKAGES_DYNAMIC = "^nymea-plugin-(?!zigbee).*"
+PACKAGES_DYNAMIC = "^nymea-plugin-common-*"

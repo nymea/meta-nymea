@@ -17,6 +17,8 @@ inherit qmake5 pkgconfig
 
 S = "${WORKDIR}/git"
 
+EXTRA_QMAKEVARS_PRE += "${PACKAGECONFIG_CONFARGS}"
+
 PACKAGES =+ " \
 	nymea-modbus-cli \
 	libnymea-modbus \
@@ -40,17 +42,26 @@ FILES:libnymea-modbus-dev = " \
 	"
 FILES:nymea-modbus-cli = "${bindir}/nymea-modbus-cli"
 
+# The package nymea-plugins-modbus is only a meta package for all plugins
 ALLOW_EMPTY:${PN} = "1"
 FILES:${PN} = ""
 
 # One can find all available plugins by running oe-pkgdata-util list-pkgs nymea-plugins-modbus after having bitbake'd nymea-plugins-modbus
 python populate_packages:prepend (){
     nymea_libdir = d.expand('${libdir}/nymea/plugins/')
-    plugins = do_split_packages(d, nymea_libdir, r'^libnymea_integrationplugin(.*)\.so\.*', 'nymea-plugin-%s', 'Nymea modbus integration plugin for %s', extra_depends='')
 
-    # Make nymea-plugins-modbus a meta package which RDEPENDS on all available nymea-plugin-
+    # Make sure to name the dynamic created packages in a way so they can be identified using a regexp in PACKAGES_DYNAMIC.
+    plugins = do_split_packages(d, nymea_libdir, r'^libnymea_integrationplugin(.*)\.so\.*', 'nymea-plugin-modbus-%s', 'Nymea modbus integration plugin for %s', extra_depends='libnymea libnymea-modbus')
+
+    # Make nymea-plugins-modbus a meta package which RDEPENDS on all available nymea-plugin-modbus-
     d.setVar('RDEPENDS:' + d.getVar('PN'), ' '.join(plugins))
 }
 
+# Note: since other plugin recipes use the same mechanism, it is important
+# to have a unique way to regepx the dynamic created subset of packages in
+# this PACKAGES_DYNAMIC property.
+# Best practice, as of now, is to have nymea-plugin-<topic>-* naming schema.
+# Warning: this might break if other layers or recipes use the same schema.
+
 # Dynamically generate packages for all enabled plugins
-PACKAGES_DYNAMIC = "^nymea-plugin-*"
+PACKAGES_DYNAMIC = "^nymea-plugin-modbus-*"

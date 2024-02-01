@@ -27,7 +27,7 @@ DEPENDS = "qtbase"
 DEPENDS:append:class-target = " qtwebsockets qtconnectivity qtdeclarative qtserialport qtserialbus nymea-gpio nymea-remoteproxy libnymea-networkmanager nymea-mqtt nymea-zigbee"
 
 PACKAGES += "${PN}d lib${PN} lib${PN}-dev lib${PN}-core lib${PN}-core-dev lib${PN}-tests lib${PN}-tests-dev ${PN}-data ${PN}-tests"
-RPROVIDES:${PN} += "${PN}d lib${PN} "
+PROVIDES:${PN} += "${PN}d lib${PN} "
 RRECOMMENDS:${PN} += "${PN}-data"
 
 INITSCRIPT_PACKAGES = "${PN}d"
@@ -35,7 +35,6 @@ INITSCRIPT_NAME = "nymead"
 #INISCRIPTS_PARAMS = "defaults 10"
 
 SYSTEMD_SERVICE:${PN}d = "nymead.service"
-SYSTEMD_AUTO_ENABLE = "enable"
 
 FILES:${PN} = ""
 ALLOW_EMPTY:${PN} = "1"
