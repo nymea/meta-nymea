@@ -9,13 +9,11 @@ LIC_FILES_CHKSUM=" \
 	file://LICENSE.LGPL3;md5=3000208d539ec061b899bce1d9ce9404 \
 	"
 
-SRC_URI=" \
-	git://github.com/nymea/nymea.git;protocol=https;branch=master \
-	file://init \
-	"
-# Release: 1.9.0
-SRCREV = "a3be47b815fb2cc2b20e8016e0b2042fa5ddd99f"
-PV = "1.9.0-git${SRCPV}"
+SRC_URI = "git://github.com/nymea/nymea.git;protocol=https;branch=master"
+SRC_URI+= "file://init"
+# Release: 1.9.1
+SRCREV = "cb9607498eede71de501bc04d7cdd98b4634cf30"
+PV = "1.9.1-git${SRCPV}"
 
 inherit qmake5 pkgconfig systemd update-rc.d
 
@@ -57,7 +55,7 @@ RDEPENDS:nymea-data += "${PN}d"
 
 FILES:nymea-tests = " \
 	${libdir}/nymea/plugins/libnymea_integrationpluginmock.so \
-	${bindir}/nymeatest* \
+	/usr/share/tests/${PN}/* \
 	"
 
 FILES:lib${PN} = "${libdir}/lib${PN}.so.*"

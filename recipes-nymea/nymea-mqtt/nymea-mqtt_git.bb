@@ -9,10 +9,10 @@ LIC_FILES_CHKSUM = " \
 	file://LICENSE.GPL3;md5=1ebbd3e34237af26da5dc08a4e440464 \
 	"
 
-SRC_URI = "git://github.com/nymea/nymea-mqtt.git;protocol=https;branch=add-disable-tests-option"
-# Release: 1.9.0
-SRCREV = "166823ab6578bdbf97c5996e84205042c9eef90b"
-PV = "1.9.0-git${SRCPV}"
+SRC_URI = "git://github.com/nymea/nymea-mqtt.git;protocol=https;branch=master"
+# Release: 1.9.1
+SRCREV = "ba455fb8653e114874a4ce547ab1fbfd4d1ef9bb"
+PV = "1.9.1-git${SRCPV}"
 
 DEPENDS += "qtbase qtwebsockets openssl"
 BBCLASSEXTEND += "native"

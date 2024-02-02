@@ -7,9 +7,9 @@ LICENSE = "LGPL-3.0-only | NYMEA-COMMERCIAL"
 LIC_FILES_CHKSUM = "file://LICENSE.LGPL3;md5=3000208d539ec061b899bce1d9ce9404"
 
 SRC_URI = "git://github.com/nymea/nymea-plugins-modbus.git;protocol=https;branch=master"
-# Release: 1.9.0
-SRCREV = "aa79edac5ce18008470e1f66fed49f71f0230013"
-PV = "1.9.0-git${SRCPV}"
+# Release: 1.9.1
+SRCREV = "25671f284b6fcae32ad595ceae439587619e9a29"
+PV = "1.9.1-git${SRCPV}"
 
 DEPENDS += "nymea nymea-native qtserialport qtserialbus python3 i2c-tools"
 

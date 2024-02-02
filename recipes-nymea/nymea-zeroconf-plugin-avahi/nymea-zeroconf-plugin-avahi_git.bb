@@ -10,9 +10,9 @@ LIC_FILES_CHKSUM=" \
     "
 
 SRC_URI = "git://github.com/nymea/nymea-zeroconf-plugin-avahi.git;protocol=https;branch=master"
-# Release: 1.9.0
-SRCREV = "b86f6a13d964140b5738ac79db8e59d13df04ad7"
-PV = "1.9.0-git${SRCPV}"
+# Release: 1.9.1
+SRCREV = "6877a1f6ba598861c37adab129d8fa6780f722ba"
+PV = "1.9.1-git${SRCPV}"
 
 DEPENDS += "nymea avahi"
 RDEPENDS:${PN} += "nymea avahi-daemon"
