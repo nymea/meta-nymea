@@ -6,8 +6,6 @@ Introduction
 
 OpenEmbedded/Yocto meta layer for nymea
 
-The meta-nymea layer is currently tested with *krogoth* branches of
-
 * Base openembedded/yocto system
 
 	URI: git://git.yoctoproject.org/poky
@@ -15,10 +13,6 @@ The meta-nymea layer is currently tested with *krogoth* branches of
 * Qt5
 
 	URI: "https://github.com/meta-qt5/meta-qt5.git"
-
-* To build the raspberry pi image
-
-	URI: "git://git.yoctoproject.org/meta-raspberrypi"
 
 Usage
 -------------------------
