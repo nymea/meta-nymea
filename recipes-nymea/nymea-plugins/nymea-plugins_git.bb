@@ -35,7 +35,7 @@ PACKAGECONFIG ?= " \
 PACKAGECONFIG[nuki] = ", WITHOUT_PLUGINS+=nuki, libsodium"
 PACKAGECONFIG[onewire] = ", WITHOUT_PLUGINS+=onewire, owfs"
 PACKAGECONFIG[serialportcommander] = ", WITHOUT_PLUGINS+=serialportcommander, qtserialport"
-PACKAGECONFIG[usbrelay] = ", WITHOUT_PLUGINS+=usbreleay, hidapi"
+PACKAGECONFIG[usbrelay] = ", WITHOUT_PLUGINS+=usbrelay, hidapi"
 
 EXTRA_QMAKEVARS_PRE += "${PACKAGECONFIG_CONFARGS}"
 
