@@ -28,7 +28,7 @@ python populate_packages:prepend (){
     # Make sure to name the dynamic created packages in a way so they can be identified using a regexp in PACKAGES_DYNAMIC.
     plugins = do_split_packages(d, nymea_libdir, r'^libnymea_integrationplugin(.*)\.so\.*', 'nymea-plugin-generic-%s', 'Nymea integration plugin for generic %s', extra_depends='libnymea')
 
-    # Make nymea-plugins-genericthings a meta package which RDEPENDS on all available nymea-plugin-generic-
+    # Make nymea-plugins-genericthings a meta package which RDEPENDS on all available nymea-plugin-generic-* packages
     d.setVar('RDEPENDS:' + d.getVar('PN'), ' '.join(plugins))
 }
 
