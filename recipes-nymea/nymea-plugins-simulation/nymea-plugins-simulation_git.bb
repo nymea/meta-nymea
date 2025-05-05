@@ -1,14 +1,14 @@
-DESCRIPTION = "nymea-plugins-genericthings"
-SUMMARY = "Collection of generic integration plugins for the nymea daemon"
+DESCRIPTION = "nymea-plugins-simulation"
+SUMMARY = "Collection of simulation plugins for the nymea daemon"
 HOMEPAGE = "https://nymea.io"
-BUGTRACKER = "https://github.com/nymea/nymea-plugins-genericthings/issues"
+BUGTRACKER = "https://github.com/nymea/nymea-plugins-simulation/issues"
 
 LICENSE = "LGPL-3.0-only | NYMEA-COMMERCIAL"
 LIC_FILES_CHKSUM = "file://LICENSE.LGPL3;md5=3000208d539ec061b899bce1d9ce9404"
 
-SRC_URI = "git://github.com/nymea/nymea-plugins-genericthings.git;protocol=https;branch=master"
+SRC_URI = "git://github.com/nymea/nymea-plugins-simulation.git;protocol=https;branch=master"
 # Release: 1.11.0
-SRCREV = "496d96ba4bdbb762141583c1d129ae3bbeb72f76"
+SRCREV = "d072e7c0ebd26f2b9b87e639fd379a527295c038"
 PV = "1.11.0-git${SRCPV}"
 
 DEPENDS += "nymea nymea-native"
@@ -17,18 +17,18 @@ inherit qmake5 pkgconfig
 
 S = "${WORKDIR}/git"
 
-# The package nymea-plugins-genericthings is only a meta package for all plugins
+# The package nymea-plugins-simulation is only a meta package for all plugins
 ALLOW_EMPTY:${PN} = "1"
 FILES:${PN} = ""
 
-# One can find all available plugins by running oe-pkgdata-util list-pkgs nymea-plugin* after having bitbake'd nymea-plugin-genericthings
+# One can find all available plugins by running oe-pkgdata-util list-pkgs nymea-plugin* after having bitbake'd nymea-plugins-simulation
 python populate_packages:prepend (){
     nymea_libdir = d.expand('${libdir}/nymea/plugins/')
 
     # Make sure to name the dynamic created packages in a way so they can be identified using a regexp in PACKAGES_DYNAMIC.
-    plugins = do_split_packages(d, nymea_libdir, r'^libnymea_integrationplugin(.*)\.so\.*', 'nymea-plugin-generic-%s', 'Nymea integration plugin for generic %s', extra_depends='libnymea')
+    plugins = do_split_packages(d, nymea_libdir, r'^libnymea_integrationplugin(.*)\.so\.*', 'nymea-plugin-simulation-%s', 'Nymea integration plugin for simulating %s', extra_depends='libnymea')
 
-    # Make nymea-plugins-genericthings a meta package which RDEPENDS on all available nymea-plugin-generic-* packages
+    # Make nymea-plugins-simulation a meta package which RDEPENDS on all available nymea-plugin-simulation-* packages
     d.setVar('RDEPENDS:' + d.getVar('PN'), ' '.join(plugins))
 }
 
@@ -39,4 +39,4 @@ python populate_packages:prepend (){
 # Warning: this might break if other layers or recipes use the same schema.
 
 # Dynamically generate packages for all enabled plugins
-PACKAGES_DYNAMIC = "^nymea-plugin-generic-*"
+PACKAGES_DYNAMIC = "^nymea-plugin-simulation-*"
