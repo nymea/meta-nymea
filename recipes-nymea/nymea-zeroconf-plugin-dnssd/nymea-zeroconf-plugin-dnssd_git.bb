@@ -7,9 +7,9 @@ LICENSE = "LGPL-3.0-only | NYMEA-COMMERCIAL"
 LIC_FILES_CHKSUM = "file://LICENSE.LGPL3;md5=3000208d539ec061b899bce1d9ce9404"
 
 SRC_URI = "git://github.com/nymea/nymea-zeroconf-plugin-dnssd.git;protocol=https;branch=master"
-# Release: 1.11.0
-SRCREV = "da2d6318950914b8e0102675371ae5d46faf1252"
-PV = "1.11.0-git${SRCPV}"
+# Release: 1.11.1
+SRCREV = "b4be5e3b14ba94cd3774988b49199189410146de"
+PV = "1.11.1-git${SRCPV}"
 
 DEPENDS += "nymead mdns"
 
