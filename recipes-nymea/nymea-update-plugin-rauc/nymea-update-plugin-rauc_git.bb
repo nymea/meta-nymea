@@ -14,7 +14,7 @@ PV = "1.14.2-git${SRCPV}"
 DEPENDS += "nymea"
 RDEPENDS:${PN} += "nymead"
 
-inherit qmake5 pkgconfig
+inherit qt6-qmake pkgconfig
 
 S = "${WORKDIR}/git"
 

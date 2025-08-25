@@ -18,5 +18,5 @@ DEPENDS += "qtbase qtconnectivity"
 
 S = "${WORKDIR}/git"
 
-inherit qmake5
+inherit qt6-qmake
 

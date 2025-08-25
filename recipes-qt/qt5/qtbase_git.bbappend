@@ -1,1 +1,0 @@
-PACKAGECONFIG += "sql-sqlite openssl"

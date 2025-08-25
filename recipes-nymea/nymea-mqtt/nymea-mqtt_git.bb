@@ -23,7 +23,7 @@ PV = "1.14.2-git${SRCPV}"
 DEPENDS += "qtbase qtwebsockets openssl"
 BBCLASSEXTEND += "native"
 
-inherit qmake5
+inherit qt6-qmake
 
 S = "${WORKDIR}/git"
 

@@ -11,9 +11,9 @@ SRC_URI = "git://github.com/nymea/nymea-plugins-genericthings.git;protocol=https
 SRCREV = "faa4e78392db02c00e8ff4e5e97f94d4c7b1331d"
 PV = "1.14.2-git${SRCPV}"
 
-DEPENDS += "nymea nymea-native"
+DEPENDS += "nymea nymea-sdk-native"
 
-inherit qmake5 pkgconfig
+inherit qt6-qmake pkgconfig
 
 S = "${WORKDIR}/git"
 

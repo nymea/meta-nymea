@@ -11,9 +11,9 @@ SRC_URI = "git://github.com/nymea/nymea-plugins-zigbee.git;protocol=https;branch
 SRCREV = "e41b079789cfa1e492fc882faf0317e601191721"
 PV = "1.14.2-git${SRCPV}"
 
-DEPENDS += "nymea nymea-native nymea-zigbee"
+DEPENDS += "nymea nymea-sdk-native nymea-zigbee"
 
-inherit qmake5 pkgconfig
+inherit qt6-qmake pkgconfig
 
 S = "${WORKDIR}/git"
 

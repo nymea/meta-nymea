@@ -36,7 +36,7 @@ PACKAGES =+ " \
 DEPENDS += "qtbase qtwebsockets ncurses"
 RDEPENDS:${PN} += "libnymea-remoteproxy"
 
-inherit qmake5 
+inherit qt6-qmake
 
 S = "${WORKDIR}/git"
 

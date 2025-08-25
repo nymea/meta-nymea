@@ -16,6 +16,6 @@ PV = "1.14.2-git${SRCPV}"
 
 DEPENDS += "qtbase qtserialport udev"
 
-inherit qmake5
+inherit qt6-qmake
 
 S = "${WORKDIR}/git"

@@ -24,7 +24,7 @@ DEPENDS += " \
 	libgpiod \
 	"
 
-inherit qmake5 pkgconfig
+inherit qt6-qmake pkgconfig
 
 S = "${WORKDIR}/git"
 

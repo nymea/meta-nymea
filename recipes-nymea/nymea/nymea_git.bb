@@ -26,14 +26,14 @@ SRC_URI+= "file://init"
 SRCREV = "5b730387264e1c16a005b823c8e1414569d32e68"
 PV = "1.14.2-git${SRCPV}"
 
-inherit qmake5 pkgconfig systemd update-rc.d
+inherit qt6-qmake pkgconfig systemd update-rc.d
 
 S = "${WORKDIR}/git"
 
-BBCLASSEXTEND += "native"
+DEPENDS = "qtbase nymea-sdk-native"
+DEPENDS:append = " qtwebsockets qtconnectivity qtdeclarative qtserialport qtserialbus qt5compat nymea-gpio nymea-remoteproxy libnymea-networkmanager nymea-mqtt nymea-zigbee"
 
-DEPENDS = "qtbase"
-DEPENDS:append:class-target = " qtwebsockets qtconnectivity qtdeclarative qtserialport qtserialbus nymea-gpio nymea-remoteproxy libnymea-networkmanager nymea-mqtt nymea-zigbee"
+EXTRA_QMAKEVARS_PRE += "NYMEA_VERSION=${PV} CONFIG+=withoutpython"
 
 PACKAGES += "${PN}d lib${PN} lib${PN}-dev lib${PN}-core lib${PN}-core-dev lib${PN}-tests lib${PN}-tests-dev ${PN}-data ${PN}-tests"
 PROVIDES:${PN} += "${PN}d lib${PN} "
@@ -45,10 +45,12 @@ INITSCRIPT_NAME = "nymead"
 
 SYSTEMD_SERVICE:${PN} = "nymead.service"
 
+# Empty nymea package provides nymead
 FILES:${PN} = ""
 ALLOW_EMPTY:${PN} = "1"
 RDEPENDS:${PN} = "${PN}d (= ${EXTENDPKGV})"
 
+# nymea-dev is empty and provides the dev libs
 FILES:${PN}-dev = ""
 ALLOW_EMPTY:${PN}-dev = "1"
 RDEPENDS:${PN}-dev = "lib${PN}-dev lib${PN}-core-dev lib${PN}-tests-dev"
@@ -61,10 +63,11 @@ FILES:${PN}d = " \
 	${systemd_system_unitdir}/nymead.service \
 	"
 
-FILES:nymea-data += "${datadir}/${PN}/nymead/mac-addresses.db"
-RDEPENDS:nymea-data += "${PN}d"
+FILES:${PN}-data += "${datadir}/${PN}/nymead/mac-addresses.db"
+RDEPENDS:${PN}-data += "${PN}d"
 
-FILES:nymea-tests = " \
+RDEPENDS:${PN}-tests = "lib${PN}-tests (= ${EXTENDPKGV})"
+FILES:${PN}-tests = " \
 	${libdir}/nymea/plugins/libnymea_integrationpluginmock.so \
 	/usr/share/tests/${PN}/* \
 	"
@@ -94,10 +97,17 @@ FILES:lib${PN}-tests-dev = " \
 	${includedir}/${PN}-tests \
 	"
 
-EXTRA_QMAKEVARS_PRE:class-native += "CONFIG+=piconly NYMEA_VERSION=${PV}"
-EXTRA_QMAKEVARS_PRE:class-target += "NYMEA_VERSION=${PV} CONFIG+=withoutpython DEFINES+=ZIGBEE_DISABLE_TI"
+# FIXME: Wall error in building the libynmea-tests (error: "QT_TESTCASE_BUILDDIR" redefined).
+# Allowed the libnymea-tests-dev package to be generated even when it has
+# no payload by marking it as an empty package, ensuring the nymea-dev dependency
+# can be satisfied. Once fixed, we can enable the tests also for yocto
+ALLOW_EMPTY:lib${PN}-tests-dev = "1"
 
-do_install:append:class-target() {
+# Note: the tests have been disabled due to a Qt bug (error: "QT_TESTCASE_BUILDDIR" redefined)
+# Since we don't need tests and testlib on yocot, we disable the libnymea-tests (and libnymea-tests-dev)
+EXTRA_QMAKEVARS_PRE += "NYMEA_VERSION=${PV} CONFIG+=withoutpython DEFINES+=ZIGBEE_DISABLE_TI CONFIG+=disabletesting"
+
+do_install:append() {
 
 	install -d ${D}${datadir}/nymea/nymead/
 	install -m 0644 ${S}/data/mac-database/mac-addresses.db ${D}${datadir}/nymea/nymead/

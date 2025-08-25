@@ -11,10 +11,10 @@ SRC_URI = "git://github.com/nymea/nymea-system-plugin-systemd.git;protocol=https
 SRCREV = "a02affe657daaa5120d48b21d395086caa8afe33"
 PV = "1.14.2-git${SRCPV}"
 
-DEPENDS += "nymea nymea-native systemd"
+DEPENDS += "nymea nymea-sdk-native systemd"
 RDEPENDS:${PN} += "nymead tzdata"
 
-inherit qmake5 pkgconfig
+inherit qt6-qmake pkgconfig
 
 S = "${WORKDIR}/git"
 
