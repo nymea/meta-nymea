@@ -10,14 +10,17 @@ CURRENTDIR=$(dirname "$(realpath -s "$0")")
 function usage() {
   cat <<EOF
 
-This tool allowes to update the source revision of the nymea-recipes either to a specific tag or to a specific branch. 
+This tool allows to update the source revision of the nymea-recipes either to a specific tag or to a specific branch.
 
 The tool requires either a tag or a branch.
-The version paramter is only valid in combination with a given branch.
+The version parameter is only valid in combination with a given branch.
 
 The tag will be used as version unless overwritten using the version parameter.
 
-Reuired dependecies: jq curl
+Warning: don't call the script to many times, otherwise you reach quickly the rate limits of the api.
+You can check the current rate limit with 'curl -L https://api.github.com/rate_limit'
+
+Required dependencies: jq curl
 
 Usage: $(basename $0) [OPTIONS]
 
@@ -57,7 +60,7 @@ function configureTag() {
 
         echo "Loading tags from repository ..."
         # Fetch the online tags and get the SHA from the given tag
-        local TAGS_LIST=$(curl -s -L https://api.github.com/repos/nymea/${REPOSITORY}/tags)
+        local TAGS_LIST=$(curl -s -L https://api.github.com/repos/nymea/${REPOSITORY}/tags?per_page=200)
         local TAGS_COUNT=$(echo $TAGS_LIST | jq '. | length')
         local TAG_SHA=""
 
@@ -90,8 +93,58 @@ function configureTag() {
 function configureBranch() {
     echo "Updating to branch $BRANCH"
     echo "Using version $VERSION"
-    echo "TODO: not implemented yet"
-    #   sed -i "s/\(SRC_URI=[\;\"a-z:\/\.=\-]*branch\=\)[a-z\-]*/\1$target/" $recipe
+
+    cd ${CURRENTDIR}/recipes-nymea
+    for REPOSITORY in *; do
+        echo "---------------------------------------------------------------"
+        if [ ! -d ${REPOSITORY} ]; then
+            echo "Skipping ${REPOSITORY} since this is not a directory..."
+            continue
+        fi
+
+        echo -e "Repository:\t\t${REPOSITORY}"
+        local RECIPE_FILE=$(find . -name "${REPOSITORY}_git.bb")
+        echo -e "Recipe:\t\t\t${RECIPE_FILE}"
+        local SOURCE_LINE="$(grep SRC_URI $RECIPE_FILE | grep "github.com/nymea")"
+        local REPOSITORY_URL=$(echo $SOURCE_LINE | cut -d \" -f 2 | cut -d \; -f 1 | sed 's/git:/https:/')
+        echo -e "Repository URL:\t\t${REPOSITORY_URL}"
+        local CURRENT_BRANCH=$(echo $SOURCE_LINE | cut -d \" -f 2 | cut -d \; -f 3 | sed  's/^branch=//')
+        echo -e "Current branch:\t\t${CURRENT_BRANCH}"
+
+        echo "Loading branches from repository ..."
+        # Fetch the online tags and get the SHA from the given tag
+        local BRANCHES_LIST=$(curl -s -L https://api.github.com/repos/nymea/${REPOSITORY}/branches?per_page=200)
+        local BRANCHES_COUNT=$(echo $BRANCHES_LIST | jq '. | length')
+        local BRANCHES_SHA=""
+
+        echo "Fetched $BRANCHES_COUNT branches..."
+        for BRANCH_OBJECT in $(echo $BRANCHES_LIST | jq -c .[]); do
+            local BRANCH_NAME=$(echo "$BRANCH_OBJECT" | jq .name | tr -d '"')
+            if [[ "$BRANCH_NAME" == "$BRANCH" ]]; then
+                BRANCH_SHA=$(echo "$BRANCH_OBJECT" | jq .commit.sha | tr -d '"')
+                echo "Found branch $BRANCH_NAME --> SHA hash: $BRANCH_SHA"
+                break
+            fi
+        done
+
+        echo "Updating SRC_URI ..."
+        sed -i "s/\(branch=\)[^\";]*/\1${BRANCH_NAME}/" ${RECIPE_FILE}
+        cat ${RECIPE_FILE} | grep "SRC_URI"
+
+        echo "Updating SRCREV ..."
+        sed -i "s/^SRCREV =.*/SRCREV = \"$BRANCH_SHA\"/" ${RECIPE_FILE}
+        cat ${RECIPE_FILE} | grep "SRCREV"
+
+        echo "Updating Release comment ..."
+        sed -i "s/^# Release: .*/\# Branch: ${BRANCH}/" ${RECIPE_FILE}
+        cat ${RECIPE_FILE} | grep "# Branch"
+
+        echo "Updating PV ..."
+        sed -i "s/^\PV = .*/PV = \"$VERSION-git\x24{SRCPV}\"/" ${RECIPE_FILE}
+        cat ${RECIPE_FILE} | grep "PV ="
+
+    done
+
     exit 1
 }
 

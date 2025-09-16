@@ -6,10 +6,10 @@ BUGTRACKER = "https://github.com/nymea/nymea-zeroconf-plugin-avahi/issues"
 LICENSE = "GPL-3.0-or-later | NYMEA-COMMERCIAL"
 LIC_FILES_CHKSUM = "file://LICENSE.GPL3;md5=1ebbd3e34237af26da5dc08a4e440464"
 
-SRC_URI = "git://github.com/nymea/nymea-experience-plugin-energy.git;protocol=https;branch=master"
-# Release: 1.11.1
-SRCREV = "de073f9b595b12f7318e09dc7af3fca85cf80542"
-PV = "1.11.1-git${SRCPV}"
+SRC_URI = "git://github.com/nymea/nymea-experience-plugin-energy.git;protocol=https;branch=qt6-qmake"
+# Branch: qt6-qmake
+SRCREV = "c15a31eeabc82f11e607dfda0110aa6764bde5bb"
+PV = "1.12.0-git${SRCPV}"
 
 DEPENDS += "nymea sqlite3"
 PACKAGES =+ "libnymea-energy libnymea-energy-dev"
@@ -17,7 +17,7 @@ RDEPENDS:${PN} += "libnymea libnymea-energy (= ${EXTENDPKGV}) sqlite3"
 
 S = "${WORKDIR}/git"
 
-inherit qmake5 pkgconfig
+inherit qt6-qmake pkgconfig
 
 FILES:${PN} += "${libdir}/nymea/experiences/libnymea_experiencepluginenergy.so"
 

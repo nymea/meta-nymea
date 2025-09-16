@@ -6,14 +6,14 @@ BUGTRACKER = "https://github.com/nymea/nymea-plugins-genericthings/issues"
 LICENSE = "LGPL-3.0-only | NYMEA-COMMERCIAL"
 LIC_FILES_CHKSUM = "file://LICENSE.LGPL3;md5=3000208d539ec061b899bce1d9ce9404"
 
-SRC_URI = "git://github.com/nymea/nymea-plugins-genericthings.git;protocol=https;branch=master"
-# Release: 1.11.1
-SRCREV = "b287b62c4bb9d304b172e4babb39334d3eb382eb"
-PV = "1.11.1-git${SRCPV}"
+SRC_URI = "git://github.com/nymea/nymea-plugins-genericthings.git;protocol=https;branch=qt6-qmake"
+# Branch: qt6-qmake
+SRCREV = "a4bd3082a6c95df3dae72d9c675d28595e9d0e6f"
+PV = "1.12.0-git${SRCPV}"
 
 DEPENDS += "nymea nymea-native"
 
-inherit qmake5 pkgconfig
+inherit qt6-qmake pkgconfig
 
 S = "${WORKDIR}/git"
 

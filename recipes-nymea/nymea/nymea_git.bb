@@ -9,13 +9,13 @@ LIC_FILES_CHKSUM=" \
 	file://LICENSE.LGPL3;md5=3000208d539ec061b899bce1d9ce9404 \
 	"
 
-SRC_URI = "git://github.com/nymea/nymea.git;protocol=https;branch=master"
+SRC_URI = "git://github.com/nymea/nymea.git;protocol=https;branch=qt6-qmake"
 SRC_URI+= "file://init"
-# Release: 1.11.1
-SRCREV = "5f4f2a9b785e0ff7443c4d088a9b19b06c15a51b"
-PV = "1.11.1-git${SRCPV}"
+# Branch: qt6-qmake
+SRCREV = "42def79a542f5e6f0ba5e5a7faf56c66f0403ec9"
+PV = "1.12.0-git${SRCPV}"
 
-inherit qmake5 pkgconfig systemd update-rc.d
+inherit qt6-qmake pkgconfig systemd update-rc.d
 
 S = "${WORKDIR}/git"
 

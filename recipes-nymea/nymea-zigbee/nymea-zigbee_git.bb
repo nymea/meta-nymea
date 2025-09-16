@@ -6,16 +6,13 @@ BUGTRACKER = "https://github.com/nymea/nymea-zigbee/issues"
 LICENSE = "LGPL-3.0-only | NYMEA-COMMERCIAL"
 LIC_FILES_CHKSUM = "file://LICENSE.LGPL3;md5=3000208d539ec061b899bce1d9ce9404"
 
-SRC_URI = "git://github.com/nymea/nymea-zigbee.git;protocol=https;branch=master"
-# Release: 1.11.1
-SRCREV = "f29206b2d4ce34529bf58eb83d35447fd061a898"
-PV = "1.11.1-git${SRCPV}"
-
-# Make dependency on qca2-qt5 optional if we do not want to support TI Zigbee backend
-SRC_URI += "file://0001-Make-qca-optional-only-required-for-TI-backend.patch"
+SRC_URI = "git://github.com/nymea/nymea-zigbee.git;protocol=https;branch=qt6-qmake"
+# Branch: qt6-qmake
+SRCREV = "63e9e424d3db3efb80a3b1a47767ab6ae76a8d29"
+PV = "1.12.0-git${SRCPV}"
 
 DEPENDS += "qtbase qtserialport udev"
 
-inherit qmake5
+inherit qt6-qmake
 
 S = "${WORKDIR}/git"

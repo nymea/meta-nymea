@@ -9,10 +9,10 @@ LIC_FILES_CHKSUM = " \
     file://LICENSE.GPL3;md5=500948a8f0c6fefa21e8694792e6b728 \
     "
 
-SRC_URI = "git://github.com/nymea/nymea-remoteproxy.git;protocol=https;branch=master"
-# Release: 1.11.1
-SRCREV = "9f60a76d14630176a5353511dd01e464a30f04ef"
-PV = "1.11.1-git${SRCPV}"
+SRC_URI = "git://github.com/nymea/nymea-remoteproxy.git;protocol=https;branch=qt6-qmake"
+# Branch: qt6-qmake
+SRCREV = "c0876caa1778140b5f687b861e6e6f7ebe454d9e"
+PV = "1.12.0-git${SRCPV}"
 
 PACKAGE_BEFORE_PN ?= ""
 
@@ -28,7 +28,7 @@ PACKAGES =+ " \
 DEPENDS += "qtbase qtwebsockets ncurses"
 RDEPENDS:${PN} += "libnymea-remoteproxy"
 
-inherit qmake5 
+inherit qt6-qmake 
 
 S = "${WORKDIR}/git"
 
