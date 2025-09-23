@@ -11,9 +11,9 @@ LIC_FILES_CHKSUM=" \
 
 SRC_URI = "git://github.com/nymea/nymea.git;protocol=https;branch=master"
 SRC_URI+= "file://init"
-# Release: 1.11.1
-SRCREV = "5f4f2a9b785e0ff7443c4d088a9b19b06c15a51b"
-PV = "1.11.1-git${SRCPV}"
+# Release: 1.12.0
+SRCREV = "d8dcff002c357b5533fe2dbbc436f1cf1090a8ab"
+PV = "1.12.0-git${SRCPV}"
 
 inherit qmake5 pkgconfig systemd update-rc.d
 
@@ -84,7 +84,7 @@ FILES:lib${PN}-tests-dev = " \
 	"
 
 EXTRA_QMAKEVARS_PRE:class-native += "CONFIG+=piconly NYMEA_VERSION=${PV}"
-EXTRA_QMAKEVARS_PRE:class-target += "NYMEA_VERSION=${PV} CONFIG+=withoutpython"
+EXTRA_QMAKEVARS_PRE:class-target += "NYMEA_VERSION=${PV} CONFIG+=withoutpython DEFINES+=ZIGBEE_DISABLE_TI"
 
 do_install:append:class-target() {
 
