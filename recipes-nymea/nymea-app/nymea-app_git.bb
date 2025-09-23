@@ -9,7 +9,7 @@ LIC_FILES_CHKSUM="file://LICENSE;md5=1ebbd3e34237af26da5dc08a4e440464"
 SRC_URI="git://github.com/nymea/nymea-app.git;protocol=https;branch=landing-silo"
 
 # Branch: landing-silo
-SRCREV = "5a157288df23983b97159c8dddd0d2dd5f95ed38"
+SRCREV = "b26d959ca5e2ee1ee52bada89f2dfaa149c05f75"
 PV = "1.12.0-git${SRCPV}"
 
 DEPENDS += "qtbase nymead nymea-remoteproxy qtcharts qtquickcontrols2 qtsvg"

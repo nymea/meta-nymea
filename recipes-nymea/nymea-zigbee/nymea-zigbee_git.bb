@@ -8,7 +8,7 @@ LIC_FILES_CHKSUM = "file://LICENSE.LGPL3;md5=3000208d539ec061b899bce1d9ce9404"
 
 SRC_URI = "git://github.com/nymea/nymea-zigbee.git;protocol=https;branch=landing-silo"
 # Branch: landing-silo
-SRCREV = "d1b74c16da8fbf0fb6ec3c3fbf9f301c484aee29"
+SRCREV = "cceb9beffecdb081ea83fd39b839e798f63feade"
 PV = "1.12.0-git${SRCPV}"
 
 DEPENDS += "qtbase qtserialport udev"
