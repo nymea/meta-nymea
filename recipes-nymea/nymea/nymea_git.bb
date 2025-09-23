@@ -12,7 +12,7 @@ LIC_FILES_CHKSUM=" \
 SRC_URI = "git://github.com/nymea/nymea.git;protocol=https;branch=landing-silo"
 SRC_URI+= "file://init"
 # Branch: landing-silo
-SRCREV = "fc2c2d41f15c85c2780cc10f1b30b6dcc5293421"
+SRCREV = "d8dcff002c357b5533fe2dbbc436f1cf1090a8ab"
 PV = "1.12.0-git${SRCPV}"
 
 inherit qmake5 pkgconfig systemd update-rc.d
