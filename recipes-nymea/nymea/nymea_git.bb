@@ -84,7 +84,7 @@ FILES:lib${PN}-tests-dev = " \
 	"
 
 EXTRA_QMAKEVARS_PRE:class-native += "CONFIG+=piconly NYMEA_VERSION=${PV}"
-EXTRA_QMAKEVARS_PRE:class-target += "NYMEA_VERSION=${PV} CONFIG+=withoutpython -DZIGBEE_DISABLE_TI"
+EXTRA_QMAKEVARS_PRE:class-target += "NYMEA_VERSION=${PV} CONFIG+=withoutpython DEFINES+=ZIGBEE_DISABLE_TI"
 
 do_install:append:class-target() {
 

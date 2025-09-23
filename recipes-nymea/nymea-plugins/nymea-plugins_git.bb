@@ -8,7 +8,7 @@ LIC_FILES_CHKSUM = "file://LICENSE.LGPL3;md5=3000208d539ec061b899bce1d9ce9404"
 
 SRC_URI = "git://github.com/nymea/nymea-plugins.git;protocol=https;branch=landing-silo"
 # Branch: landing-silo
-SRCREV = "ab064d6232bcdf4802ad70551dd6f55fa775cffc"
+SRCREV = "9649cb6f9eb7b5fe86f69cbdf157c7fc3de97a48"
 PV = "1.12.0-git${SRCPV}"
 
 DEPENDS += "nymea nymea-native"
