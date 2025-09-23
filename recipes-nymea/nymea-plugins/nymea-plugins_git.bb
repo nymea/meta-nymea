@@ -6,10 +6,10 @@ BUGTRACKER = "https://github.com/nymea/nymea-plugins/issues"
 LICENSE = "LGPL-3.0-only | NYMEA-COMMERCIAL"
 LIC_FILES_CHKSUM = "file://LICENSE.LGPL3;md5=3000208d539ec061b899bce1d9ce9404"
 
-SRC_URI = "git://github.com/nymea/nymea-plugins.git;protocol=https;branch=master"
-# Release: 1.11.1
-SRCREV = "2575f435180de9a9b193c5b5464f358400c86331"
-PV = "1.11.1-git${SRCPV}"
+SRC_URI = "git://github.com/nymea/nymea-plugins.git;protocol=https;branch=landing-silo"
+# Branch: landing-silo
+SRCREV = "ab064d6232bcdf4802ad70551dd6f55fa775cffc"
+PV = "1.12.0-git${SRCPV}"
 
 DEPENDS += "nymea nymea-native"
 

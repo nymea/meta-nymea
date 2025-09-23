@@ -9,11 +9,11 @@ LIC_FILES_CHKSUM=" \
 	file://LICENSE.LGPL3;md5=3000208d539ec061b899bce1d9ce9404 \
 	"
 
-SRC_URI = "git://github.com/nymea/nymea.git;protocol=https;branch=master"
+SRC_URI = "git://github.com/nymea/nymea.git;protocol=https;branch=landing-silo"
 SRC_URI+= "file://init"
-# Release: 1.11.1
-SRCREV = "5f4f2a9b785e0ff7443c4d088a9b19b06c15a51b"
-PV = "1.11.1-git${SRCPV}"
+# Branch: landing-silo
+SRCREV = "fc2c2d41f15c85c2780cc10f1b30b6dcc5293421"
+PV = "1.12.0-git${SRCPV}"
 
 inherit qmake5 pkgconfig systemd update-rc.d
 

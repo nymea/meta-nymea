@@ -6,10 +6,10 @@ BUGTRACKER = "https://github.com/nymea/nymea-zeroconf-plugin-dnssd/issues"
 LICENSE = "LGPL-3.0-only | NYMEA-COMMERCIAL"
 LIC_FILES_CHKSUM = "file://LICENSE.LGPL3;md5=3000208d539ec061b899bce1d9ce9404"
 
-SRC_URI = "git://github.com/nymea/nymea-zeroconf-plugin-dnssd.git;protocol=https;branch=master"
-# Release: 1.11.1
-SRCREV = "b4be5e3b14ba94cd3774988b49199189410146de"
-PV = "1.11.1-git${SRCPV}"
+SRC_URI = "git://github.com/nymea/nymea-zeroconf-plugin-dnssd.git;protocol=https;branch=landing-silo"
+# Branch: landing-silo
+SRCREV = "bc921b7c8bfa574ccfe314b61caa00419d69f19d"
+PV = "1.12.0-git${SRCPV}"
 
 DEPENDS += "nymead mdns"
 

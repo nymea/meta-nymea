@@ -9,10 +9,10 @@ LIC_FILES_CHKSUM=" \
     file://LICENSE.LGPL3;md5=3000208d539ec061b899bce1d9ce9404 \
     "
 
-SRC_URI = "git://github.com/nymea/nymea-zeroconf-plugin-avahi.git;protocol=https;branch=master"
-# Release: 1.11.1
-SRCREV = "d8b3b663ebd3ed6433cafb7a1808b55b197b92c5"
-PV = "1.11.1-git${SRCPV}"
+SRC_URI = "git://github.com/nymea/nymea-zeroconf-plugin-avahi.git;protocol=https;branch=landing-silo"
+# Branch: landing-silo
+SRCREV = "cadf6f211de62d6105d0fbe501b27c24b3088a61"
+PV = "1.12.0-git${SRCPV}"
 
 DEPENDS += "nymea avahi"
 RDEPENDS:${PN} += "nymea avahi-daemon"
