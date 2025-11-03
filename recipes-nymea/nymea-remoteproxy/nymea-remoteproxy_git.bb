@@ -10,9 +10,9 @@ LIC_FILES_CHKSUM = " \
     "
 
 SRC_URI = "git://github.com/nymea/nymea-remoteproxy.git;protocol=https;branch=master"
-# Release: 1.12.0
-SRCREV = "9fba08477f507ae15b2909cf637c31a74a9c5028"
-PV = "1.12.0-git${SRCPV}"
+# Release: 1.12.2
+SRCREV = "54fdd13df9cc12e9d8dffadffe0c8c47a07b81c0"
+PV = "1.12.2-git${SRCPV}"
 
 PACKAGE_BEFORE_PN ?= ""
 
