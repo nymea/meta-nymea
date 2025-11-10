@@ -7,9 +7,9 @@ LICENSE = "LGPL-3.0-only | NYMEA-COMMERCIAL"
 LIC_FILES_CHKSUM = "file://LICENSE.LGPL3;md5=3000208d539ec061b899bce1d9ce9404"
 
 SRC_URI = "git://github.com/nymea/nymea-zigbee.git;protocol=https;branch=master"
-# Release: 1.12.0
-SRCREV = "b3ae2734e80c29228f6b291c9a2f10d330f7d585"
-PV = "1.12.0-git${SRCPV}"
+# Release: 1.12.2
+SRCREV = "43037dc060cfc6b0d28e0c9938f85f9ebdf356a4"
+PV = "1.12.2-git${SRCPV}"
 
 DEPENDS += "qtbase qtserialport udev"
 
