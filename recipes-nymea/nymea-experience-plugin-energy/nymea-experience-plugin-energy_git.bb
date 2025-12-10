@@ -7,9 +7,9 @@ LICENSE = "GPL-3.0-or-later"
 LIC_FILES_CHKSUM = "file://LICENSE.GPL3;md5=1ebbd3e34237af26da5dc08a4e440464"
 
 SRC_URI = "git://github.com/nymea/nymea-experience-plugin-energy.git;protocol=https;branch=master"
-# Release: 1.12.3
-SRCREV = "9b352902d87a3aa11aa3982412bdda84767c21e1"
-PV = "1.12.3-git${SRCPV}"
+# Release: 1.13.0
+SRCREV = "daf6d389feba1bb2c4950d1392fed361651acb73"
+PV = "1.13.0-git${SRCPV}"
 
 DEPENDS += "nymea sqlite3"
 PACKAGES =+ "libnymea-energy libnymea-energy-dev"

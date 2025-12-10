@@ -10,9 +10,9 @@ LIC_FILES_CHKSUM = " \
 	"
 
 SRC_URI = "git://github.com/nymea/nymea-zigbee.git;protocol=https;branch=master"
-# Release: 1.12.3
-SRCREV = "804e416b1b66d28a250876f34c6d360e3d789bac"
-PV = "1.12.3-git${SRCPV}"
+# Release: 1.13.0
+SRCREV = "b06ed4442c501dc2c02d9cf621d1c40507d0c6bb"
+PV = "1.13.0-git${SRCPV}"
 
 DEPENDS += "qtbase qtserialport udev"
 
