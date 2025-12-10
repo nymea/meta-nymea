@@ -3,7 +3,7 @@ SUMMARY = "Zeroconf plugin for nymea in order to interact with the avahi-daemon"
 HOMEPAGE = "https://nymea.io"
 BUGTRACKER = "https://github.com/nymea/nymea-zeroconf-plugin-avahi/issues"
 
-LICENSE = "GPL-3.0-or-later | NYMEA-COMMERCIAL"
+LICENSE = "GPL-3.0-or-later"
 LIC_FILES_CHKSUM = "file://LICENSE.GPL3;md5=1ebbd3e34237af26da5dc08a4e440464"
 
 SRC_URI = "git://github.com/nymea/nymea-experience-plugin-energy.git;protocol=https;branch=master"

@@ -1,10 +1,10 @@
 DESCRIPTION = "nymea-system-plugin-systemd"
 SUMMARY = "System plugin for nymea in order to use systemd services"
 HOMEPAGE = "https://nymea.io"
-BUGTRACKER = "https://github.com/nymea/nymea-remoteproxy/issues"
+BUGTRACKER = "https://github.com/nymea/nymea-system-plugin-systemd/issues"
 
-LICENSE = "LGPL-3.0-or-later | NYMEA-COMMERCIAL"
-LIC_FILES_CHKSUM = "file://LICENSE.LGPL3;md5=3000208d539ec061b899bce1d9ce9404"
+LICENSE = "GPL-3.0-or-later"
+LIC_FILES_CHKSUM = "file://LICENSE.GPL3;md5=1ebbd3e34237af26da5dc08a4e440464"
 
 SRC_URI = "git://github.com/nymea/nymea-system-plugin-systemd.git;protocol=https;branch=master"
 # Release: 1.12.3

@@ -3,11 +3,19 @@ SUMMARY = "Daemon, utils and libraries for the nymea remote connection"
 HOMEPAGE = "https://nymea.io"
 BUGTRACKER = "https://github.com/nymea/nymea-remoteproxy/issues"
 
-LICENSE = "(GPL-3.0-only & LGPL-3.0-only) | NYMEA-COMMERCIAL"
+LICENSE = "(GPL-3.0-or-later & LGPL-3.0-or-later)"
+
+LICENSE:${PN}-tunnelclient = "GPL-3.0-or-later"
+LICENSE:${PN}-monitor = "GPL-3.0-or-later"
+LICENSE:lib${PN} = "LGPL-3.0-or-later"
+LICENSE:${PN}-dev = "LGPL-3.0-or-later"
+LICENSE:lib${PN}client = "LGPL-3.0-or-later"
+LICENSE:${PN}client-dev = "LGPL-3.0-or-later"
+
 LIC_FILES_CHKSUM = " \
-    file://LICENSE.LGPL3;md5=3000208d539ec061b899bce1d9ce9404 \
-    file://LICENSE.GPL3;md5=500948a8f0c6fefa21e8694792e6b728 \
-    "
+	file://LICENSE.GPL3;md5=1ebbd3e34237af26da5dc08a4e440464 \
+	file://LICENSE.LGPL3;md5=3000208d539ec061b899bce1d9ce9404 \
+	"
 
 SRC_URI = "git://github.com/nymea/nymea-remoteproxy.git;protocol=https;branch=master"
 # Release: 1.12.3
