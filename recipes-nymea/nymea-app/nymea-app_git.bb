@@ -3,8 +3,11 @@ SUMMARY = "Client application for the nymea daemon"
 HOMEPAGE = "https://nymea.io"
 BUGTRACKER = "https://github.com/nymea/nymea-app/issues"
 
-LICENSE = "GPL-3.0-only | NYMEA_COMMERCIAL"
-LIC_FILES_CHKSUM="file://LICENSE;md5=1ebbd3e34237af26da5dc08a4e440464"
+LICENSE = "(GPL-3.0-or-later & LGPL-3.0-or-later)"
+LIC_FILES_CHKSUM = " \
+	file://LICENSE.GPL3;md5=1ebbd3e34237af26da5dc08a4e440464 \
+	file://LICENSE.LGPL3;md5=3000208d539ec061b899bce1d9ce9404 \
+	"
 
 SRC_URI="git://github.com/nymea/nymea-app.git;protocol=https;branch=master"
 

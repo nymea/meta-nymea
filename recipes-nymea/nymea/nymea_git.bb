@@ -3,17 +3,28 @@ SUMMARY = "An open source IoT server"
 HOMEPAGE = "https://nymea.io"
 BUGTRACKER = "https://github.com/nymea/nymea/issues"
 
-LICENSE = "(GPL-3.0-only & LGPL-3.0-only) | NYMEA-COMMERCIAL"
-LIC_FILES_CHKSUM=" \
+LICENSE = "(GPL-3.0-or-later & LGPL-3.0-or-later)"
+
+LICENSE:${PN}d = "GPL-3.0-or-later"
+LICENSE:${PN}-data = "GPL-3.0-or-later"
+LICENSE:${PN}-tests = "GPL-3.0-or-later"
+LICENSE:lib${PN} = "LGPL-3.0-or-later"
+LICENSE:lib${PN}-dev = "LGPL-3.0-or-later"
+LICENSE:lib${PN}-core = "LGPL-3.0-or-later"
+LICENSE:lib${PN}-core-dev = "LGPL-3.0-or-later"
+LICENSE:lib${PN}-tests = "LGPL-3.0-or-later"
+LICENSE:lib${PN}-tests-dev = "LGPL-3.0-or-later"
+
+LIC_FILES_CHKSUM = " \
 	file://LICENSE.GPL3;md5=1ebbd3e34237af26da5dc08a4e440464 \
 	file://LICENSE.LGPL3;md5=3000208d539ec061b899bce1d9ce9404 \
 	"
 
 SRC_URI = "git://github.com/nymea/nymea.git;protocol=https;branch=master"
 SRC_URI+= "file://init"
-# Release: 1.12.3
-SRCREV = "603ec80f7f8e0eba2206201cbc4b5f7128c1f08e"
-PV = "1.12.3-git${SRCPV}"
+# Release: 1.13.0
+SRCREV = "8ca1bca75d3d78b5b6570003984d50db57b5f8d3"
+PV = "1.13.0-git${SRCPV}"
 
 inherit qmake5 pkgconfig systemd update-rc.d
 

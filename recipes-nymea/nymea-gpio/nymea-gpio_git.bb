@@ -3,18 +3,21 @@ SUMMARY = "Library and utils to interact with GPIOs for nymea"
 HOMEPAGE = "https://nymea.io"
 BUGTRACKER = "https://github.com/nymea/nymea-gpio/issues"
 
-LICENSE = "(LGPL-3.0-only & GPL-3.0-only) | NYMEA-COMMERCIAL"
-LICENSE:${PN}-utils = "GPL-3.0-only | NYMEA-COMMERCIAL"
+LICENSE = "(GPL-3.0-or-later & LGPL-3.0-or-later)"
 
-LIC_FILES_CHKSUM=" \
+LICENSE:${PN}-utils = "GPL-3.0-or-later"
+LICENSE:lib${PN} = "LGPL-3.0-or-later"
+LICENSE:${PN}-dev = "LGPL-3.0-or-later"
+
+LIC_FILES_CHKSUM = " \
 	file://LICENSE.LGPL3;md5=3000208d539ec061b899bce1d9ce9404 \
 	file://LICENSE.GPL3;md5=1ebbd3e34237af26da5dc08a4e440464 \
 	"
 
 SRC_URI = "git://github.com/nymea/nymea-gpio.git;protocol=https;branch=master"
-# Release: 1.12.3
-SRCREV = "d8af25448408443f0712e2d4ab70d4f4603157bd"
-PV = "1.12.3-git${SRCPV}"
+# Release: 1.13.0
+SRCREV = "8bae17e01cb84e3d2e6e26efcffac48411506e2c"
+PV = "1.13.0-git${SRCPV}"
 
 DEPENDS += "qtbase"
 
