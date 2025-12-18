@@ -21,6 +21,12 @@ S = "${WORKDIR}/git"
 ALLOW_EMPTY:${PN} = "1"
 FILES:${PN} = ""
 
+# ${PN}-dev normally depends on ${PN}. Since ${PN} is a meta package pulling in
+# *all* plugins, developer images that install complementary -dev packages would
+# end up installing all plugins as well. nymea-plugins-genericthings does not ship headers or
+# linkable libraries that need such a dependency, so drop it.
+RDEPENDS:${PN}-dev = ""
+
 # One can find all available plugins by running oe-pkgdata-util list-pkgs nymea-plugin* after having bitbake'd nymea-plugin-genericthings
 python populate_packages:prepend (){
     nymea_libdir = d.expand('${libdir}/nymea/plugins/')

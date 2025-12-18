@@ -21,6 +21,12 @@ S = "${WORKDIR}/git"
 ALLOW_EMPTY:${PN} = "1"
 FILES:${PN} = ""
 
+# ${PN}-dev normally depends on ${PN}. Since ${PN} is a meta package pulling in
+# *all* plugins, developer images that install complementary -dev packages would
+# end up installing all plugins as well. nymea-plugins-zigbee does not ship headers or
+# linkable libraries that need such a dependency, so drop it.
+RDEPENDS:${PN}-dev = ""
+
 # PACKAGECONFIG options should **never** set WITH_PLUGINS in the leftmost argument
 # PACKAGECONFIG[zigbeelumi] = ", WITHOUT_PLUGINS+=zigbeelumi"
 
