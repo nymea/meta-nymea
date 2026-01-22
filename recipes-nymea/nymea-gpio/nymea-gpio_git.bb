@@ -15,13 +15,16 @@ LIC_FILES_CHKSUM = " \
 	"
 
 SRC_URI = "git://github.com/nymea/nymea-gpio.git;protocol=https;branch=master"
-# Release: 1.13.0
-SRCREV = "8bae17e01cb84e3d2e6e26efcffac48411506e2c"
-PV = "1.13.0-git${SRCPV}"
+# Release: 1.14.0
+SRCREV = "2bcae76bdf02e3eb82981e16c317784d90c0bd77"
+PV = "1.14.0-git${SRCPV}"
 
-DEPENDS += "qtbase"
+DEPENDS += " \
+	qtbase \
+	libgpiod \
+	"
 
-inherit qmake5
+inherit qmake5 pkgconfig
 
 S = "${WORKDIR}/git"
 

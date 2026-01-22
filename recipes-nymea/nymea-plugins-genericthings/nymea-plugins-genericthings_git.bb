@@ -7,9 +7,9 @@ LICENSE = "GPL-3.0-or-later"
 LIC_FILES_CHKSUM = "file://LICENSE.GPL3;md5=1ebbd3e34237af26da5dc08a4e440464"
 
 SRC_URI = "git://github.com/nymea/nymea-plugins-genericthings.git;protocol=https;branch=master"
-# Release: 1.13.0
-SRCREV = "b4fd80a59bca9fb11482e6d47caf879178fd3014"
-PV = "1.13.0-git${SRCPV}"
+# Release: 1.14.0
+SRCREV = "1ace4943bc13f9cd9bcae536da2e7570ce4737e0"
+PV = "1.14.0-git${SRCPV}"
 
 DEPENDS += "nymea nymea-native"
 

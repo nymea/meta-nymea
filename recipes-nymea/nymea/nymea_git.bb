@@ -22,9 +22,9 @@ LIC_FILES_CHKSUM = " \
 
 SRC_URI = "git://github.com/nymea/nymea.git;protocol=https;branch=master"
 SRC_URI+= "file://init"
-# Release: 1.13.0
-SRCREV = "8ca1bca75d3d78b5b6570003984d50db57b5f8d3"
-PV = "1.13.0-git${SRCPV}"
+# Release: 1.14.0
+SRCREV = "abd8dd2d97e89362ecf3f7207dadb87eb110c1de"
+PV = "1.14.0-git${SRCPV}"
 
 inherit qmake5 pkgconfig systemd update-rc.d
 
@@ -57,7 +57,7 @@ RDEPENDS:${PN}-dev = "lib${PN}-dev lib${PN}-core-dev lib${PN}-tests-dev"
 RDEPENDS:${PN}d += "lib${PN}-core (= ${EXTENDPKGV}) lib${PN} (= ${EXTENDPKGV})"
 FILES:${PN}d = " \
 	${bindir}/nymead \
-	/etc/dbus-1/system.d \
+	${datadir}/dbus-1/system.d \
 	${systemd_system_unitdir}/nymead.service \
 	"
 
@@ -100,10 +100,12 @@ EXTRA_QMAKEVARS_PRE:class-target += "NYMEA_VERSION=${PV} CONFIG+=withoutpython D
 do_install:append:class-target() {
 
 	install -d ${D}${datadir}/nymea/nymead/
-	install -m 0755 ${S}/data/mac-database/mac-addresses.db ${D}${datadir}/nymea/nymead/
+	install -m 0644 ${S}/data/mac-database/mac-addresses.db ${D}${datadir}/nymea/nymead/
 
-	install -d ${D}/etc/dbus-1/system.d/
-	install -m 0755 ${S}/data/dbus-1/io.guh.nymead.conf ${D}/etc/dbus-1/system.d/
+	install -d ${D}${datadir}/dbus-1/system.d/
+	install -m 0644 ${S}/data/dbus-1/io.nymea.nymead.conf ${D}${datadir}/dbus-1/system.d/
+	# The io.guh.nymead dbus interface is deprecated and will be removed with 1.15.0
+	install -m 0644 ${S}/data/dbus-1/io.guh.nymead.conf ${D}${datadir}/dbus-1/system.d/
 
 	if [ "${@bb.utils.filter('DISTRO_FEATURES', 'sysvinit', d)}" ] ; then
 		install -d ${D}${INIT_D_DIR}
