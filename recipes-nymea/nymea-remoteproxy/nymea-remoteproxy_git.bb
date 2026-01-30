@@ -17,10 +17,10 @@ LIC_FILES_CHKSUM = " \
 	file://LICENSE.LGPL3;md5=3000208d539ec061b899bce1d9ce9404 \
 	"
 
-SRC_URI = "git://github.com/nymea/nymea-remoteproxy.git;protocol=https;branch=master"
-# Release: 1.15.0
-SRCREV = "4ec32f07ad4e59be5aa4708fd815ee6e993ed1d2"
-PV = "1.15.0-git${SRCPV}"
+SRC_URI = "git://github.com/nymea/nymea-remoteproxy.git;protocol=https;branch=experimental-silo"
+# Branch: experimental-silo
+SRCREV = "${AUTOREV}"
+PV = "1.16.0-git${SRCPV}"
 
 PACKAGE_BEFORE_PN ?= ""
 

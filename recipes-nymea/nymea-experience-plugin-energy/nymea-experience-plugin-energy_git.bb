@@ -6,10 +6,10 @@ BUGTRACKER = "https://github.com/nymea/nymea-zeroconf-plugin-avahi/issues"
 LICENSE = "GPL-3.0-or-later"
 LIC_FILES_CHKSUM = "file://LICENSE.GPL3;md5=1ebbd3e34237af26da5dc08a4e440464"
 
-SRC_URI = "git://github.com/nymea/nymea-experience-plugin-energy.git;protocol=https;branch=master"
-# Release: 1.15.0
-SRCREV = "716eb492e606f78390fed54c7da8c0d38a267dd6"
-PV = "1.15.0-git${SRCPV}"
+SRC_URI = "git://github.com/nymea/nymea-experience-plugin-energy.git;protocol=https;branch=experimental-silo"
+# Branch: experimental-silo
+SRCREV = "${AUTOREV}"
+PV = "1.16.0-git${SRCPV}"
 
 DEPENDS += "nymea sqlite3"
 PACKAGES =+ "libnymea-energy libnymea-energy-dev"
