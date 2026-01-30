@@ -15,10 +15,10 @@ LIC_FILES_CHKSUM = " \
 	file://LICENSE.GPL3;md5=1ebbd3e34237af26da5dc08a4e440464 \
 	"
 
-SRC_URI = "git://github.com/nymea/nymea-mqtt.git;protocol=https;branch=master"
-# Release: 1.16.1
-SRCREV = "94bc54a26e466bd67f7a1bb5f4cf4cee930f54f4"
-PV = "1.16.1-git${SRCPV}"
+SRC_URI = "git://github.com/nymea/nymea-mqtt.git;protocol=https;branch=experimental-silo"
+# Branch: experimental-silo
+SRCREV = "${AUTOREV}"
+PV = "1.16.0-git${SRCPV}"
 
 DEPENDS += "qtbase qtwebsockets openssl"
 BBCLASSEXTEND += "native"

@@ -6,6 +6,7 @@
 TAG=""
 BRANCH=""
 VERSION=""
+SET_AUTOREV=0
 
 CURRENTDIR=$(dirname "$(realpath -s "$0")")
 
@@ -30,6 +31,7 @@ OPTIONS:
   -t, --tag <tag>           Update all nymea recipes to the given tag. Also the version will be updated to the tag name.
   -b, --branch <branch>     Update all nymea recipes to the given branch.
   -v, --version <version>   Set all nymea packages to the given version. Optional usage with branch.
+  -a, --auto-revision       Set the source revision to AUTOREV. Default sets the revision to the branch/tag hash.
   -h, --help                Show this message
 
 EOF
@@ -77,7 +79,11 @@ function configureTag() {
         done
 
         echo "Updating SRCREV ..."
+        if [ $SET_AUTOREV -eq 1 ]; then
+            TAG_SHA='${AUTOREV}'
+        fi
         sed -i "s/^SRCREV =.*/SRCREV = \"$TAG_SHA\"/" ${RECIPE_FILE}
+
         cat ${RECIPE_FILE} | grep "SRCREV"
 
         echo "Updating Release comment ..."
@@ -134,6 +140,10 @@ function configureBranch() {
         cat ${RECIPE_FILE} | grep "SRC_URI"
 
         echo "Updating SRCREV ..."
+        if [ $SET_AUTOREV -eq 1 ]; then
+            BRANCH_SHA='${AUTOREV}'
+        fi
+
         sed -i "s/^SRCREV =.*/SRCREV = \"$BRANCH_SHA\"/" ${RECIPE_FILE}
         cat ${RECIPE_FILE} | grep "SRCREV"
 
@@ -162,6 +172,9 @@ while [ "$1" != "" ]; do
         -v | --version )
             VERSION="$2"
             shift;;
+        -a | --auto-revision )
+            SET_AUTOREV=1
+            shift;;
         -h | --help )
             usage && exit 0;;
         * )
@@ -189,7 +202,7 @@ if [ ! -z "$TAG" ]; then
     fi
 
     configureTag
-    
+
 elif [ ! -z "$BRANCH" ]; then
     if [ -z "$VERSION" ]; then
         echo "Unknown version. Please specify also the version (-v | --version)"
