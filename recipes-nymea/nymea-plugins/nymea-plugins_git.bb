@@ -27,6 +27,9 @@ FILES:${PN} = ""
 # linkable libraries that need such a dependency, so drop it.
 RDEPENDS:${PN}-dev = ""
 
+# Plugin-specific runtime dependency
+RDEPENDS:nymea-plugin-common-tmate += "tmate"
+
 # Only plugins which require a build time or runtime dependency need to be
 # explicitly listed, so that they can be disabled and make the build slightly
 # faster.
