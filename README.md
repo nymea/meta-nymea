@@ -6,6 +6,11 @@ Introduction
 
 OpenEmbedded/Yocto meta layer for nymea
 
+Documentation
+-------------------------
+
+* [Build `yocto-nymea-image` with Poky and run it in QEMU](docs/build-yocto-nymea-image-qemu.md)
+
 * Base openembedded/yocto system
 
 	URI: git://git.yoctoproject.org/poky
