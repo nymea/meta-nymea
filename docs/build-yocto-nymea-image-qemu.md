@@ -109,6 +109,47 @@ When the build finishes, start QEMU from the same shell:
 runqemu qemux86-64 yocto-nymea-image nographic
 ```
 
+If `runqemu` fails with:
+
+```text
+runqemu - ERROR - IMAGE_LINK_NAME wasn't set to find corresponding .qemuboot.conf file
+```
+
+your Poky checkout likely contains an older `runqemu` version that does not
+correctly handle the `runqemu <machine> <image>` form for some image targets.
+In that case, pass the root filesystem and kernel artifacts explicitly instead:
+
+```bash
+runqemu qemux86-64 \
+    tmp/deploy/images/qemux86-64/yocto-nymea-image-qemux86-64.rootfs.ext4 \
+    tmp/deploy/images/qemux86-64/bzImage \
+    nographic
+```
+
+If your build produced a different root filesystem type, use the matching file
+from `tmp/deploy/images/qemux86-64/` instead of `.rootfs.ext4`.
+
+If you are running inside Docker and `runqemu` fails with:
+
+```text
+runqemu - ERROR - TUN control device /dev/net/tun is unavailable
+```
+
+the container does not have access to the host TUN/TAP device. Use `slirp`
+mode to avoid the TUN dependency:
+
+```bash
+runqemu qemux86-64 \
+    tmp/deploy/images/qemux86-64/yocto-nymea-image-qemux86-64.rootfs.ext4 \
+    tmp/deploy/images/qemux86-64/bzImage \
+    slirp \
+    nographic
+```
+
+Alternatively, start the container with access to `/dev/net/tun` and the
+required network capabilities, for example `--device /dev/net/tun
+--cap-add NET_ADMIN`. The exact Docker flags depend on your container setup.
+
 If you want a graphical QEMU window, omit `nographic`:
 
 ```bash
