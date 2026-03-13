@@ -40,10 +40,10 @@ PROVIDES:${PN} += "${PN}d lib${PN} "
 RRECOMMENDS:${PN} += "${PN}-data"
 
 INITSCRIPT_PACKAGES = "${PN}d"
-INITSCRIPT_NAME = "nymead"
+INITSCRIPT_NAME:${PN}d = "nymead"
 #INISCRIPTS_PARAMS = "defaults 10"
 
-SYSTEMD_SERVICE:${PN} = "nymead.service"
+SYSTEMD_SERVICE:${PN}d = "nymead.service"
 
 # Empty nymea package provides nymead
 FILES:${PN} = ""
@@ -60,6 +60,7 @@ RDEPENDS:${PN}d += "lib${PN}-core (= ${EXTENDPKGV}) lib${PN} (= ${EXTENDPKGV})"
 FILES:${PN}d = " \
 	${bindir}/nymead \
 	${datadir}/dbus-1/system.d \
+	${sysconfdir}/init.d/nymead \
 	${systemd_system_unitdir}/nymead.service \
 	"
 
