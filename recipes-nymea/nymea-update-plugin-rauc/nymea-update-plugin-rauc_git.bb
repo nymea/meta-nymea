@@ -6,10 +6,10 @@ BUGTRACKER = "https://github.com/nymea/nymea-update-plugin-rauc/issues"
 LICENSE = "GPL-3.0-or-later"
 LIC_FILES_CHKSUM = "file://LICENSE.GPL3;md5=1ebbd3e34237af26da5dc08a4e440464"
 
-SRC_URI = "git://github.com/nymea/nymea-update-plugin-rauc.git;protocol=https;branch=master"
-# Release: 1.14.2
-SRCREV = "9b005a9611344627c0f1125df0c883421f83ef50"
-PV = "1.14.2-git${SRCPV}"
+SRC_URI = "git://github.com/nymea/nymea-update-plugin-rauc.git;protocol=https;branch=experimental-silo"
+# Branch: experimental-silo
+SRCREV = "${AUTOREV}"
+PV = "1.14.3-git${SRCPV}"
 
 DEPENDS += "nymea"
 RDEPENDS:${PN} += "nymead"

@@ -6,10 +6,10 @@ BUGTRACKER = "https://github.com/nymea/nymea-plugins-simulation/issues"
 LICENSE = "GPL-3.0-or-later"
 LIC_FILES_CHKSUM = "file://LICENSE.GPL3;md5=1ebbd3e34237af26da5dc08a4e440464"
 
-SRC_URI = "git://github.com/nymea/nymea-plugins-simulation.git;protocol=https;branch=master"
-# Release: 1.14.2
-SRCREV = "478e463272720dde099e685f163559d15fbfd932"
-PV = "1.14.2-git${SRCPV}"
+SRC_URI = "git://github.com/nymea/nymea-plugins-simulation.git;protocol=https;branch=experimental-silo"
+# Branch: experimental-silo
+SRCREV = "${AUTOREV}"
+PV = "1.14.3-git${SRCPV}"
 
 DEPENDS += "nymea nymea-sdk-native"
 

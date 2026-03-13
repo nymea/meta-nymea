@@ -17,10 +17,10 @@ LIC_FILES_CHKSUM = " \
 	file://LICENSE.LGPL3;md5=3000208d539ec061b899bce1d9ce9404 \
 	"
 
-SRC_URI = "git://github.com/nymea/nymea-plugins-modbus.git;protocol=https;branch=master"
-# Release: 1.14.2
-SRCREV = "f549bc3ce860bb9a7603d5d0b6024ea0ddf91074"
-PV = "1.14.2-git${SRCPV}"
+SRC_URI = "git://github.com/nymea/nymea-plugins-modbus.git;protocol=https;branch=experimental-silo"
+# Branch: experimental-silo
+SRCREV = "${AUTOREV}"
+PV = "1.14.3-git${SRCPV}"
 
 DEPENDS += "nymea nymea-sdk-native qtserialport qtserialbus python3 i2c-tools"
 

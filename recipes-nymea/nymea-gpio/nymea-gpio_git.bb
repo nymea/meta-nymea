@@ -14,10 +14,10 @@ LIC_FILES_CHKSUM = " \
 	file://LICENSE.GPL3;md5=1ebbd3e34237af26da5dc08a4e440464 \
 	"
 
-SRC_URI = "git://github.com/nymea/nymea-gpio.git;protocol=https;branch=master"
-# Release: 1.14.2
-SRCREV = "ccc1e6b80a41055f4f637145dec34c540fca8145"
-PV = "1.14.2-git${SRCPV}"
+SRC_URI = "git://github.com/nymea/nymea-gpio.git;protocol=https;branch=experimental-silo"
+# Branch: experimental-silo
+SRCREV = "${AUTOREV}"
+PV = "1.14.3-git${SRCPV}"
 
 DEPENDS += " \
 	qtbase \
