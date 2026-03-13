@@ -14,7 +14,11 @@ OpenEmbedded/Yocto meta layer for nymea
 * Qt6
 
 	URI: "https://code.qt.io/cgit/yocto/meta-qt6.git"
-	BRANCH: `6.8.3`
+	BRANCH: `6.10.3`
+
+
+        git clone https://code.qt.io/yocto/meta-qt6.git -b 6.10.3
+
 
 > Note: make sure not to checkout an `lts-6.X.X` branch, since that requires a commercial license.
 
