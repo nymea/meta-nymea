@@ -9,7 +9,7 @@ OpenEmbedded/Yocto meta layer for nymea
 * Base openembedded/yocto system
 
 	URI: git://git.yoctoproject.org/poky
-	BRANCH: `kirkstone`
+	BRANCH: `kirkstone` or `scarthgap`
 
 * Qt6
 
