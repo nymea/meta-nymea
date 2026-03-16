@@ -61,6 +61,8 @@ From inside the build directory:
 ```bash
 bitbake-layers add-layer ../meta-openembedded/meta-oe
 bitbake-layers add-layer ../meta-openembedded/meta-python
+bitbake-layers add-layer ../meta-openembedded/meta-networking
+bitbake-layers add-layer ../meta-openembedded/meta-filesystems
 bitbake-layers add-layer ../meta-qt6
 bitbake-layers add-layer ../meta-nymea
 ```
@@ -224,9 +226,12 @@ cd poky
 source oe-init-build-env ../build-nymea
 bitbake-layers add-layer ../meta-openembedded/meta-oe
 bitbake-layers add-layer ../meta-openembedded/meta-python
+bitbake-layers add-layer ../meta-openembedded/meta-networking
+bitbake-layers add-layer ../meta-openembedded/meta-filesystems
 bitbake-layers add-layer ../meta-qt6
 bitbake-layers add-layer ../meta-nymea
 echo 'MACHINE ?= "qemux86-64"' >> conf/local.conf
 bitbake yocto-nymea-image
 runqemu qemux86-64 yocto-nymea-image nographic
 ```
+
