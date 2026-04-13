@@ -14,7 +14,7 @@ Documentation
 * Base openembedded/yocto system
 
 	URI: git://git.yoctoproject.org/poky
-	BRANCH: `kirkstone` or `scarthgap`
+	BRANCH: `kirkstone`, `scarthgap` or `wrynose`
 
 * Qt6
 
