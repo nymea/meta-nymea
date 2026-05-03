@@ -15,7 +15,7 @@ SRC_URI="git://github.com/nymea/nymea-app.git;protocol=https;branch=master"
 SRCREV = "b26d959ca5e2ee1ee52bada89f2dfaa149c05f75"
 PV = "1.10.13-git${SRCPV}"
 
-DEPENDS += "qtbase nymead nymea-remoteproxy qtcharts qtquickcontrols2 qtsvg"
+DEPENDS += "qtbase nymea nymea-remoteproxy qtcharts qtquickcontrols2 qtsvg"
 BBCLASSEXTEND += "native"
 
 S = "${WORKDIR}/git"
