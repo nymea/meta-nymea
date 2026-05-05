@@ -6,7 +6,7 @@ BUGTRACKER = "https://github.com/nymea/nymea-app/issues"
 LICENSE = "(GPL-3.0-or-later & LGPL-3.0-or-later)"
 LIC_FILES_CHKSUM = " \
 	file://LICENSE.GPL3;md5=1ebbd3e34237af26da5dc08a4e440464 \
-	file://LICENSE.LGPL3;md5=3000208d539ec061b899bce1d9ce9404 \
+	file://LICENSE.LGPL3;md5=8a5c0c154112c14f0d9713ac9e981ee6 \
 	"
 
 SRC_URI="git://github.com/nymea/nymea-app.git;protocol=https;branch=master"
@@ -15,7 +15,7 @@ SRC_URI="git://github.com/nymea/nymea-app.git;protocol=https;branch=master"
 SRCREV = "b26d959ca5e2ee1ee52bada89f2dfaa149c05f75"
 PV = "1.10.13-git${SRCPV}"
 
-DEPENDS += "qtbase nymead nymea-remoteproxy qtcharts qtquickcontrols2 qtsvg"
+DEPENDS += "qtbase nymea nymea-remoteproxy qtcharts qtquickcontrols2 qtsvg"
 BBCLASSEXTEND += "native"
 
 S = "${WORKDIR}/git"
@@ -26,4 +26,3 @@ do_install:append() {
 	# FIXME: drop icons, unneeded on this platform
 	rm -rf ${D}/usr/share/icons/
 }
-
