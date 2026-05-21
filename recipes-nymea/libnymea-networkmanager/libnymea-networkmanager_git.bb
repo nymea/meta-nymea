@@ -9,7 +9,7 @@ LIC_FILES_CHKSUM = " \
 	file://LICENSE.LGPL3;md5=3000208d539ec061b899bce1d9ce9404 \
 	"
 
-SRC_URI="git://github.com/nymea/libnymea-networkmanager.git;protocol=https;branch=master"
+SRC_URI = "git://github.com/nymea/libnymea-networkmanager.git;protocol=https;branch=master"
 # Release: 1.15.0
 SRCREV = "44c376540c81707e6692a083ee505122585fa7d6"
 PV = "1.15.0-git${SRCPV}"

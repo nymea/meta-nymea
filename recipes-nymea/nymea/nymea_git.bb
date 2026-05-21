@@ -21,7 +21,7 @@ LIC_FILES_CHKSUM = " \
 	"
 
 SRC_URI = "git://github.com/nymea/nymea.git;protocol=https;branch=master"
-SRC_URI+= "file://init"
+SRC_URI += "file://init"
 # Release: 1.15.0
 SRCREV = "6650cb21c84ec84dbbd8cfc7ca778f6ea9faee09"
 PV = "1.15.0-git${SRCPV}"
