@@ -38,8 +38,6 @@ RDEPENDS:${PN} += "libnymea-remoteproxy"
 
 inherit qt6-qmake
 
-S = "${WORKDIR}/git"
-
 EXTRA_QMAKEVARS_PRE += "CONFIG+=disabletests"
 
 FILES:${PN} = "${bindir}/${PN}"

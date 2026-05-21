@@ -15,8 +15,6 @@ DEPENDS += "nymea sqlite3"
 PACKAGES =+ "libnymea-energy libnymea-energy-dev"
 RDEPENDS:${PN} += "libnymea libnymea-energy (= ${EXTENDPKGV}) sqlite3"
 
-S = "${WORKDIR}/git"
-
 inherit qt6-qmake pkgconfig
 
 FILES:${PN} += "${libdir}/nymea/experiences/libnymea_experiencepluginenergy.so"

@@ -26,8 +26,6 @@ DEPENDS += " \
 
 inherit qt6-qmake pkgconfig
 
-S = "${WORKDIR}/git"
-
 PACKAGES += "lib${PN} ${PN}-utils lib${PN}-dev"
 
 FILES:${PN} = ""

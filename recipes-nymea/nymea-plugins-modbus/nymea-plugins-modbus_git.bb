@@ -26,8 +26,6 @@ DEPENDS += "nymea nymea-sdk-native qtserialport qtserialbus python3 i2c-tools"
 
 inherit qt6-qmake pkgconfig
 
-S = "${WORKDIR}/git"
-
 EXTRA_QMAKEVARS_PRE += "${PACKAGECONFIG_CONFARGS}"
 
 PACKAGES =+ " \

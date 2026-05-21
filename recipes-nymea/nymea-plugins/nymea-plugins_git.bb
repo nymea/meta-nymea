@@ -15,8 +15,6 @@ DEPENDS += "nymea nymea-sdk-native"
 
 inherit qt6-qmake pkgconfig
 
-S = "${WORKDIR}/git"
-
 # The package nymea-plugins is only a meta package for all plugins
 ALLOW_EMPTY:${PN} = "1"
 FILES:${PN} = ""

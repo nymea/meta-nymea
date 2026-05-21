@@ -28,8 +28,6 @@ PV = "1.15.0-git${SRCPV}"
 
 inherit qt6-qmake pkgconfig systemd update-rc.d
 
-S = "${WORKDIR}/git"
-
 DEPENDS = "qtbase nymea-sdk-native"
 DEPENDS:append = " qtwebsockets qtconnectivity qtdeclarative qtserialport qtserialbus qt5compat nymea-gpio nymea-remoteproxy libnymea-networkmanager nymea-mqtt nymea-zigbee"
 

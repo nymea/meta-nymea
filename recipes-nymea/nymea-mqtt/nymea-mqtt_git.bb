@@ -25,8 +25,6 @@ BBCLASSEXTEND += "native"
 
 inherit qt6-qmake
 
-S = "${WORKDIR}/git"
-
 EXTRA_QMAKEVARS_PRE += "CONFIG+=disabletests"
 
 PACKAGES =+ "lib${PN} lib${PN}-dev ${PN}-client ${PN}-server"

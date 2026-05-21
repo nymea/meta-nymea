@@ -13,8 +13,6 @@ PV = "1.15.0-git${SRCPV}"
 
 inherit qt6-qmake
 
-S = "${WORKDIR}/git"
-
 BBCLASSEXTEND += "native"
 
 DEPENDS += "qtbase-native"

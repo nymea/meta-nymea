@@ -16,7 +16,5 @@ PV = "1.15.0-git${SRCPV}"
 
 DEPENDS += "qtbase qtconnectivity"
 
-S = "${WORKDIR}/git"
-
 inherit qt6-qmake
 

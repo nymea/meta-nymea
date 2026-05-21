@@ -15,8 +15,6 @@ DEPENDS += "nymea nymea-sdk-native nymea-zigbee"
 
 inherit qt6-qmake pkgconfig
 
-S = "${WORKDIR}/git"
-
 # The package nymea-plugins-zigbee is only a meta package for all plugins
 ALLOW_EMPTY:${PN} = "1"
 FILES:${PN} = ""

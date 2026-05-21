@@ -20,6 +20,4 @@ RDEPENDS:${PN} += "nymea avahi-daemon"
 
 inherit qt6-qmake pkgconfig
 
-S = "${WORKDIR}/git"
-
 FILES:${PN} += "${libdir}/nymea/platform/libnymea_zeroconfpluginavahi.so"

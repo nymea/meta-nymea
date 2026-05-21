@@ -16,6 +16,4 @@ RDEPENDS:${PN} += "nymead"
 
 inherit qt6-qmake pkgconfig
 
-S = "${WORKDIR}/git"
-
 FILES:${PN} += "${libdir}/nymea/platform/libnymea_updatepluginrauc.so"
