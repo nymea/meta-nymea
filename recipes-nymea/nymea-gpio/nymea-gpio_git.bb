@@ -15,9 +15,9 @@ LIC_FILES_CHKSUM = " \
 	"
 
 SRC_URI = "git://github.com/nymea/nymea-gpio.git;protocol=https;branch=master"
-# Release: 1.14.2
-SRCREV = "ccc1e6b80a41055f4f637145dec34c540fca8145"
-PV = "1.14.2-git${SRCPV}"
+# Release: 1.15.0
+SRCREV = "0a27fceb02d3d3e012bb35e602d7351dd60e4fb7"
+PV = "1.15.0-git${SRCPV}"
 
 DEPENDS += " \
 	qtbase \
@@ -25,8 +25,6 @@ DEPENDS += " \
 	"
 
 inherit qt6-qmake pkgconfig
-
-S = "${WORKDIR}/git"
 
 PACKAGES += "lib${PN} ${PN}-utils lib${PN}-dev"
 

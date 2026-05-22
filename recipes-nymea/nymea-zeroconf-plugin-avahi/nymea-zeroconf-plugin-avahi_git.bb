@@ -11,15 +11,13 @@ LIC_FILES_CHKSUM = " \
     "
 
 SRC_URI = "git://github.com/nymea/nymea-zeroconf-plugin-avahi.git;protocol=https;branch=master"
-# Release: 1.14.2
-SRCREV = "3589762e177988000ade3b7d8b64a7d1046da7f8"
-PV = "1.14.2-git${SRCPV}"
+# Release: 1.15.0
+SRCREV = "f1a45ab40ec83b6147f159a943814fca79f53c8d"
+PV = "1.15.0-git${SRCPV}"
 
 DEPENDS += "nymea avahi"
 RDEPENDS:${PN} += "nymea avahi-daemon"
 
 inherit qt6-qmake pkgconfig
-
-S = "${WORKDIR}/git"
 
 FILES:${PN} += "${libdir}/nymea/platform/libnymea_zeroconfpluginavahi.so"

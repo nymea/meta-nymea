@@ -14,20 +14,18 @@ Documentation
 * Base openembedded/yocto system
 
 	URI: git://git.yoctoproject.org/poky
-	BRANCH: `kirkstone`, `scarthgap` or `wrynose`
+	BRANCH: `scarthgap` or `wrynose`
 
-* Qt6
+* Qt6 (>= 6.11.0)
 
 	URI: "https://code.qt.io/cgit/yocto/meta-qt6.git"
-	BRANCH: `6.10.3`
+	BRANCH: `6.11.1`
 
 
-        git clone https://code.qt.io/yocto/meta-qt6.git -b 6.10.3
+        git clone https://code.qt.io/yocto/meta-qt6.git -b 6.11.1
 
 
 > Note: make sure not to checkout an `lts-6.X.X` branch, since that requires a commercial license.
-
-> Note: Currently following patch is required in order make the native build work properly: [QTBUG-140631](https://bugreports.qt.io/browse/QTBUG-140631).
 
 Usage
 -------------------------

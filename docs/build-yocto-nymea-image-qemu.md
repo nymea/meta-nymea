@@ -1,191 +1,127 @@
-# Build `yocto-nymea-image` with Poky and run it in QEMU
+# Build `yocto-nymea-image` for QEMU with Yocto Wrynose
 
-This tutorial shows how to build the nymea image from this layer with the normal Poky workflow and then boot it in QEMU, similar to the Yocto Project Scarthgap quick start.
+This builds the `yocto-nymea-image` target from `meta-nymea` for `qemux86-64` and boots it with QEMU. The flow follows the Yocto Project 6.0 "wrynose" `bitbake-setup` workflow.
 
-The BitBake target in this repository is `yocto-nymea-image`.
+## 1. Install host packages
 
-## 1. Host prerequisites
-
-Use a supported Linux build host and install the packages required by the Yocto Project for your distribution.
-
-For Ubuntu or Debian, the Scarthgap documentation currently lists:
+Use a supported Linux build host. For Ubuntu or Debian:
 
 ```bash
 sudo apt-get install build-essential chrpath cpio debianutils diffstat file \
-    gawk gcc git iputils-ping libacl1 liblz4-tool locales python3 python3-git \
-    python3-jinja2 python3-pexpect python3-pip python3-subunit socat \
-    texinfo unzip wget xz-utils zstd
+    gawk gcc git iputils-ping libacl1 libcrypt-dev locales python3 \
+    python3-git python3-jinja2 python3-pexpect python3-pip \
+    python3-subunit socat texinfo unzip wget xz-utils zstd
 sudo dpkg-reconfigure locales
 ```
 
-If you use another distribution, follow the matching package list from the Yocto Project system requirements page.
+Yocto Wrynose expects a reasonably large build machine. Plan for at least 140 GB free disk space and 32 GB RAM.
 
-## 2. Get the required layers
+## 2. Create the Wrynose setup
 
-Create a workspace and clone the layers next to each other:
-
-```bash
-mkdir -p ~/yocto/nymea-scarthgap
-cd ~/yocto/nymea-scarthgap
-
-git clone -b scarthgap https://git.yoctoproject.org/poky
-git clone -b scarthgap https://git.openembedded.org/meta-openembedded
-git clone -b 6.10.3 https://code.qt.io/yocto/meta-qt6.git
-git clone https://github.com/nymea/meta-nymea.git
-```
-
-Notes:
-
-- `meta-nymea` declares compatibility with `kirkstone` and `scarthgap`.
-- `meta-qt6` is required because nymea depends on Qt 6 recipes.
-- `meta-openembedded/meta-oe` is needed for packages such as `influxdb`, `libgpiod`, `hidapi`, `libsodium`, and `owfs`.
-- `meta-openembedded/meta-python` is required by `meta-qt6`.
-
-If you are working from an existing checkout of this repository, use that checkout instead of cloning `meta-nymea` again.
-
-## 3. Initialize a standard Poky build directory
-
-This uses the usual Poky setup script and creates a separate build directory named `build-nymea`:
+Create the working directory for your yocto setup.
 
 ```bash
-cd ~/yocto/nymea-scarthgap
-source poky/oe-init-build-env build-nymea
+mkdir -p yocto/nymea-wrynose
+cd yocto/nymea-wrynose
+
+git clone https://git.openembedded.org/bitbake
+./bitbake/bin/bitbake-setup init --setup-dir-name nymea \
+    --non-interactive poky-wrynose poky distro/poky machine/qemux86-64
 ```
 
-After this command, your shell is inside `~/yocto/nymea-scarthgap/build-nymea`.
-
-## 4. Add the layers
-
-From inside the build directory:
+If the non-interactive setup choices change in a newer BitBake, run this instead and select `poky-wrynose`, `poky`, `qemux86-64`, and `poky` when prompted:
 
 ```bash
-bitbake-layers add-layer ../meta-openembedded/meta-oe
-bitbake-layers add-layer ../meta-openembedded/meta-python
-bitbake-layers add-layer ../meta-qt6
-bitbake-layers add-layer ../meta-nymea
+./bitbake/bin/bitbake-setup init --setup-dir-name nymea
 ```
 
-You can verify the result with:
+## 3. Add the nymea layers
+
+Clone the extra layers into the setup:
 
 ```bash
-bitbake-layers show-layers
+git clone -b wrynose https://git.openembedded.org/meta-openembedded bitbake-builds/nymea/layers/meta-openembedded
+git clone -b 6.11.1 https://code.qt.io/yocto/meta-qt6.git bitbake-builds/nymea/layers/meta-qt6
+git clone -b wrynose https://github.com/nymea/meta-nymea.git bitbake-builds/nymea/layers/meta-nymea
 ```
 
-## 5. Set the target machine
+`meta-nymea` requires `meta-qt6` 6.11.0 or newer. The example above uses the current default branch, `6.11.1`.
 
-For a QEMU bootable x86-64 image, set the machine in `conf/local.conf`:
+If you are already working from a local `meta-nymea` checkout, use that checkout path in the `bitbake-layers add-layer` command below instead of cloning it again.
 
-```conf
-MACHINE ?= "qemux86-64"
+Enter the build environment and add the layers:
+
+```bash
+source bitbake-builds/nymea/build/init-build-env
+
+bitbake-layers add-layer ../layers/meta-openembedded/meta-oe
+bitbake-layers add-layer ../layers/meta-openembedded/meta-python
+bitbake-layers add-layer ../layers/meta-qt6
+bitbake-layers add-layer ../layers/meta-nymea
 ```
 
-That is enough for a first build.
+For easier local QEMU testing, allow root login with an empty password:
 
-Optional settings that are useful for local QEMU testing:
-
-```conf
-EXTRA_IMAGE_FEATURES += "debug-tweaks"
+```bash
+bitbake-config-build enable-fragment core/yocto/root-login-with-empty-password
 ```
 
-`debug-tweaks` makes test booting easier by relaxing some default image restrictions. Leave it out if you want a stricter image.
-
-## 6. Build the nymea image
-
-Build the image from inside the initialized build environment:
+## 4. Build the image
 
 ```bash
 bitbake yocto-nymea-image
 ```
 
-This image recipe lives in this layer at `recipes-image/images/yocto-nymea-image.bb` and installs `packagegroup-nymea`.
+The first build takes a while because it builds Yocto, Qt 6, nymea, the plugin sets, and the image.
 
-The first build will take a while because it needs to build Poky, Qt 6, nymea, the nymea plugin sets, and the image itself.
-
-## 7. Boot the image in QEMU
-
-When the build finishes, start QEMU from the same shell:
+## 5. Boot in QEMU
 
 ```bash
 runqemu qemux86-64 yocto-nymea-image nographic
 ```
 
-If you want a graphical QEMU window, omit `nographic`:
+If your host supports KVM:
 
 ```bash
-runqemu qemux86-64 yocto-nymea-image
+runqemu qemux86-64 yocto-nymea-image kvm nographic
 ```
 
-`runqemu` will automatically pick the most recent matching kernel and root filesystem from `tmp/deploy/images/qemux86-64/`.
+## 6. Check nymea in the guest
 
-## 8. Verify that nymea is present
-
-Inside the booted guest, check that the daemon and its service files are installed:
+Log in as `root` and check the daemon:
 
 ```bash
 which nymead
 ps | grep nymead
 ```
 
-If your image is using `systemd`, you can also check:
+If the image uses systemd:
 
 ```bash
 systemctl status nymead
 ```
 
-## 9. Common rebuild workflow
-
-After the first setup, the normal workflow is:
+## Rebuild later
 
 ```bash
-cd ~/yocto/nymea-scarthgap
-source poky/oe-init-build-env build-nymea
+cd yocto/nymea-wrynose
+source bitbake-builds/nymea/build/init-build-env
 bitbake yocto-nymea-image
 runqemu qemux86-64 yocto-nymea-image nographic
 ```
 
-## 10. Common problems
+## Common problems
 
-### `Nothing PROVIDES ...`
-
-Usually this means one of the required layers is missing from `bblayers.conf`. Check that these are present:
-
-- `poky/meta`
-- `poky/meta-poky`
-- `poky/meta-yocto-bsp`
-- `meta-openembedded/meta-oe`
-- `meta-openembedded/meta-python`
-- `meta-qt6`
-- `meta-nymea`
-
-### Fetch failures from GitHub or Qt
-
-This is usually a network or proxy issue. The Yocto Project quick start notes that fetch problems are common behind firewalls or missing proxy configuration.
-
-### QEMU starts but you want faster booting
-
-If your host supports KVM, try:
+If BitBake reports `Nothing PROVIDES ...`, check the layer list:
 
 ```bash
-runqemu qemux86-64 yocto-nymea-image kvm nographic
+bitbake-layers show-layers
 ```
 
-## Summary
+The build needs `meta-oe`, `meta-python`, `meta-qt6`, and `meta-nymea`.
 
-The shortest possible Poky-style flow is:
+## References
 
-```bash
-git clone -b scarthgap https://git.yoctoproject.org/poky
-git clone -b scarthgap https://git.openembedded.org/meta-openembedded
-git clone -b 6.10.3 https://code.qt.io/yocto/meta-qt6.git
-git clone https://github.com/nymea/meta-nymea.git
-
-cd poky
-source oe-init-build-env ../build-nymea
-bitbake-layers add-layer ../meta-openembedded/meta-oe
-bitbake-layers add-layer ../meta-openembedded/meta-python
-bitbake-layers add-layer ../meta-qt6
-bitbake-layers add-layer ../meta-nymea
-echo 'MACHINE ?= "qemux86-64"' >> conf/local.conf
-bitbake yocto-nymea-image
-runqemu qemux86-64 yocto-nymea-image nographic
-```
+- Yocto Project 6.0 Quick Build: <https://docs.yoctoproject.org/6.0/brief-yoctoprojectqs/index.html>
+- BitBake `bitbake-setup`: <https://docs.yoctoproject.org/bitbake/bitbake-user-manual/bitbake-user-manual-environment-setup.html>
+- Qt `meta-qt6`: <https://doc.qt.io/Boot2Qt/b2qt-meta-qt6.html>

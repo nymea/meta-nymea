@@ -7,15 +7,13 @@ LICENSE = "GPL-3.0-or-later"
 LIC_FILES_CHKSUM = "file://LICENSE.GPL3;md5=1ebbd3e34237af26da5dc08a4e440464"
 
 SRC_URI = "git://github.com/nymea/nymea-update-plugin-rauc.git;protocol=https;branch=master"
-# Release: 1.14.2
-SRCREV = "9b005a9611344627c0f1125df0c883421f83ef50"
-PV = "1.14.2-git${SRCPV}"
+# Release: 1.15.0
+SRCREV = "5a31a25bf5d6fedae59f73e5cfc7aa72be9adae9"
+PV = "1.15.0-git${SRCPV}"
 
 DEPENDS += "nymea"
 RDEPENDS:${PN} += "nymead"
 
 inherit qt6-qmake pkgconfig
-
-S = "${WORKDIR}/git"
 
 FILES:${PN} += "${libdir}/nymea/platform/libnymea_updatepluginrauc.so"
