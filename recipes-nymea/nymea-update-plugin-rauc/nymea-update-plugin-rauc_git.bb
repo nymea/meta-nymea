@@ -7,9 +7,9 @@ LICENSE = "GPL-3.0-or-later"
 LIC_FILES_CHKSUM = "file://LICENSE.GPL3;md5=1ebbd3e34237af26da5dc08a4e440464"
 
 SRC_URI = "git://github.com/nymea/nymea-update-plugin-rauc.git;protocol=https;branch=master"
-# Release: 1.15.0
-SRCREV = "5a31a25bf5d6fedae59f73e5cfc7aa72be9adae9"
-PV = "1.15.0-git${SRCPV}"
+# Release: 1.15.2
+SRCREV = "2cf2f9c7c22b3aa8f327e511276a58114cacf0a5"
+PV = "1.15.2-git${SRCPV}"
 
 DEPENDS += "nymea"
 RDEPENDS:${PN} += "nymead"
