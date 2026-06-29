@@ -46,6 +46,11 @@ FILES:${PN}-dev = ""
 ALLOW_EMPTY:${PN}-dev = "1"
 RDEPENDS:${PN}-dev = "lib${PN}-dev (= ${EXTENDPKGV}) lib${PN}client-dev (= ${EXTENDPKGV})"
 
+do_install:append() {
+        # Drop test utils since they are only required for specific test environments
+        rm -f ${D}${bindir}/nymea-tunnelproxy-testutils
+}
+
 # Client libs for the nymea-remoteproxy connections
 FILES:lib${PN}client = "${libdir}/lib${PN}client.so.*"
 RDEPENDS:lib${PN}client-dev = "lib${PN}client (= ${EXTENDPKGV})"
