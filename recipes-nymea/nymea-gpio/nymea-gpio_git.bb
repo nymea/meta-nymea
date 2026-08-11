@@ -15,9 +15,9 @@ LIC_FILES_CHKSUM = " \
 	"
 
 SRC_URI = "git://github.com/nymea/nymea-gpio.git;protocol=https;branch=master"
-# Release: 1.15.2
-SRCREV = "d5bfbc5baea9ff91fc9365c6c735f90bc6492d8f"
-PV = "1.15.2-git${SRCPV}"
+# Release: 1.16.0
+SRCREV = "c502fd1b0975c73f7120e9c6fbc529bb0f6410fe"
+PV = "1.16.0-git${SRCPV}"
 
 DEPENDS += " \
 	qtbase \

@@ -18,9 +18,9 @@ LIC_FILES_CHKSUM = " \
 	"
 
 SRC_URI = "git://github.com/nymea/nymea-plugins-modbus.git;protocol=https;branch=master"
-# Release: 1.15.2
-SRCREV = "fcffebb46865b603bbdfd840529eec07e33de45b"
-PV = "1.15.2-git${SRCPV}"
+# Release: 1.16.0
+SRCREV = "a6f24139b039d6361af2ea29fafc96d8abb58ac6"
+PV = "1.16.0-git${SRCPV}"
 
 DEPENDS += "nymea nymea-sdk-native qtserialport qtserialbus python3 i2c-tools"
 
