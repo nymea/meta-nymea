@@ -51,7 +51,10 @@ FILES:libnymea-modbus-dev = " \
 	${libdir}/pkgconfig/nymea-modbus.pc \
 	${incldir}/nymea-modbus \
 	"
-FILES:nymea-modbus-cli = "${bindir}/nymea-modbus-cli"
+FILES:nymea-modbus-cli = " \
+	${bindir}/nymea-modbus-cli \
+	${datadir}/bash-completion/completions/nymea-modbus-cli \
+	"
 
 # The package nymea-plugins-modbus is only a meta package for all plugins
 ALLOW_EMPTY:${PN} = "1"
