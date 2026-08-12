@@ -49,6 +49,9 @@ RDEPENDS:${PN}-dev = "lib${PN}-dev (= ${EXTENDPKGV}) lib${PN}client-dev (= ${EXT
 do_install:append() {
         # Drop test utils since they are only required for specific test environments
         rm -f ${D}${bindir}/nymea-tunnelproxy-testutils
+
+        # Temporary workaround until nymea-remoteproxy release includes PR #54.
+        rm -rf ${D}${includedir}/${PN}/workdir
 }
 
 # Client libs for the nymea-remoteproxy connections
