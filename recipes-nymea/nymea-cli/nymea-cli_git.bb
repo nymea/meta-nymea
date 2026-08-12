@@ -7,9 +7,9 @@ LICENSE = "GPL-3.0-or-later"
 LIC_FILES_CHKSUM = "file://LICENSE.GPL3;md5=1ebbd3e34237af26da5dc08a4e440464"
 
 SRC_URI = "git://github.com/nymea/nymea-cli.git;protocol=https;branch=master"
-# Release: 1.15.2
-SRCREV = "9ab74e6c446927b3cb45363c5cc3ce35de98e946"
-PV = "1.15.2-git${SRCPV}"
+# Release: 1.16.0
+SRCREV = "88455ee7fe42da3e44626773c30b4384f6ac09cb"
+PV = "1.16.0-git${SRCPV}"
 
 S = "${WORKDIR}/git"
 
