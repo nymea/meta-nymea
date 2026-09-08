@@ -6,9 +6,9 @@ BUGTRACKER = "https://github.com/nymea/nymea-plugins/issues"
 LICENSE = "GPL-3.0-or-later"
 LIC_FILES_CHKSUM = "file://LICENSE.GPL3;md5=1ebbd3e34237af26da5dc08a4e440464"
 
-SRC_URI = "git://github.com/nymea/nymea-plugins.git;protocol=https;branch=master"
+SRC_URI = "git://github.com/nymea/nymea-plugins.git;protocol=https;branch=everest-bidi-charging"
 # Release: 1.16.0
-SRCREV = "262597d106df3efd4399eb9a0e571576ed2b9eff"
+SRCREV = "6519dbab17946b71da7bd2165963c4c6c5e40fb7"
 PV = "1.16.0-git${SRCPV}"
 
 DEPENDS += "nymea nymea-native"
