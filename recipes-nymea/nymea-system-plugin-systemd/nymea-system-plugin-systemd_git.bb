@@ -7,9 +7,9 @@ LICENSE = "GPL-3.0-or-later"
 LIC_FILES_CHKSUM = "file://LICENSE.GPL3;md5=1ebbd3e34237af26da5dc08a4e440464"
 
 SRC_URI = "git://github.com/nymea/nymea-system-plugin-systemd.git;protocol=https;branch=master"
-# Release: 1.16.0
-SRCREV = "af163f2531f2488a5039a0f7cc16c3ac36bdba10"
-PV = "1.16.0-git${SRCPV}"
+# Release: 1.16.1
+SRCREV = "4b531cbb6bc7c93dbb061a22874e7aea609050c2"
+PV = "1.16.1-git${SRCPV}"
 
 DEPENDS += "nymea nymea-sdk-native systemd"
 RDEPENDS:${PN} += "nymead tzdata"

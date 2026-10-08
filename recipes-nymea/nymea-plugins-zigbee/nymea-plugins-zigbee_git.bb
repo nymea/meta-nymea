@@ -7,9 +7,9 @@ LICENSE = "GPL-3.0-or-later"
 LIC_FILES_CHKSUM = "file://LICENSE.GPL3;md5=1ebbd3e34237af26da5dc08a4e440464"
 
 SRC_URI = "git://github.com/nymea/nymea-plugins-zigbee.git;protocol=https;branch=master"
-# Release: 1.16.0
-SRCREV = "d39feae5fc6e522df6b689319aa6414ca72f8a58"
-PV = "1.16.0-git${SRCPV}"
+# Release: 1.16.1
+SRCREV = "f78b348d2eafdd6dc793be40522f5c902bf9ab85"
+PV = "1.16.1-git${SRCPV}"
 
 DEPENDS += "nymea nymea-sdk-native nymea-zigbee"
 
