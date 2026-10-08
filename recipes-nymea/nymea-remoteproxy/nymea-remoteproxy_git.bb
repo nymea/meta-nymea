@@ -18,9 +18,9 @@ LIC_FILES_CHKSUM = " \
 	"
 
 SRC_URI = "git://github.com/nymea/nymea-remoteproxy.git;protocol=https;branch=master"
-# Release: 1.16.0
-SRCREV = "5eb7af14a251fe074a754ffe4117e5ad8e7fc9f8"
-PV = "1.16.0-git${SRCPV}"
+# Release: 1.16.1
+SRCREV = "448baf2e5883651668074122ce5eeb7c2b6260b1"
+PV = "1.16.1-git${SRCPV}"
 
 PACKAGE_BEFORE_PN ?= ""
 
@@ -49,9 +49,6 @@ RDEPENDS:${PN}-dev = "lib${PN}-dev (= ${EXTENDPKGV}) lib${PN}client-dev (= ${EXT
 do_install:append() {
         # Drop test utils since they are only required for specific test environments
         rm -f ${D}${bindir}/nymea-tunnelproxy-testutils
-
-        # Temporary workaround until nymea-remoteproxy release includes PR #54.
-        rm -rf ${D}${includedir}/${PN}/workdir
 }
 
 # Client libs for the nymea-remoteproxy connections

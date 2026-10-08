@@ -16,9 +16,9 @@ LIC_FILES_CHKSUM = " \
 	"
 
 SRC_URI = "git://github.com/nymea/nymea-mqtt.git;protocol=https;branch=master"
-# Release: 1.16.0
-SRCREV = "1e9df1a15a6620ac2a0f19c79504e028b5297e9c"
-PV = "1.16.0-git${SRCPV}"
+# Release: 1.16.1
+SRCREV = "94bc54a26e466bd67f7a1bb5f4cf4cee930f54f4"
+PV = "1.16.1-git${SRCPV}"
 
 DEPENDS += "qtbase qtwebsockets openssl"
 BBCLASSEXTEND += "native"
