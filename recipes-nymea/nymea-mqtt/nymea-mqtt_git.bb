@@ -18,7 +18,7 @@ LIC_FILES_CHKSUM = " \
 SRC_URI = "git://github.com/nymea/nymea-mqtt.git;protocol=https;branch=experimental-silo"
 # Branch: experimental-silo
 SRCREV = "${AUTOREV}"
-PV = "1.16.0-git${SRCPV}"
+PV = "1.17.0-git${SRCPV}"
 
 DEPENDS += "qtbase qtwebsockets openssl"
 BBCLASSEXTEND += "native"

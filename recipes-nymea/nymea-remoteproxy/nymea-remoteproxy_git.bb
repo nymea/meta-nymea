@@ -20,7 +20,7 @@ LIC_FILES_CHKSUM = " \
 SRC_URI = "git://github.com/nymea/nymea-remoteproxy.git;protocol=https;branch=experimental-silo"
 # Branch: experimental-silo
 SRCREV = "${AUTOREV}"
-PV = "1.16.0-git${SRCPV}"
+PV = "1.17.0-git${SRCPV}"
 
 PACKAGE_BEFORE_PN ?= ""
 

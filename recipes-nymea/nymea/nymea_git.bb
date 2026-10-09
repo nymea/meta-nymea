@@ -24,7 +24,7 @@ SRC_URI = "git://github.com/nymea/nymea.git;protocol=https;branch=experimental-s
 SRC_URI+= "file://init"
 # Branch: experimental-silo
 SRCREV = "${AUTOREV}"
-PV = "1.16.0-git${SRCPV}"
+PV = "1.17.0-git${SRCPV}"
 
 inherit qmake5 pkgconfig systemd update-rc.d
 

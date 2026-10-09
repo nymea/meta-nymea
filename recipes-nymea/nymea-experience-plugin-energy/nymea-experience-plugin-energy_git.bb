@@ -9,7 +9,7 @@ LIC_FILES_CHKSUM = "file://LICENSE.GPL3;md5=1ebbd3e34237af26da5dc08a4e440464"
 SRC_URI = "git://github.com/nymea/nymea-experience-plugin-energy.git;protocol=https;branch=experimental-silo"
 # Branch: experimental-silo
 SRCREV = "${AUTOREV}"
-PV = "1.16.0-git${SRCPV}"
+PV = "1.17.0-git${SRCPV}"
 
 DEPENDS += "nymea sqlite3"
 PACKAGES =+ "libnymea-energy libnymea-energy-dev"

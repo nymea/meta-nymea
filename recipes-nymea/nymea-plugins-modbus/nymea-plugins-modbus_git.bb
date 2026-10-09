@@ -20,7 +20,7 @@ LIC_FILES_CHKSUM = " \
 SRC_URI = "git://github.com/nymea/nymea-plugins-modbus.git;protocol=https;branch=experimental-silo"
 # Branch: experimental-silo
 SRCREV = "${AUTOREV}"
-PV = "1.16.0-git${SRCPV}"
+PV = "1.17.0-git${SRCPV}"
 
 DEPENDS += "nymea nymea-native qtserialport qtserialbus python3 i2c-tools"
 
