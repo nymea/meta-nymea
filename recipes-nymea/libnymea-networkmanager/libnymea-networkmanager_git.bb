@@ -10,9 +10,9 @@ LIC_FILES_CHKSUM = " \
 	"
 
 SRC_URI="git://github.com/nymea/libnymea-networkmanager.git;protocol=https;branch=master"
-# Release: 1.16.1
-SRCREV = "ddfb3d4eaae6fe2ef47010664edafbcf86496f5d"
-PV = "1.16.1-git${SRCPV}"
+# Release: 1.16.2
+SRCREV = "d4e7bdaf2ca20ce5379a16c269a867ec6b9fb551"
+PV = "1.16.2-git${SRCPV}"
 
 DEPENDS += "qtbase qtconnectivity"
 
