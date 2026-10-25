@@ -7,9 +7,9 @@ LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://LICENSE.GPL3;md5=1ebbd3e34237af26da5dc08a4e440464"
 
 SRC_URI = "git://github.com/nymea/nymea.git;protocol=https;branch=master"
-# Release: 1.16.1
-SRCREV = "21828d03ac3dfdc1936880283c0f543f526628c2"
-PV = "1.16.1-git${SRCPV}"
+# Release: 1.16.2
+SRCREV = "4b2c022fa0fca376a528c0b0fea7da574db179c8"
+PV = "1.16.2-git${SRCPV}"
 
 inherit qt6-qmake
 
